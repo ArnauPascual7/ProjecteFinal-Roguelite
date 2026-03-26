@@ -10,6 +10,11 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public bool AttackInput { get; private set; }
     public bool DashInput { get; private set; }
     public bool InteractInput { get; private set; }
+    public int SelectedWeapon { get; private set; }
+
+    private float _scroll;
+    private const int FIRST_WEAPON = 1;
+    private const int SECOND_WEAPON = 2;
 
     private void OnEnable()
     {
@@ -53,5 +58,29 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public void OnInteract(InputAction.CallbackContext context)
     {
         InteractInput = context.ReadValueAsButton();
+    }
+
+    public void OnFirst(InputAction.CallbackContext context)
+    {
+        SelectedWeapon = FIRST_WEAPON;
+    }
+
+    public void OnSecond(InputAction.CallbackContext context)
+    {
+        SelectedWeapon = SECOND_WEAPON;
+    }
+
+    public void OnScrollWheel(InputAction.CallbackContext context)
+    {
+        _scroll = context.ReadValue<float>();
+
+        if (_scroll > 0)
+        {
+            SelectedWeapon = FIRST_WEAPON;
+        }
+        else if (_scroll < 0)
+        {
+            SelectedWeapon = SECOND_WEAPON;
+        }
     }
 }
