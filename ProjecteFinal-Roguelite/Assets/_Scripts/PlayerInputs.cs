@@ -12,9 +12,10 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public bool InteractInput { get; private set; }
     public int SelectedWeapon { get; private set; }
 
-    private float _scroll;
     private const int FIRST_WEAPON = 1;
     private const int SECOND_WEAPON = 2;
+
+    private float _scroll;
 
     private void OnEnable()
     {
