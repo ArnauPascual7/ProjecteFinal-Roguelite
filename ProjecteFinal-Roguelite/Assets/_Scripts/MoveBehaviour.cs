@@ -2,21 +2,23 @@ using UnityEngine;
 
 namespace Roguelite.Behaviours
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class MoveBehaviour : MonoBehaviour
     {
-        [SerializeField] private float speed;
+        [SerializeField] private float speed = 5f;
 
         private Rigidbody2D _rb;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+
+            _rb.gravityScale = 0f;
         }
 
         public void MoveCharacter(Vector2 direction)
         {
-            _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocityY);
+            _rb.linearVelocity = direction * speed;
         }
     }
 }
