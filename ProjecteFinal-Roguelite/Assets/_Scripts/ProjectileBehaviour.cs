@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class ProjectileBehaviour : MonoBehaviour
+namespace Roguelite.Behaviours
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [RequireComponent(typeof(Rigidbody))]
+    public class ProjectileBehaviour : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private Rigidbody2D _rb;
+        private Collider2D _collider;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+        }
     }
 }
