@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 706467608}
   - component: {fileID: 706467607}
   - component: {fileID: 706467606}
+  - component: {fileID: 706467610}
   m_Layer: 0
   m_Name: Player Square
   m_TagString: Untagged
@@ -500,6 +501,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac008ac906b8c7c4aa76dfd6859aa5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Player.PlayerInputs
+--- !u!114 &706467610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706467599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4027321925e54e47a170802415c1da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.DashBehaviour
+  dashSpeed: 20
+  dashDuration: 0.1
+  dashCooldown: 2
 --- !u!1 &878052073
 GameObject:
   m_ObjectHideFlags: 0
