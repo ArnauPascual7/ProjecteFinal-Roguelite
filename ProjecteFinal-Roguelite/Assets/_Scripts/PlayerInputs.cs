@@ -55,7 +55,10 @@ namespace Roguelite.Player
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            DashInput = context.ReadValueAsButton();
+            if(context.performed)
+            {
+                DashInput = true;
+            }
         }
 
         public void OnInteract(InputAction.CallbackContext context)

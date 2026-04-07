@@ -3,49 +3,44 @@ using UnityEngine;
 
 namespace Roguelite.Behaviours
 {
-    [RequireComponent (typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class DashBehaviour : MonoBehaviour
     {
         [SerializeField] private float dashSpeed = 20f;
-        [SerializeField] private float dashDuration = 0.8f;
-        [SerializeField] private float dashCooldown = 1.0f;
+        [SerializeField] private float dashDuration = 0.10f;
+        [SerializeField] private float dashCooldown = 2.0f;
+
+        public bool IsDashing { get; private set; }
 
         private Rigidbody2D _rb;
-
         private bool canDash = true;
-        private bool isDashing;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-
+            _rb.gravityScale = 0f;
         }
+
         public void OnDash(Vector2 direction)
         {
-            if (canDash && !isDashing)
-            {
+            if (canDash && !IsDashing)
                 StartCoroutine(Dash(direction));
+        }
 
-            }
-        } 
         IEnumerator Dash(Vector2 direction)
         {
             canDash = false;
-            isDashing = true;
+            IsDashing = true;
 
-            float originalGravity = _rb.gravityScale;
-            _rb.gravityScale = 0f;
+            _rb.linearVelocity = direction.normalized * dashSpeed;
 
-            float dashDirection = direction.x;
-            _rb.linearVelocityX = dashDirection * dashSpeed;
-            Debug.Log(_rb.linearVelocityX);
             yield return new WaitForSeconds(dashDuration);
-            _rb.gravityScale = originalGravity;
-            isDashing = false;
+
+            _rb.linearVelocity = Vector2.zero;
+            IsDashing = false;
 
             yield return new WaitForSeconds(dashCooldown);
             canDash = true;
         }
-
     }
 }

@@ -11,6 +11,8 @@ namespace Roguelite.Player
         private MoveBehaviour _mb;
         private DashBehaviour _db;
 
+        private Vector2 _lastMoveDirection = Vector2.right;
+
         private void Awake()
         {
             _playerInputs = GetComponent<PlayerInputs>();
@@ -26,13 +28,20 @@ namespace Roguelite.Player
 
         private void HandleMovement()
         {
+            if (_db.IsDashing) return; 
+
             _mb.MoveCharacter(_playerInputs.MoveInput.normalized);
+
+            if (_playerInputs.MoveInput != Vector2.zero)
+                _lastMoveDirection = _playerInputs.MoveInput.normalized;
         }
+
         private void Dash()
         {
             if (_playerInputs.DashInput)
             {
-                _db.OnDash(_playerInputs.MoveInput.normalized);
+                Debug.Log("DashInput detectado, dirección: " + _lastMoveDirection);
+                _db.OnDash(_lastMoveDirection);
             }
         }
     }
