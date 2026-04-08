@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27edc77d75cac8243b61617c62d8b183, type: 3}
+  m_Name: _ParentState
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.BehaviourTree.ParentStateSO
+  states:
+  - {fileID: 11400000, guid: a1b0ffb10c6c180428bb85f38792fdff, type: 2}
+  - {fileID: 11400000, guid: ed9db78f75dd26d4ebb530c9cd93a2ac, type: 2}
+  - {fileID: 11400000, guid: 451843e9857686a488e339279bc5188a, type: 2}
+  - {fileID: 11400000, guid: 3ad2f4bf66fa9bc44b92a0375216b332, type: 2}
