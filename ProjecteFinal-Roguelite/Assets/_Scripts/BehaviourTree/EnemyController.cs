@@ -19,6 +19,9 @@ namespace Roguelite.BehaviourTree
 
         private TargetDetectionBehaviour _tdb;
         private ChaseBehaviour _cb;
+        private MeleeAttackBehaviour _mab;
+
+        private BoxCollider2D _collider;
 
         private void Awake()
         {
@@ -29,6 +32,10 @@ namespace Roguelite.BehaviourTree
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
+            _mab = GetComponent<MeleeAttackBehaviour>();
+
+            _collider = GetComponent<BoxCollider2D>();
+            _collider.isTrigger = false;
         }
 
         private void Start()
@@ -41,6 +48,18 @@ namespace Roguelite.BehaviourTree
             if (currentState != null)
             {
                 currentState.OnUpdate(this);
+            }
+
+            if (_mab != null)
+            {
+                if (_mab.CanAttack)
+                {
+                    attack.check = true;
+                }
+                else
+                {
+                    attack.check = false;
+                }
             }
 
             if (_tdb.IsDetected)
@@ -84,6 +103,14 @@ namespace Roguelite.BehaviourTree
             if (_cb != null)
             {
                 _cb.ChaseTarget(_tdb.target.transform);
+            }
+        }
+
+        public void Attack()
+        {
+            if (_mab != null)
+            {
+                _mab.Attack();
             }
         }
     }
