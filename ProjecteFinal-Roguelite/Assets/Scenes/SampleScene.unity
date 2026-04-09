@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 634505641}
   - component: {fileID: 634505640}
   - component: {fileID: 634505639}
+  - component: {fileID: 634505643}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -548,6 +549,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &634505643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65572fba0f667e04fba02f8fc8039dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ChaseBehaviour
+  _speed: 2
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +711,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &706467609
 MonoBehaviour:
   m_ObjectHideFlags: 0

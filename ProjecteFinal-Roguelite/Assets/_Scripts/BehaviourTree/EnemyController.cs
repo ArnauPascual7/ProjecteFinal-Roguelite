@@ -18,6 +18,7 @@ namespace Roguelite.BehaviourTree
         public BehaviourState currentState;
 
         private TargetDetectionBehaviour _tdb;
+        private ChaseBehaviour _cb;
 
         private void Awake()
         {
@@ -26,7 +27,8 @@ namespace Roguelite.BehaviourTree
             attack = new Condition("Attack");
             die = new Condition("Die");
 
-            _tdb = new TargetDetectionBehaviour();
+            _tdb = GetComponent<TargetDetectionBehaviour>();
+            _cb = GetComponent<ChaseBehaviour>();
         }
 
         private void Start()
@@ -50,8 +52,8 @@ namespace Roguelite.BehaviourTree
                 chase.check = false;
             }
         }
-
-            public void ChangeState()
+        
+        public void ChangeState()
         {
             StartCoroutine(WaitToTheEndOfFrame());
         }
@@ -74,6 +76,14 @@ namespace Roguelite.BehaviourTree
 
                     break;
                 }
+            }
+        }
+
+        public void Chase()
+        {
+            if (_cb != null)
+            {
+                _cb.ChaseTarget(_tdb.target.transform);
             }
         }
     }
