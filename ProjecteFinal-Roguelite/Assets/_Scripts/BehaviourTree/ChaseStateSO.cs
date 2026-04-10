@@ -12,7 +12,7 @@ namespace Roguelite.BehaviourTree
 
         public override bool ExitCondition(EnemyController econtroller)
         {
-            return econtroller.attack.check || econtroller.die.check;
+            return econtroller.attack.check || econtroller.die.check || !econtroller.chase.check;
         }
 
         public override void OnUpdate(EnemyController econtroller)
