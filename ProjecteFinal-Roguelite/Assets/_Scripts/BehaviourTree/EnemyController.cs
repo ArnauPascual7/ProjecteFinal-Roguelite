@@ -1,5 +1,6 @@
 using System.Collections;
 using Roguelite.Behaviours;
+using Roguelite.Helpers;
 using UnityEngine;
 
 namespace Roguelite.BehaviourTree
@@ -9,6 +10,7 @@ namespace Roguelite.BehaviourTree
     public class EnemyController : MonoBehaviour
     {
         [HideInInspector] public Condition idle;
+        [HideInInspector] public Condition comeBack;
         [HideInInspector] public Condition chase;
         [HideInInspector] public Condition attack;
         [HideInInspector] public Condition die;
@@ -18,6 +20,7 @@ namespace Roguelite.BehaviourTree
         public BehaviourState currentState;
 
         private TargetDetectionBehaviour _tdb;
+        private ReturnToInitPosBehaviour _ripb;
         private ChaseBehaviour _cb;
         private MeleeAttackBehaviour _mab;
 
@@ -26,23 +29,27 @@ namespace Roguelite.BehaviourTree
         private void OnEnable()
         {
             _tdb.OnTargetDetected += UpdateChaseStateCheck;
+            _ripb.OnReachDestination += UpdateComeBackStateCheck;
             _mab.OnCanAttack += UpdateAttackStateCheck;
         }
 
         private void OnDisable()
         {
             _tdb.OnTargetDetected -= UpdateChaseStateCheck;
+            _ripb.OnReachDestination -= UpdateComeBackStateCheck;
             _mab.OnCanAttack -= UpdateAttackStateCheck;
         }
 
         private void Awake()
         {
             idle = new Condition("Idle");
+            comeBack = new Condition("CumBack");
             chase = new Condition("Chase");
             attack = new Condition("Attack");
             die = new Condition("Die");
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
+            _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
             _mab = GetComponent<MeleeAttackBehaviour>();
 
@@ -64,6 +71,7 @@ namespace Roguelite.BehaviourTree
         }
 
         private void UpdateChaseStateCheck(bool check) => chase.check = check;
+        private void UpdateComeBackStateCheck(bool check) => comeBack.check = check;
         private void UpdateAttackStateCheck(bool check) => attack.check = check;
 
         public void ChangeState()
@@ -89,6 +97,14 @@ namespace Roguelite.BehaviourTree
 
                     break;
                 }
+            }
+        }
+
+        public void ComeBack()
+        {
+            if (_ripb != null)
+            {
+                _ripb.ReturnToInitialPosition();
             }
         }
 
