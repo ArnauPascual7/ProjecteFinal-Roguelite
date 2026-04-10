@@ -3,14 +3,19 @@ using UnityEngine;
 
 namespace Roguelite.Behaviours
 {
+    [RequireComponent(typeof(MoveBehaviour))]
     public class ChaseBehaviour : MonoBehaviour
     {
-        [SerializeField] private float _speed = 2f;
-        
+        private MoveBehaviour _mb;
+
+        private void Awake()
+        {
+            _mb = GetComponent<MoveBehaviour>();
+        }
+
         public void ChaseTarget(Transform target)
         {
-            Vector2 direction = DistanceUtils.GetDirection(transform.position, target.position);
-            transform.Translate(direction * _speed * Time.deltaTime);
+            _mb.MoveCharacter(DistanceUtils.GetDirection(transform.position, target.position));
         }
     }
 }
