@@ -113,5 +113,10 @@ namespace Roguelite.BehaviourTree
                 _mab.Attack();
             }
         }
+
+        public void Die()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

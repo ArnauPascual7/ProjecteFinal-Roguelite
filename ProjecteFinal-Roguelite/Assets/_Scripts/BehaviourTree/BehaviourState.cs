@@ -11,7 +11,7 @@ namespace Roguelite.BehaviourTree
 
         public virtual void OnUpdate(EnemyController econtroller)
         {
-            if (EnterCondition(econtroller))
+            if (ExitCondition(econtroller))
             {
                 econtroller.ChangeState();
             }
