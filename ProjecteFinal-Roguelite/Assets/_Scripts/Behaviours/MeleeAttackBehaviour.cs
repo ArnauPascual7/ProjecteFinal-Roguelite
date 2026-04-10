@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 namespace Roguelite.Behaviours
@@ -9,7 +9,7 @@ namespace Roguelite.Behaviours
         [SerializeField] private float _damage = 1f;
         [SerializeField] private float _attackCooldown = 1f;
 
-        public bool CanAttack { get; private set; }
+        public event Action<bool> OnCanAttack;
 
         [Tooltip("This field is procedurally initialized")]
         public GameObject target;
@@ -41,7 +41,7 @@ namespace Roguelite.Behaviours
             {
                 if (collision.gameObject.layer == target.layer)
                 {
-                    CanAttack = true;
+                    OnCanAttack?.Invoke(true);
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace Roguelite.Behaviours
             {
                 if (collision.gameObject.layer == target.layer)
                 {
-                    CanAttack = false;
+                    OnCanAttack?.Invoke(false);
                 }
             }
         }

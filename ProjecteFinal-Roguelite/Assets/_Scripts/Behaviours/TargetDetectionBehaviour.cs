@@ -1,3 +1,4 @@
+using System;
 using Roguelite.Helpers;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Roguelite.Behaviours
         [Tooltip("By default adds gameObject and Target Layers")]
         [SerializeField] private LayerMask _ignoreLayers;
 
-        public bool IsDetected { get; private set; }
+        public event Action<bool> OnTargetDetected;
 
         [Tooltip("This field is procedurally initialized")]
         public GameObject target;
@@ -32,14 +33,6 @@ namespace Roguelite.Behaviours
             _ignoreLayers |= (1 << gameObject.layer) | (1 << target.layer);
         }
 
-        private void Update()
-        {
-            if (_inRange)
-            {
-                IsDetected = DistanceUtils.HasLineOfSight(transform.position, target.transform.position, _collider.radius, _ignoreLayers);
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.layer == target.layer)
@@ -48,11 +41,23 @@ namespace Roguelite.Behaviours
             }
         }
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (_inRange && DistanceUtils.HasLineOfSight(transform.position, target.transform.position, _collider.radius, _ignoreLayers))
+            {
+                OnTargetDetected?.Invoke(true);
+            }
+            else
+            {
+                OnTargetDetected?.Invoke(false);
+            }
+        }
+
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.gameObject.layer == target.layer)
             {
-                IsDetected = false;
+                OnTargetDetected?.Invoke(false);
                 _inRange = false;
             }
         }

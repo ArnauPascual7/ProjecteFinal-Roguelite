@@ -23,6 +23,18 @@ namespace Roguelite.BehaviourTree
 
         private BoxCollider2D _collider;
 
+        private void OnEnable()
+        {
+            _tdb.OnTargetDetected += UpdateChaseStateCheck;
+            _mab.OnCanAttack += UpdateAttackStateCheck;
+        }
+
+        private void OnDisable()
+        {
+            _tdb.OnTargetDetected -= UpdateChaseStateCheck;
+            _mab.OnCanAttack -= UpdateAttackStateCheck;
+        }
+
         private void Awake()
         {
             idle = new Condition("Idle");
@@ -49,29 +61,11 @@ namespace Roguelite.BehaviourTree
             {
                 currentState.OnUpdate(this);
             }
-
-            if (_mab != null)
-            {
-                if (_mab.CanAttack)
-                {
-                    attack.check = true;
-                }
-                else
-                {
-                    attack.check = false;
-                }
-            }
-
-            if (_tdb.IsDetected)
-            {
-                chase.check = true;
-            }
-            else
-            {
-                chase.check = false;
-            }
         }
-        
+
+        private void UpdateChaseStateCheck(bool check) => chase.check = check;
+        private void UpdateAttackStateCheck(bool check) => attack.check = check;
+
         public void ChangeState()
         {
             StartCoroutine(WaitToTheEndOfFrame());
