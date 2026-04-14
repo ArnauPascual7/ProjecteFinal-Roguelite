@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Hellcore.Navigation
+namespace Roguelite.Navigation
 {
     public class SceneLoader : MonoBehaviour
     {
@@ -24,9 +24,10 @@ namespace Hellcore.Navigation
         public void QuitGame()
         {
             #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;
+                //UnityEditor.EditorApplication.isPlaying = false;
+                Debug.Log("Exit Game!");
             #else
-                            Application.Quit();
+                Application.Quit();
             #endif
         }
     }
