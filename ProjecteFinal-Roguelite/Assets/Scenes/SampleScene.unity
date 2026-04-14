@@ -356,6 +356,9 @@ GameObject:
   - component: {fileID: 634505639}
   - component: {fileID: 634505643}
   - component: {fileID: 634505644}
+  - component: {fileID: 634505646}
+  - component: {fileID: 634505645}
+  - component: {fileID: 634505647}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -562,7 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65572fba0f667e04fba02f8fc8039dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ChaseBehaviour
-  _speed: 2
 --- !u!114 &634505644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +580,58 @@ MonoBehaviour:
   _damage: 1
   _attackCooldown: 1
   target: {fileID: 706467599}
+--- !u!114 &634505645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d80fb4b137c91449a7147b2967b4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MoveBehaviour
+  speed: 5
+--- !u!50 &634505646
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &634505647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20a7edbdaf58f344b712085225cb2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ReturnToInitPosBehaviour
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +648,7 @@ GameObject:
   - component: {fileID: 706467606}
   - component: {fileID: 706467610}
   - component: {fileID: 706467611}
+  - component: {fileID: 706467612}
   m_Layer: 10
   m_Name: Player Square
   m_TagString: Untagged
@@ -801,6 +856,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &706467612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706467599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff197eb914112ba468811594208c9148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Player.PlayerHealth
+  _health: 3
 --- !u!1 &878052073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
   bulletPrefab: {fileID: 6474410123690865267, guid: c417460c8f90a3d408f3e76e0176b6d1, type: 3}
   angle: 0
-  camera: {fileID: 519420031}
+  pcamera: {fileID: 0}
   firePoint: {fileID: 878052074}
 --- !u!114 &2124442495
 MonoBehaviour:

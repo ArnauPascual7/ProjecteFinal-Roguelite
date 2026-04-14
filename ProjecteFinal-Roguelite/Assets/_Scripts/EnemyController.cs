@@ -1,9 +1,9 @@
 using System.Collections;
 using Roguelite.Behaviours;
-using Roguelite.Helpers;
+using Roguelite.BehaviourTree;
 using UnityEngine;
 
-namespace Roguelite.BehaviourTree
+namespace Roguelite.Enemy
 {
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(TargetDetectionBehaviour))]
