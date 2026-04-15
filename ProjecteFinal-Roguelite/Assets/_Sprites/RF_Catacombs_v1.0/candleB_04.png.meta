@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 798cbdfacc415984aafd18c83c34b6b8
+guid: 8e18a6bd610023a4b87417f6b558f6da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5320140309716882587
-    second: candleB_03_0
+      213: 1862220494128734139
+    second: candleB_04_0
   - first:
-      213: 7914293986467661058
-    second: candleB_03_1
+      213: -7279381986873260158
+    second: candleB_04_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: candleB_03_0
+      name: candleB_04_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 8
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9459e3ac6fe4d940800000000000000
-      internalID: 5320140309716882587
+      spriteID: bbfdef54cafe7d910800000000000000
+      internalID: 1862220494128734139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: candleB_03_1
+      name: candleB_04_1
       rect:
         serializedVersion: 2
         x: 7
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2054a6fe27835dd60800000000000000
-      internalID: 7914293986467661058
+      spriteID: 287ca0896a07afa90800000000000000
+      internalID: -7279381986873260158
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      candleB_03_0: 5320140309716882587
-      candleB_03_1: 7914293986467661058
+      candleB_04_0: 1862220494128734139
+      candleB_04_1: -7279381986873260158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

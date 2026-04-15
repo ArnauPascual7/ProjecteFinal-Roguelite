@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8e18a6bd610023a4b87417f6b558f6da
+guid: 02ec93c28a40c52459e45f3197625b1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1862220494128734139
-    second: candleB_04_0
-  - first:
-      213: -7279381986873260158
-    second: candleB_04_1
+      213: -2362936533959396447
+    second: candleA_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: candleB_04_0
+      name: candleA_02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
+        width: 7
         height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbfdef54cafe7d910800000000000000
-      internalID: 1862220494128734139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: candleB_04_1
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 1
-        width: 6
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 287ca0896a07afa90800000000000000
-      internalID: -7279381986873260158
+      spriteID: 1a3be82edb9253fd0800000000000000
+      internalID: -2362936533959396447
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      candleB_04_0: 1862220494128734139
-      candleB_04_1: -7279381986873260158
+      candleA_02_0: -2362936533959396447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
