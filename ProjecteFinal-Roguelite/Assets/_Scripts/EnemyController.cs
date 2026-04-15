@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Roguelite.Enemy
 {
     [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(EnemyHealth))]
     [RequireComponent(typeof(TargetDetectionBehaviour))]
     public class EnemyController : MonoBehaviour
     {
@@ -18,6 +19,8 @@ namespace Roguelite.Enemy
         public ParentStateSO root;
         [Tooltip("This field is initialized via code")]
         public BehaviourState currentState;
+
+        private EnemyHealth _health;
 
         private TargetDetectionBehaviour _tdb;
         private ReturnToInitPosBehaviour _ripb;
@@ -48,6 +51,7 @@ namespace Roguelite.Enemy
             attack = new Condition("Attack");
             die = new Condition("Die");
 
+            _health = GetComponent<EnemyHealth>();
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
@@ -122,6 +126,7 @@ namespace Roguelite.Enemy
             {
                 _mab.Attack();
             }
+
         }
 
         public void Die()
