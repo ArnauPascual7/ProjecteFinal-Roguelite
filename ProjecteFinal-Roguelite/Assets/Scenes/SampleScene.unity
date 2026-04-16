@@ -1116,6 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileFiringBehaviour
   fireRate: 1
+  targetLayerName: Enemy
 --- !u!114 &2124442496
 MonoBehaviour:
   m_ObjectHideFlags: 0
