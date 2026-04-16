@@ -554,7 +554,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: ea0c55c6a0a954949a316c8dfaede7a3, type: 2}
+    m_Motion: {fileID: 7400000, guid: d8a1cb68c14e42c4a9a8b7991fa0200d, type: 2}
     m_Threshold: 0.375
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -816,7 +816,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   - m_Name: Velocity
     m_Type: 1
-    m_DefaultFloat: 1
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
@@ -1201,5 +1201,5 @@ AnimatorStateMachine:
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 100, z: 0}
   m_ExitPosition: {x: 1000, y: 100, z: 0}
-  m_ParentStateMachinePosition: {x: 440, y: 0, z: 0}
+  m_ParentStateMachinePosition: {x: 450, y: 0, z: 0}
   m_DefaultState: {fileID: -1945393819156392292}
