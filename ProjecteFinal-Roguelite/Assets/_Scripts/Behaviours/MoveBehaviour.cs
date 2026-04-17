@@ -14,6 +14,7 @@ namespace Roguelite.Behaviours
             _rb = GetComponent<Rigidbody2D>();
 
             _rb.gravityScale = 0f;
+            _rb.freezeRotation = true;
         }
 
         public void MoveCharacter(Vector2 direction)
