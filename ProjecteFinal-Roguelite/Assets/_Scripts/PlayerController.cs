@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roguelite.Player
 {
     [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
-    [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour))]
+    [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour), typeof(StaminaBehaviour))]
     public class PlayerController : MonoBehaviour
     {
         private PlayerInputs _playerInputs;
@@ -13,6 +13,7 @@ namespace Roguelite.Player
 
         private MoveBehaviour _mb;
         private DashBehaviour _db;
+        private StaminaBehaviour _sb;
 
         private void Awake()
         {
@@ -21,6 +22,7 @@ namespace Roguelite.Player
 
             _mb = GetComponent<MoveBehaviour>();
             _db = GetComponent<DashBehaviour>();
+            _sb = GetComponent<StaminaBehaviour>();
         }
 
         private void Update()
@@ -29,6 +31,8 @@ namespace Roguelite.Player
 
             HandleMovement();
             Dash();
+
+            StaminaRegeneration();
         }
 
         private void UpdateState()
@@ -59,7 +63,26 @@ namespace Roguelite.Player
 
             if (_playerInputs.DashInput)
             {
-                _db.OnDash(_playerInputs.MoveInput);
+                if (_sb.HasStamina() && _db.CanDash)
+                {
+                    _db.Dash(_lastMoveDirection);
+                    _sb.ConsumeStamina(_db.DashCooldown);
+                }
+            }
+        }
+        
+        private void StaminaRegeneration()
+        {
+            if (!_db.IsDashing)
+            {
+                if (_playerInputs.MoveInput != Vector2.zero)
+                {
+                    _sb.RegenerateStamina(_db.DashCooldown);
+                }
+                else
+                {
+                    _sb.RegenerateStamina(_db.DashCooldown, 2f);
+                }
             }
         }
     }
