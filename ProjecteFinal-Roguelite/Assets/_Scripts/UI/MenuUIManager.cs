@@ -1,4 +1,5 @@
 using Roguelite.camera;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +8,7 @@ namespace Roguelite.UI
     public class MenuUIManager : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private MenuCameraController cameraController;
+        [SerializeField] private MenuCameraManager cameraManager;
 
         [Header("Panels")]
         [SerializeField] private GameObject starterPanel;
@@ -16,11 +17,11 @@ namespace Roguelite.UI
         [SerializeField] private GameObject settingsPanel;
         [SerializeField] private GameObject buildPanel;
 
-        [Header("Waypoints")]
-        [SerializeField] private Transform wpStarterInitial;
-        [SerializeField] private Transform wpItems;
-        [SerializeField] private Transform wpSettings;
-        [SerializeField] private Transform wpBuild;
+        [Header("Virtual Cameras")]
+        [SerializeField] private CinemachineCamera vcamStarterInitial;
+        [SerializeField] private CinemachineCamera vcamItems;
+        [SerializeField] private CinemachineCamera vcamSettings;
+        [SerializeField] private CinemachineCamera vcamBuild;
 
         [Header("First Selection")]
         [SerializeField] private GameObject firstButtonInitialMenu;
@@ -33,61 +34,44 @@ namespace Roguelite.UI
         // Menú principi
         public void ShowStarter()
         {
-            /*
-            SetPanelActive(starterPanel);
-            */
-            SwitchState(starterPanel, wpStarterInitial, null);
+            SwitchState(starterPanel, vcamStarterInitial, null);
         }
 
         // Menú inicial
         public void ShowInitialMenu()
         {
-            /*
-            SetPanelActive(initialMenuPanel);
-            // Donar el focus al primer botó per al New Input System
-            EventSystem.current.SetSelectedGameObject(firstButtonInitialMenu);
-            */
-            SwitchState(initialMenuPanel, wpStarterInitial, firstButtonInitialMenu);
+            SwitchState(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
         }
 
         // Menú items
         public void ShowItems()
         {
-            /*
-            SetPanelActive(itemsPanel);
-            */
-            SwitchState(itemsPanel, wpItems, null);
+            SwitchState(itemsPanel, vcamItems, null);
         }
 
         // Menú configuració
         public void ShowSettings()
         {
-            /*
-            SetPanelActive(settingsPanel);
-            */
-            SwitchState(settingsPanel, wpSettings, null);
+            SwitchState(settingsPanel, vcamSettings, null);
         }
 
         // Menú build
         public void ShowBuild()
         {
-            /*
-            SetPanelActive(buildPanel);
-            */
-            SwitchState(buildPanel, wpBuild, null);
+            SwitchState(buildPanel, vcamBuild, null);
         }
 
-        private void SwitchState(GameObject panel, Transform cameraWayPoint, GameObject firstSelect)
+        private void SwitchState(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            // Moure la càmera
-            cameraController.MoveToPosition(cameraWayPoint);
+            // Activar CameraManager
+            cameraManager.ActivateCamera(targetVcam);
 
-            // Gestió de panells
-            starterPanel.SetActive(starterPanel == panel);
-            initialMenuPanel.SetActive(initialMenuPanel == panel);
-            itemsPanel.SetActive(itemsPanel == panel);
-            settingsPanel.SetActive(settingsPanel == panel);
-            buildPanel.SetActive(buildPanel == panel);
+            // Visibilitat dels panells
+            starterPanel.SetActive(starterPanel == targetPanel);
+            initialMenuPanel.SetActive(initialMenuPanel == targetPanel);
+            itemsPanel.SetActive(itemsPanel == targetPanel);
+            settingsPanel.SetActive(settingsPanel == targetPanel);
+            buildPanel.SetActive(buildPanel == targetPanel);
 
             // Focus del teclat
             if (firstSelect != null)
@@ -95,22 +79,6 @@ namespace Roguelite.UI
                 EventSystem.current.SetSelectedGameObject(firstSelect);
             }
         }
-        /*
-        private void SetPanelActive(GameObject activePanel)
-        {
-            starterPanel.SetActive(starterPanel == activePanel);
-            initialMenuPanel.SetActive(initialMenuPanel == activePanel);
-            itemsPanel.SetActive(itemsPanel == activePanel);
-            settingsPanel.SetActive(settingsPanel == activePanel);
-            buildPanel.SetActive(buildPanel == activePanel);
-        }
-
-        public void QuitGame()
-        {
-            Debug.Log("Exit...");
-            Application.Quit();
-        }
-        */
     }
 }
 
