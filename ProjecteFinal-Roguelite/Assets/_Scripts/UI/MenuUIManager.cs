@@ -1,3 +1,4 @@
+using System.Collections; // Necessari per a les Corrutines
 using Roguelite.camera;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -26,47 +27,69 @@ namespace Roguelite.UI
         [Header("First Selection")]
         [SerializeField] private GameObject firstButtonInitialMenu;
 
+        private Coroutine _transitionCoroutine;
+
         private void Start()
         {
+            // El Starter es mostra immediatament sense cap transició
             ShowStarter();
         }
 
-        // Menú principi
+        // --- FUNCIONS PÚBLIQUES ---
+
         public void ShowStarter()
         {
-            SwitchState(starterPanel, vcamStarterInitial, null);
+            // Crida directa sense espera
+            ExecuteSwitch(starterPanel, vcamStarterInitial, null);
         }
 
-        // Menú inicial
         public void ShowInitialMenu()
         {
-            SwitchState(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
+            // Si el starter està actiu, vol dir que és la primera transició
+            // Per tant, no fem servir retard (segons la teva petició)
+            bool skipDelay = starterPanel.activeSelf;
+
+            if (skipDelay)
+                ExecuteSwitch(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
+            else
+                StartTransition(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
         }
 
-        // Menú items
-        public void ShowItems()
+        public void ShowItems() => StartTransition(itemsPanel, vcamItems, null);
+        public void ShowSettings() => StartTransition(settingsPanel, vcamSettings, null);
+        public void ShowBuild() => StartTransition(buildPanel, vcamBuild, null);
+
+        // --- LÒGICA DE TRANSICIÓ ---
+
+        private void StartTransition(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            SwitchState(itemsPanel, vcamItems, null);
+            // Si hi ha una transició en marxa, l'aturem per evitar errors
+            if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
+
+            _transitionCoroutine = StartCoroutine(TransitionRoutine(targetPanel, targetVcam, firstSelect));
         }
 
-        // Menú configuració
-        public void ShowSettings()
+        private IEnumerator TransitionRoutine(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            SwitchState(settingsPanel, vcamSettings, null);
-        }
+            // 1. Amaguem tots els panells perquè es vegi el Tileset net
+            HideAllPanels();
 
-        // Menú build
-        public void ShowBuild()
-        {
-            SwitchState(buildPanel, vcamBuild, null);
-        }
-
-        private void SwitchState(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
-        {
-            // Activar CameraManager
+            // 2. Iniciem el moviment de la càmera
             cameraManager.ActivateCamera(targetVcam);
 
-            // Visibilitat dels panells
+            // 3. ESPEREM 1.5 segons mentre la càmera "vola"
+            yield return new WaitForSeconds(1.5f);
+
+            // 4. Mostrem el panell de destí i donem el focus
+            ExecuteSwitch(targetPanel, targetVcam, firstSelect);
+        }
+
+        private void ExecuteSwitch(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
+        {
+            // Activar CameraManager (en el cas de l'starter/initial, s'executa aquí directament)
+            cameraManager.ActivateCamera(targetVcam);
+
+            // Control de visibilitat
             starterPanel.SetActive(starterPanel == targetPanel);
             initialMenuPanel.SetActive(initialMenuPanel == targetPanel);
             itemsPanel.SetActive(itemsPanel == targetPanel);
@@ -79,6 +102,14 @@ namespace Roguelite.UI
                 EventSystem.current.SetSelectedGameObject(firstSelect);
             }
         }
+
+        private void HideAllPanels()
+        {
+            starterPanel.SetActive(false);
+            initialMenuPanel.SetActive(false);
+            itemsPanel.SetActive(false);
+            settingsPanel.SetActive(false);
+            buildPanel.SetActive(false);
+        }
     }
 }
-
