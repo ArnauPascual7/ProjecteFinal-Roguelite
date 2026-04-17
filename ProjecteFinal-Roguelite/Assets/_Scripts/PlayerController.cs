@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roguelite.Player
 {
-    [RequireComponent(typeof(PlayerInputs), typeof(PlayerState))]
+    [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
     [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour))]
     public class PlayerController : MonoBehaviour
     {

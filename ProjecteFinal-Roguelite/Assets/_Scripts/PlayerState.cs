@@ -11,6 +11,7 @@ namespace Roguelite.Player
             return  CurrentPlayerState == PlayerStates.Walk || 
                     CurrentPlayerState == PlayerStates.Dash;
         }
+        public bool IsIdle() => CurrentPlayerState == PlayerStates.Idle;
     }
 
     public enum PlayerStates
