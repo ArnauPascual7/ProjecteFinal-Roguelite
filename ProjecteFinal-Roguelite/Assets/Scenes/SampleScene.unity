@@ -501,7 +501,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -934,7 +934,7 @@ Transform:
   m_GameObject: {fileID: 878052073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0, z: 0}
+  m_LocalPosition: {x: 0.85, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
   bulletPrefab: {fileID: 6474410123690865267, guid: c417460c8f90a3d408f3e76e0176b6d1, type: 3}
   angle: 0
-  camera: {fileID: 519420031}
+  pcamera: {fileID: 519420031}
   firePoint: {fileID: 878052074}
 --- !u!114 &2124442495
 MonoBehaviour:
@@ -1371,6 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileFiringBehaviour
   fireRate: 1
+  targetLayerName: Enemy
 --- !u!114 &2124442496
 MonoBehaviour:
   m_ObjectHideFlags: 0

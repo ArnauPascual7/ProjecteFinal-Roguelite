@@ -15,7 +15,7 @@ namespace Roguelite.Player
         public GameObject bulletPrefab;
 
         public float angle = 0f;
-        public Camera camera;
+        public Camera pcamera;   
         public Transform firePoint;
 
         private void Awake()
@@ -32,7 +32,7 @@ namespace Roguelite.Player
         }
         private void AimPosition()
         {
-            angle = _arb.GetAngleTowardsMouse(camera, _playerInputs.MousePosition);
+            angle = _arb.GetAngleTowardsMouse(pcamera, _playerInputs.MousePosition);
         }
         private void CheckFiring()
         {
