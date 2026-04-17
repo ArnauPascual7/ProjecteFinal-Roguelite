@@ -1,11 +1,12 @@
 using System.Collections;
 using Roguelite.Behaviours;
-using Roguelite.Helpers;
+using Roguelite.BehaviourTree;
 using UnityEngine;
 
-namespace Roguelite.BehaviourTree
+namespace Roguelite.Enemy
 {
     [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(EnemyHealth))]
     [RequireComponent(typeof(TargetDetectionBehaviour))]
     public class EnemyController : MonoBehaviour
     {
@@ -18,6 +19,8 @@ namespace Roguelite.BehaviourTree
         public ParentStateSO root;
         [Tooltip("This field is initialized via code")]
         public BehaviourState currentState;
+
+        private EnemyHealth _health;
 
         private TargetDetectionBehaviour _tdb;
         private ReturnToInitPosBehaviour _ripb;
@@ -48,6 +51,7 @@ namespace Roguelite.BehaviourTree
             attack = new Condition("Attack");
             die = new Condition("Die");
 
+            _health = GetComponent<EnemyHealth>();
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
@@ -122,6 +126,7 @@ namespace Roguelite.BehaviourTree
             {
                 _mab.Attack();
             }
+
         }
 
         public void Die()

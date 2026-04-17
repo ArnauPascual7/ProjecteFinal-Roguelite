@@ -501,7 +501,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 706467606}
   - component: {fileID: 706467610}
   - component: {fileID: 706467611}
+  - component: {fileID: 706467612}
   m_Layer: 10
   m_Name: Player Square
   m_TagString: Untagged
@@ -855,6 +856,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &706467612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706467599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff197eb914112ba468811594208c9148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Player.PlayerHealth
+  _health: 3
 --- !u!1 &878052073
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +894,7 @@ Transform:
   m_GameObject: {fileID: 878052073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0, z: 0}
+  m_LocalPosition: {x: 0.85, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1073,7 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
   bulletPrefab: {fileID: 6474410123690865267, guid: c417460c8f90a3d408f3e76e0176b6d1, type: 3}
   angle: 0
-  camera: {fileID: 519420031}
+  pcamera: {fileID: 519420031}
   firePoint: {fileID: 878052074}
 --- !u!114 &2124442495
 MonoBehaviour:
@@ -1088,6 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileFiringBehaviour
   fireRate: 1
+  targetLayerName: Enemy
 --- !u!114 &2124442496
 MonoBehaviour:
   m_ObjectHideFlags: 0

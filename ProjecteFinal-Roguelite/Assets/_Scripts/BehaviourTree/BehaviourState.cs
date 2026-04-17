@@ -1,3 +1,4 @@
+using Roguelite.Enemy;
 using UnityEngine;
 
 namespace Roguelite.BehaviourTree
