@@ -356,10 +356,9 @@ GameObject:
   - component: {fileID: 634505639}
   - component: {fileID: 634505643}
   - component: {fileID: 634505644}
+  - component: {fileID: 634505647}
   - component: {fileID: 634505646}
   - component: {fileID: 634505645}
-  - component: {fileID: 634505647}
-  - component: {fileID: 634505648}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -590,11 +589,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 634505636}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20a7edbdaf58f344b712085225cb2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ReturnToInitPosBehaviour
+--- !u!114 &634505646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11d80fb4b137c91449a7147b2967b4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MoveBehaviour
   speed: 5
---- !u!50 &634505646
+--- !u!50 &634505647
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -621,31 +632,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &634505647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634505636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20a7edbdaf58f344b712085225cb2d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ReturnToInitPosBehaviour
---- !u!114 &634505648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634505636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 749035379317fa74a89fd16c2ac56c1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemyHealth
-  _health: 100
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
