@@ -6,14 +6,15 @@ namespace Roguelite.Behaviours
     [RequireComponent(typeof(Rigidbody2D))]
     public class DashBehaviour : MonoBehaviour
     {
-        [SerializeField] private float dashSpeed = 20f;
-        [SerializeField] private float dashDuration = 0.10f;
-        [SerializeField] private float dashCooldown = 2.0f;
+        [SerializeField] private float _dashSpeed = 20f;
+        [SerializeField] private float _dashDuration = 0.10f;
+        [SerializeField] private float _dashCooldown = 2.0f;
 
-        public bool IsDashing { get; private set; }
+        public float DashCooldown => _dashCooldown;
+        public bool IsDashing { get; private set; } = false;
+        public bool CanDash { get; private set; } = true;
 
         private Rigidbody2D _rb;
-        private bool canDash = true;
 
         private void Awake()
         {
@@ -21,26 +22,26 @@ namespace Roguelite.Behaviours
             _rb.gravityScale = 0f;
         }
 
-        public void OnDash(Vector2 direction)
+        public void Dash(Vector2 direction)
         {
-            if (canDash && !IsDashing)
-                StartCoroutine(Dash(direction));
+            if (CanDash && !IsDashing)
+                StartCoroutine(OnDash(direction));
         }
 
-        IEnumerator Dash(Vector2 direction)
+        private IEnumerator OnDash(Vector2 direction)
         {
-            canDash = false;
+            CanDash = false;
             IsDashing = true;
 
-            _rb.linearVelocity = direction.normalized * dashSpeed;
+            _rb.linearVelocity = direction.normalized * _dashSpeed;
 
-            yield return new WaitForSeconds(dashDuration);
+            yield return new WaitForSeconds(_dashDuration);
 
             _rb.linearVelocity = Vector2.zero;
             IsDashing = false;
 
-            yield return new WaitForSeconds(dashCooldown);
-            canDash = true;
+            yield return new WaitForSeconds(_dashCooldown);
+            CanDash = true;
         }
     }
 }
