@@ -1,4 +1,4 @@
-using System.Collections; // Necessari per a les Corrutines
+using System.Collections;
 using Roguelite.camera;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -31,62 +31,70 @@ namespace Roguelite.UI
 
         private void Start()
         {
-            // El Starter es mostra immediatament sense cap transició
+            // Mostrar StarterPanel immediatament
             ShowStarter();
         }
 
-        // --- FUNCIONS PÚBLIQUES ---
-
         public void ShowStarter()
         {
-            // Crida directa sense espera
+            // Cridar sense espera
             ExecuteSwitch(starterPanel, vcamStarterInitial, null);
         }
 
+        // Menú inicial
         public void ShowInitialMenu()
         {
-            // Si el starter està actiu, vol dir que és la primera transició
-            // Per tant, no fem servir retard (segons la teva petició)
             bool skipDelay = starterPanel.activeSelf;
 
             if (skipDelay)
+            {
                 ExecuteSwitch(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
+            }    
             else
+            {
                 StartTransition(initialMenuPanel, vcamStarterInitial, firstButtonInitialMenu);
+            }           
         }
 
+        // Items
         public void ShowItems() => StartTransition(itemsPanel, vcamItems, null);
+
+        // Configuració
         public void ShowSettings() => StartTransition(settingsPanel, vcamSettings, null);
+
+        // Build
         public void ShowBuild() => StartTransition(buildPanel, vcamBuild, null);
 
-        // --- LÒGICA DE TRANSICIÓ ---
-
+        // Lògica de transició
         private void StartTransition(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            // Si hi ha una transició en marxa, l'aturem per evitar errors
-            if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
-
+            // Si hi ha una transició en marxa, aturar per evitar errors
+            if (_transitionCoroutine != null)
+            {
+                StopCoroutine(_transitionCoroutine);
+            }
+                
             _transitionCoroutine = StartCoroutine(TransitionRoutine(targetPanel, targetVcam, firstSelect));
         }
 
         private IEnumerator TransitionRoutine(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            // 1. Amaguem tots els panells perquè es vegi el Tileset net
+            // Amagar tots els panells
             HideAllPanels();
 
-            // 2. Iniciem el moviment de la càmera
+            // Iniciar el moviment de la càmera
             cameraManager.ActivateCamera(targetVcam);
 
-            // 3. ESPEREM 1.5 segons mentre la càmera "vola"
+            // Esperar mentre la càmera es mou
             yield return new WaitForSeconds(1.5f);
 
-            // 4. Mostrem el panell de destí i donem el focus
+            // Mostrar panell i donar focus
             ExecuteSwitch(targetPanel, targetVcam, firstSelect);
         }
 
         private void ExecuteSwitch(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
-            // Activar CameraManager (en el cas de l'starter/initial, s'executa aquí directament)
+            // Activar CameraManager
             cameraManager.ActivateCamera(targetVcam);
 
             // Control de visibilitat

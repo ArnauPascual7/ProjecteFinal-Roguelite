@@ -10,7 +10,6 @@ namespace Roguelite.camera
 
         private void Awake()
         {
-            // IMPORTANT: Fem el teletransport a l'Awake per anar per davant del render
             if (startingCamera != null)
             {
                 SnapToCamera(startingCamera);
@@ -43,25 +42,23 @@ namespace Roguelite.camera
             }
         }
 
-        // Aquesta funció mou la càmera principal instantàniament
+        // Moure la càmera instantàniament
         private void SnapToCamera(CinemachineCamera targetCamera)
         {
-            // Busquem la Main Camera
+            // Buscar Main Camera
             Camera mainCam = Camera.main;
             if (mainCam != null && targetCamera != null)
             {
-                // Posem la prioritat alta ja d'entrada
+                // Prioritat alta ja d'entrada
                 targetCamera.Priority = 20;
 
-                // Movem la posició de la càmera física exactament on està la virtual
+                // Moure càmera peincipal a la posició de la càmera virtual
                 mainCam.transform.position = targetCamera.transform.position;
 
-                // Avisem a Cinemachine que hem mogut la càmera a la força (Warp)
-                // per evitar que intenti fer una transició suau al primer frame.
                 var brain = mainCam.GetComponent<CinemachineBrain>();
                 if (brain != null)
                 {
-                    // Això cancel·la qualsevol transició que estigués a punt de començar
+                    // Cancel·lar qualsevol transició que estigués a punt de començar
                     brain.ActiveBlend = null;
                 }
             }
