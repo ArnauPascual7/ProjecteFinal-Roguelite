@@ -65,7 +65,7 @@ namespace Roguelite.Player
             {
                 if (_sb.HasStamina() && _db.CanDash)
                 {
-                    _db.Dash(_lastMoveDirection);
+                    _db.Dash(_playerInputs.MoveInput);
                     _sb.ConsumeStamina(_db.DashCooldown);
                 }
             }
