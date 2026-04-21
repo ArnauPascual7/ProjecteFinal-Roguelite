@@ -17,12 +17,14 @@ namespace Roguelite.UI
         [SerializeField] private GameObject itemsPanel;
         [SerializeField] private GameObject settingsPanel;
         [SerializeField] private GameObject buildPanel;
+        [SerializeField] private GameObject upgradesPanel;
 
         [Header("Virtual Cameras")]
         [SerializeField] private CinemachineCamera vcamStarterInitial;
         [SerializeField] private CinemachineCamera vcamItems;
         [SerializeField] private CinemachineCamera vcamSettings;
         [SerializeField] private CinemachineCamera vcamBuild;
+        [SerializeField] private CinemachineCamera vcamUpgrades;
 
         [Header("First Selection")]
         [SerializeField] private GameObject firstButtonInitialMenu;
@@ -65,6 +67,9 @@ namespace Roguelite.UI
         // Build
         public void ShowBuild() => StartTransition(buildPanel, vcamBuild, null);
 
+        // Millores
+        public void ShowUpgrades() => StartTransition(upgradesPanel, vcamUpgrades, null);
+
         // Lògica de transició
         private void StartTransition(GameObject targetPanel, CinemachineCamera targetVcam, GameObject firstSelect)
         {
@@ -103,6 +108,7 @@ namespace Roguelite.UI
             itemsPanel.SetActive(itemsPanel == targetPanel);
             settingsPanel.SetActive(settingsPanel == targetPanel);
             buildPanel.SetActive(buildPanel == targetPanel);
+            upgradesPanel.SetActive(upgradesPanel == targetPanel);
 
             // Focus del teclat
             if (firstSelect != null)
@@ -118,6 +124,7 @@ namespace Roguelite.UI
             itemsPanel.SetActive(false);
             settingsPanel.SetActive(false);
             buildPanel.SetActive(false);
+            upgradesPanel.SetActive(false);
         }
     }
 }
