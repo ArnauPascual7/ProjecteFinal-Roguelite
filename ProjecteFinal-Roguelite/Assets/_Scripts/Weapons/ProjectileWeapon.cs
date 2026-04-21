@@ -1,3 +1,6 @@
+using System.Collections;
+using Roguelite.Behaviours;
+using Roguelite.Player;
 using UnityEngine;
 
 namespace Roguelite.Weapons
@@ -10,11 +13,58 @@ namespace Roguelite.Weapons
         public float reloadTime;
         public float fireRate;
         public float projectileSpeed;
-        public float projectilesPerShot;
+        public int projectilesPerShot;
+        public float timeBetweenProjectiles;
 
-        public override void Shoot()
+        [Header("Projectile Prefab")]
+        public GameObject projectilePrefab;
+
+        public override RangedWeaponRuntimeState CreateRuntimeState()
+            => new ProjectileWeaponRuntimeState { 
+                currentMagazine = magazineSize,
+                lastFireTime = -fireRate
+            };
+
+        public override void Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
         {
-            throw new System.NotImplementedException();
+            var state = baseState as ProjectileWeaponRuntimeState;
+
+            if (state.currentMagazine > 0 && Time.time > state.lastFireTime + fireRate)
+            {
+                if (!controller.TryGetComponent(out ProjectileFiringBehaviour fb))
+                {
+                    Debug.LogError($"PROJECTILE WEAPON '{weaponName}': Missing ProjectileFiringBehaviour component on the WeaponController.");
+                    return;
+                }
+
+                fb.FireProjectile(this, projectilePrefab, controller.shootPoint);
+
+                state.currentMagazine = state.currentMagazine - projectilesPerShot;
+                state.lastFireTime = Time.time;
+
+                Debug.Log(state.currentMagazine);
+            }
+            else
+            {
+                Reload(controller, state);
+            }
+        }
+
+        public void Reload(WeaponController controller, ProjectileWeaponRuntimeState state)
+        {
+            if (!state.reloading)
+            {
+                state.reloading = true;
+                state.reloadCoroutine = controller.StartCoroutine(ReloadCoroutine(state));
+            }
+        }
+
+        private IEnumerator ReloadCoroutine(ProjectileWeaponRuntimeState state)
+        {
+            yield return new WaitForSeconds(reloadTime);
+            state.currentMagazine = magazineSize;
+            state.reloading = false;
+            state.reloadCoroutine = null;
         }
     }
 }

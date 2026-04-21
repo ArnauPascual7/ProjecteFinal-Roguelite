@@ -6,33 +6,46 @@ namespace Roguelite.Behaviours
     [RequireComponent(typeof(Rigidbody2D))]
     public class ProjectileBehaviour : MonoBehaviour
     {
-        [HideInInspector] public ProjectileFiringBehaviour shooter;
-
         private Rigidbody2D _rb;
-        public float speed = 10f;
-        public float damage = 10f;
+
+        private ProjectileFiringBehaviour _shooter;
+        private float _speed;
+        private float _damage;
+        private Vector2 _direction;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
         }
+
+        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage)
+        {
+            _shooter = shooter;
+            _speed = speed;
+            _damage = damage;
+            _direction = (shootPoint.transform.position - shooter.gameObject.transform.position).normalized;
+
+            transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);
+
+            gameObject.layer = shooter.gameObject.layer;
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer != shooter.gameObject.layer && collision.gameObject.layer != gameObject.layer)
+            if (collision.gameObject.layer != _shooter.gameObject.layer && collision.gameObject.layer != gameObject.layer)
             {
-                if (collision.gameObject.layer == LayerMask.NameToLayer(shooter.targetLayerName))
+                if (collision.gameObject.TryGetComponent(out ITargeteable target))
                 {
-                    if (collision.gameObject.TryGetComponent<ITargeteable>(out ITargeteable target))
-                    {
-                        target.TakeDamage(damage);
-                    }
+                    target.TakeDamage(_damage);
                 }
+
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
+
         private void FixedUpdate()
         {
-            _rb.MovePosition(transform.position + transform.right * speed * Time.fixedDeltaTime);
+            _rb.linearVelocity = _direction * _speed;
         }
     }
 }
