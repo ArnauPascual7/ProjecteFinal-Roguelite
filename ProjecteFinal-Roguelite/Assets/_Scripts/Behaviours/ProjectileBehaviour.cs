@@ -12,20 +12,24 @@ namespace Roguelite.Behaviours
         private float _speed;
         private float _damage;
         private float _force;
+        private float _range;
         private Vector2 _direction;
+        private Vector2 _shotPosition;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage, float force)
+        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage, float force, float range)
         {
             _shooter = shooter;
             _speed = speed;
             _damage = damage;
             _force = force;
+            _range = range;
             _direction = (shootPoint.transform.position - shooter.gameObject.transform.position).normalized;
+            _shotPosition = shooter.transform.position;
 
             transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);
 
@@ -48,6 +52,11 @@ namespace Roguelite.Behaviours
         private void FixedUpdate()
         {
             _rb.linearVelocity = _direction * _speed;
+
+            if (Vector2.Distance(transform.position, _shotPosition) >= _range)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
