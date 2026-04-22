@@ -11,6 +11,7 @@ namespace Roguelite.Behaviours
         private ProjectileFiringBehaviour _shooter;
         private float _speed;
         private float _damage;
+        private float _force;
         private Vector2 _direction;
 
         private void Awake()
@@ -18,11 +19,12 @@ namespace Roguelite.Behaviours
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage)
+        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage, float force)
         {
             _shooter = shooter;
             _speed = speed;
             _damage = damage;
+            _force = force;
             _direction = (shootPoint.transform.position - shooter.gameObject.transform.position).normalized;
 
             transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);

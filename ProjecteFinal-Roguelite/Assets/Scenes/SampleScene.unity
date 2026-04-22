@@ -1201,9 +1201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Player.PlayerWeapon
   _weapons:
+  - {fileID: 11400000, guid: b8406937452151b46a7f032da15ca281, type: 2}
   - {fileID: 11400000, guid: 1248e0be1c0a4e24d971faaa59116019, type: 2}
+  _switchCooldown: 1
   shootPoint: {fileID: 1436856406}
-  _camera: {fileID: 519420031}
 --- !u!114 &1070066678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f63ce52694097b4d985cca1f4e4d28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.AimRotationBehaviour
+  _camera: {fileID: 519420031}
 --- !u!61 &1070066680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1492,8 +1494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
   _weapons: []
+  _switchCooldown: 0.5
   shootPoint: {fileID: 0}
-  _camera: {fileID: 0}
 --- !u!114 &2124442495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f63ce52694097b4d985cca1f4e4d28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimRotationBehaviour
+  _camera: {fileID: 0}
 --- !u!114 &2124442497
 MonoBehaviour:
   m_ObjectHideFlags: 0

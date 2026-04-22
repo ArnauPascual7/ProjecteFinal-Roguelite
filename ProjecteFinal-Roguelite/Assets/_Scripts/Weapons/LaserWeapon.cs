@@ -10,11 +10,11 @@ namespace Roguelite.Weapons
         public float chargeTime;
         public float chargeDamage;
 
-        public override RangedWeaponRuntimeState CreateRuntimeState() => new LaserRuntimeState();
+        public override RangedWeaponRuntimeState CreateRuntimeState() => new LaserWeaponRuntimeState();
 
         public override void Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
         {
-            var state = (LaserRuntimeState)baseState;
+            var state = (LaserWeaponRuntimeState)baseState;
 
             throw new System.NotImplementedException();
         }

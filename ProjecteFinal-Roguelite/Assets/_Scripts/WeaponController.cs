@@ -7,6 +7,7 @@ namespace Roguelite
     public abstract class WeaponController : MonoBehaviour
     {
         [SerializeField] private RangedWeapon[] _weapons;
+        [SerializeField] private float _switchCooldown = 1f;
 
         public Transform shootPoint;
         public int CurrentWeaponIndex { get; private set; }
@@ -14,6 +15,7 @@ namespace Roguelite
         private RangedWeapon _currentWeapon;
         private RangedWeaponRuntimeState[] _weaponStates;
         private RangedWeaponRuntimeState _currentState;
+        private float _lastSwitchTime;
 
         protected virtual void Awake()
         {
@@ -33,6 +35,8 @@ namespace Roguelite
 
         public void SwitchWeapon(int index)
         {
+            if (Time.time <= _lastSwitchTime + _switchCooldown) return;
+
             if (index < 0 || index >= _weapons.Length)
             {
                 Debug.LogError("WEAPON CONTROLLER: Invalid weapon index: " + index);
@@ -42,6 +46,9 @@ namespace Roguelite
             _currentWeapon = _weapons[index];
             _currentState = _weaponStates[index];
             CurrentWeaponIndex = index;
+            
+            _lastSwitchTime = Time.time;
+            _currentState.lastFireTime = Time.time;
         }
 
         public void Shoot()

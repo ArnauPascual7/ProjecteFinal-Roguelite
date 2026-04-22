@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserRuntimeState : RangedWeaponRuntimeState
+public class LaserWeaponRuntimeState : RangedWeaponRuntimeState
 {
     public bool isCharging;
     public float chargeStartTime;

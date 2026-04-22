@@ -20,11 +20,14 @@ namespace Roguelite.Player
             _playerInputs = GetComponentInParent<PlayerInputs>();
 
             base.Awake();
+
+            SwitchWeapon(_playerInputs.SelectedWeapon - 1);
         }
 
         private void Update()
         {
             AimPosition();
+            CheckWeapon();
             CheckFiring();
             CheckReload();
         }
@@ -50,6 +53,23 @@ namespace Roguelite.Player
             if (_playerInputs.ReloadInput)
             {
                 Reload();
+            }
+        }
+
+        private void CheckWeapon()
+        {
+            int index = _playerInputs.SelectedWeapon - 1;
+            if (index == CurrentWeaponIndex)
+            {
+                _playerInputs.SelectedWeapon = CurrentWeaponIndex + 1;
+                return;
+            }
+
+            SwitchWeapon(index);
+
+            if (CurrentWeaponIndex != index)
+            {
+                _playerInputs.SelectedWeapon = CurrentWeaponIndex + 1;
             }
         }
     }
