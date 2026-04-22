@@ -27,27 +27,27 @@ namespace Roguelite.Weapons
 
         public override void Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
         {
-            var state = baseState as ProjectileWeaponRuntimeState;
+            var state = (ProjectileWeaponRuntimeState)baseState;
 
-            if (state.currentMagazine > 0 && Time.time > state.lastFireTime + fireRate)
-            {
-                if (!controller.TryGetComponent(out ProjectileFiringBehaviour fb))
-                {
-                    Debug.LogError($"PROJECTILE WEAPON '{weaponName}': Missing ProjectileFiringBehaviour component on the WeaponController.");
-                    return;
-                }
+            if (state.reloading) return;
 
-                fb.FireProjectile(this, projectilePrefab, controller.shootPoint);
-
-                state.currentMagazine = state.currentMagazine - projectilesPerShot;
-                state.lastFireTime = Time.time;
-
-                Debug.Log(state.currentMagazine);
-            }
-            else
+            if (state.currentMagazine <= 0)
             {
                 Reload(controller, state);
+                return;
             }
+
+            if (Time.time <= state.lastFireTime + fireRate) return;
+
+            if (!controller.TryGetComponent(out ProjectileFiringBehaviour fb))
+            {
+                Debug.LogError($"PROJECTILE WEAPON '{weaponName}': Missing ProjectileFiringBehaviour on WeaponController.");
+                return;
+            }
+
+            fb.FireProjectile(this, projectilePrefab, controller.shootPoint);
+            state.currentMagazine -= projectilesPerShot;
+            state.lastFireTime = Time.time;
         }
 
         public void Reload(WeaponController controller, ProjectileWeaponRuntimeState state)

@@ -54,5 +54,19 @@ namespace Roguelite
 
             _currentWeapon.Shoot(this, _currentState);
         }
+
+        public void Reload()
+        {
+            if (_currentWeapon == null)
+            {
+                Debug.LogError("WEAPON CONTROLLER: No weapon assigned to reload.");
+                return;
+            }
+
+            if (_currentWeapon is ProjectileWeapon pw)
+            {
+                pw.Reload(this, (ProjectileWeaponRuntimeState)_currentState);
+            }
+        }
     }
 }

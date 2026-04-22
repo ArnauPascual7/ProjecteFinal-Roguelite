@@ -5,9 +5,11 @@ namespace Roguelite.Behaviours
 {
     public class AimRotationBehaviour : MonoBehaviour
     {
-        public float GetAngleTowardsMouse(Camera camera, Vector2 MousePosition)
+        [SerializeField] private Camera _camera;
+
+        public float GetAngleTowardsMouse(Vector2 MousePosition)
         {
-            Vector3 mouseDirection = GetDirectionTowardsMouse(camera, MousePosition);
+            Vector3 mouseDirection = GetDirectionTowardsMouse(MousePosition);
             mouseDirection.z = 0f;
 
             float angle = (Vector3.SignedAngle(Vector3.right, mouseDirection, Vector3.forward) + 360f) % 360f;
@@ -15,7 +17,7 @@ namespace Roguelite.Behaviours
             return angle;
         }
 
-        public Vector3 GetDirectionTowardsMouse(Camera camera, Vector2 MousePosition)
-            => camera.ScreenToWorldPoint(MousePosition) - transform.position;
+        public Vector3 GetDirectionTowardsMouse(Vector2 MousePosition)
+            => _camera.ScreenToWorldPoint(MousePosition) - transform.position;
     }
 }

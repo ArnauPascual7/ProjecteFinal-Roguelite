@@ -1,3 +1,4 @@
+using System;
 using Roguelite.Behaviours;
 using UnityEngine;
 
@@ -7,8 +8,6 @@ namespace Roguelite.Player
     [RequireComponent(typeof(AimRotationBehaviour), typeof(ProjectileFiringBehaviour))]
     public class PlayerWeapon : WeaponController
     {
-        [SerializeField] private Camera _camera;
-
         private PlayerInputs _playerInputs;
 
         private AimRotationBehaviour _arb;
@@ -27,12 +26,13 @@ namespace Roguelite.Player
         {
             AimPosition();
             CheckFiring();
+            CheckReload();
         }
 
         private void AimPosition()
         {
-            Vector2 direction = _arb.GetDirectionTowardsMouse(_camera, _playerInputs.MousePosition);
-            float angle = _arb.GetAngleTowardsMouse(_camera, _playerInputs.MousePosition);
+            Vector2 direction = _arb.GetDirectionTowardsMouse(_playerInputs.MousePosition);
+            float angle = _arb.GetAngleTowardsMouse(_playerInputs.MousePosition);
 
             shootPoint.transform.SetPositionAndRotation((Vector2)transform.position + direction.normalized * 1f, Quaternion.Euler(0f, 0f, angle));
         }
@@ -42,6 +42,14 @@ namespace Roguelite.Player
             if (_playerInputs.AttackInput)
             {
                 Shoot();
+            }
+        }
+
+        private void CheckReload()
+        {
+            if (_playerInputs.ReloadInput)
+            {
+                Reload();
             }
         }
     }
