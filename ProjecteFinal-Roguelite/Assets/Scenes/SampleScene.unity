@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 634505646}
   - component: {fileID: 634505645}
   - component: {fileID: 634505648}
+  - component: {fileID: 634505649}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -646,6 +647,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemyHealth
   _health: 100
+--- !u!114 &634505649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13e3c679c9c0ce40bca1948b507ec56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.KnockbackBehaviour
+  _knockbackResistance: 0
+  _knockbackDuration: 0.2
+  _knockbackRecoveryTime: 0.1
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0

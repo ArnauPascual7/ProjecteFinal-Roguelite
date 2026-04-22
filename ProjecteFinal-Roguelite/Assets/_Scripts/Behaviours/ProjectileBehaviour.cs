@@ -45,6 +45,12 @@ namespace Roguelite.Behaviours
                     target.TakeDamage(_damage);
                 }
 
+                if (collision.gameObject.TryGetComponent(out KnockbackBehaviour knockback))
+                {
+                    Vector2 direction = ((Vector2)transform.position - _shotPosition).normalized;
+                    knockback.Knockback(direction, _force);
+                }
+
                 Destroy(gameObject);
             }
         }
