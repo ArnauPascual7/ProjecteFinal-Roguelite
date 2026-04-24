@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Roguelite.UI
+namespace Roguelite.GameMenu
 {
     public class StarterToMainBridge : MonoBehaviour
     {
@@ -16,6 +16,7 @@ namespace Roguelite.UI
             {
                 _hasTransitioned = true; // Evitar que es cridi mes d'una vegada
                 uiManager.ShowInitialMenu();
+                enabled = false;
             }
         }
     }

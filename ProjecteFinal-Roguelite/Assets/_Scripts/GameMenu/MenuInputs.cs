@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Roguelite.UI
+namespace Roguelite.GameMenu
 {
     public class MenuInputs : MonoBehaviour, InputSystem_Actions.IMenuActions
     {

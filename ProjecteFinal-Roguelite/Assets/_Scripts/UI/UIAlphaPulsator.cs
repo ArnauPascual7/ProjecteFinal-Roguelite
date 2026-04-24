@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Hellcore.UI.Effects
+namespace Roguelite.UI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class UIAlphaPulsator : MonoBehaviour
