@@ -6,6 +6,7 @@ namespace Roguelite.Player
 {
     [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
     [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour), typeof(StaminaBehaviour))]
+    [RequireComponent(typeof(MagicPointsBehaviour))]
     public class PlayerController : MonoBehaviour
     {
         private PlayerInputs _playerInputs;
@@ -14,6 +15,7 @@ namespace Roguelite.Player
         private MoveBehaviour _mb;
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
+        private MagicPointsBehaviour _mpb;
 
         private void Awake()
         {
@@ -23,6 +25,7 @@ namespace Roguelite.Player
             _mb = GetComponent<MoveBehaviour>();
             _db = GetComponent<DashBehaviour>();
             _sb = GetComponent<StaminaBehaviour>();
+            _mpb = GetComponent<MagicPointsBehaviour>();
         }
 
         private void Update()
@@ -33,6 +36,7 @@ namespace Roguelite.Player
             Dash();
 
             StaminaRegeneration();
+            MagicPointsRegeneration();
         }
 
         private void UpdateState()
@@ -84,6 +88,10 @@ namespace Roguelite.Player
                     _sb.RegenerateStamina(_db.DashCooldown, 2f);
                 }
             }
+        }
+        private void MagicPointsRegeneration()
+        {
+            _mpb.RegenerateMagicPoints();
         }
     }
 }
