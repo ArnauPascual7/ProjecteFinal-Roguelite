@@ -256,6 +256,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &569714482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569714483}
+  m_Layer: 10
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569714483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569714482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 634505638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +392,7 @@ GameObject:
   - component: {fileID: 634505645}
   - component: {fileID: 634505648}
   - component: {fileID: 634505649}
+  - component: {fileID: 634505650}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -439,7 +471,8 @@ Transform:
   m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 569714483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &634505639
@@ -472,7 +505,7 @@ MonoBehaviour:
   _ignoreLayers:
     serializedVersion: 2
     m_Bits: 0
-  target: {fileID: 706467599}
+  target: {fileID: 1070066666}
 --- !u!58 &634505641
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -581,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MeleeAttackBehaviour
   _damage: 1
   _attackCooldown: 1
-  target: {fileID: 706467599}
+  target: {fileID: 1070066666}
 --- !u!114 &634505645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +695,22 @@ MonoBehaviour:
   _knockbackResistance: 0
   _knockbackDuration: 0.2
   _knockbackRecoveryTime: 0.1
+--- !u!114 &634505650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426e957432437e742aeff39921c77ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemyWeapon
+  _weapons:
+  - {fileID: 11400000, guid: adc108fd6a6325c47a52bb539acbd654, type: 2}
+  _switchCooldown: 1
+  shootPoint: {fileID: 569714483}
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +730,8 @@ GameObject:
   - component: {fileID: 706467612}
   - component: {fileID: 706467614}
   - component: {fileID: 706467613}
+  - component: {fileID: 706467616}
+  - component: {fileID: 706467615}
   m_Layer: 10
   m_Name: Player Square
   m_TagString: Untagged
@@ -839,9 +890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4027321925e54e47a170802415c1da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.DashBehaviour
-  dashSpeed: 20
-  dashDuration: 0.1
-  dashCooldown: 2
+  _dashSpeed: 20
+  _dashDuration: 0.1
+  _dashCooldown: 2
 --- !u!61 &706467611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -939,6 +990,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &706467615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706467599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7ad61729e890545b0ba92ee366c358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MagicPointsBehaviour
+  _maxMagicPoints: 10
+  _regenerationTime: 50
+  _currentMagicPoints: 0
+--- !u!114 &706467616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706467599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7182a8f43640b44ae393f0e6393e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.StaminaBehaviour
+  _dashCost: 50
+  _maxStamina: 100
+  _regenerationTime: 5
+  _regenerationStaminaCooldown: 2
+  _currentStamina: 0
 --- !u!1 &878052073
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1075,8 @@ GameObject:
   - component: {fileID: 1070066678}
   - component: {fileID: 1070066677}
   - component: {fileID: 1070066680}
+  - component: {fileID: 1070066682}
+  - component: {fileID: 1070066681}
   m_Layer: 10
   m_Name: Female
   m_TagString: Untagged
@@ -1120,9 +1205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4027321925e54e47a170802415c1da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.DashBehaviour
-  dashSpeed: 20
-  dashDuration: 0.1
-  dashCooldown: 2
+  _dashSpeed: 20
+  _dashDuration: 0.1
+  _dashCooldown: 2
 --- !u!114 &1070066672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,6 +1377,38 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1070066681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070066666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7ad61729e890545b0ba92ee366c358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MagicPointsBehaviour
+  _maxMagicPoints: 10
+  _regenerationTime: 50
+  _currentMagicPoints: 0
+--- !u!114 &1070066682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070066666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7182a8f43640b44ae393f0e6393e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.StaminaBehaviour
+  _dashCost: 50
+  _maxStamina: 100
+  _regenerationTime: 5
+  _regenerationStaminaCooldown: 2
+  _currentStamina: 0
 --- !u!1 &1097255257
 GameObject:
   m_ObjectHideFlags: 0
