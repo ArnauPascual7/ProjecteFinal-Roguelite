@@ -1,4 +1,5 @@
 using System;
+using Roguelite.Interfaces;
 using UnityEngine;
 
 namespace Roguelite.Behaviours
@@ -30,7 +31,12 @@ namespace Roguelite.Behaviours
         {
             if (Time.time > _timer + _attackCooldown)
             {
-                Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {_damage} damage to {target.name}");
+                if (target.TryGetComponent<ITargeteable>(out ITargeteable targetable))
+                {
+                    targetable.TakeDamage(_damage);
+                    Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {_damage} damage to {target.name}");
+                }
+
                 _timer = Time.time;
             }
         }
