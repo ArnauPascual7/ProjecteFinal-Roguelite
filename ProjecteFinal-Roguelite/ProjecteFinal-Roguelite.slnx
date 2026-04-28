@@ -38,6 +38,7 @@
   <Project Path="Unity.Cinemachine.csproj" />
   <Project Path="Unity.VisualScripting.Flow.csproj" />
   <Project Path="Unity.Splines.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.PerformanceTesting.csproj" />
   <Project Path="Unity.2D.Tilemap.Extras.Editor.csproj" />
   <Project Path="Unity.TextMeshPro.csproj" />
@@ -47,7 +48,6 @@
   <Project Path="Unity.InternalAPIEngineBridge.001.csproj" />
   <Project Path="Unity.Burst.Editor.csproj" />
   <Project Path="Unity.2D.Common.Path.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.2D.Common.Editor.csproj" />
   <Project Path="ScriptablePacker.csproj" />
   <Project Path="Unity.Rider.Editor.csproj" />
