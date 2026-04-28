@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 634505648}
   - component: {fileID: 634505649}
   - component: {fileID: 634505650}
+  - component: {fileID: 634505651}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -679,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749035379317fa74a89fd16c2ac56c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemyHealth
-  _health: 100
+  _health: 2000
 --- !u!114 &634505649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,6 +712,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: adc108fd6a6325c47a52bb539acbd654, type: 2}
   _switchCooldown: 1
   shootPoint: {fileID: 569714483}
+--- !u!114 &634505651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f63ce52694097b4d985cca1f4e4d28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.AimRotationBehaviour
+  _camera: {fileID: 0}
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
