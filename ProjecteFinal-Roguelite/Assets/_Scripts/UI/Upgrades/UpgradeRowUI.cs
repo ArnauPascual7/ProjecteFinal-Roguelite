@@ -75,24 +75,19 @@ public class UpgradeRowUI : MonoBehaviour
         int cost = _data.costs[levelIndex];
 
         // Descripció dinàmica
-        string descriptionToShow;
+        string descriptionToShow = "Sense descripció";
 
-        // Si hi ha descripcions específiques per cada nivell
-        if (_data.levelDescriptions != null && levelIndex < _data.levelDescriptions.Length)
+        if (_data.levelDescriptions != null && _data.levelDescriptions.Length > 0)
         {
-            descriptionToShow = _data.levelDescriptions[levelIndex];
-        }
-        else
-        {
-            // Sinó mostrar la primera o un text per defecte
-            descriptionToShow = _data.levelDescriptions.Length > 0 ? _data.levelDescriptions[0] : "Sense descripció.";
-
+            // Si hi ha descripció del nivell, mostrar. Si no, mostrar genèrica
+            int descIndex = (levelIndex < _data.levelDescriptions.Length) ? levelIndex : 0;
+            descriptionToShow = _data.levelDescriptions[descIndex];
         }
 
         // Enviar info al panell de la dreta
         if (UpgradeDetailUI.Instance != null)
         {
-            UpgradeDetailUI.Instance.DisplayUpgrade(_data.upgradeName, _data.description, cost, _data.icon);
+            UpgradeDetailUI.Instance.DisplayUpgrade(_data.upgradeName, descriptionToShow, cost, _data.icon);
         }
 
         // Lògica de restar experiència

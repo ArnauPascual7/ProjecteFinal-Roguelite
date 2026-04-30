@@ -26,10 +26,31 @@ namespace Roguelite.UI
 
         public void DisplayUpgrade(string name, string desc, int cost, Sprite icon)
         {
+            //
+            Debug.Log("Description: " + desc);
+
+            if (_titleText != null)
+            {
+                _titleText.text = name;
+            }
+
+            if (_descriptionText != null)
+            {
+                _descriptionText.text = desc;
+            }
+
+            if (_iconImage != null)
+            {
+                _iconImage.sprite = icon;
+                _iconImage.enabled = (icon != null);
+            }
+            //
+
+            /*
             _titleText.text = name;
             _descriptionText.text = desc;
             _costText.text = $"COST: {cost}";
-            _iconImage.sprite = icon;
+            _iconImage.sprite = icon; */
 
             // Lògica de comprovació de diners del jugador
             // _buyButton.interactable = (currentMoney >= cost);

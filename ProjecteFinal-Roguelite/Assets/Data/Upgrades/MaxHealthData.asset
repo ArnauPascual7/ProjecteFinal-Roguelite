@@ -12,21 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112fce6dba8239148be6d97f25bf30ba, type: 3}
   m_Name: MaxHealthData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: "Vida M\xE0xima"
+  upgradeName: Vida Maxima
   description: 
   icon: {fileID: 0}
   levelDescriptions:
-  - 3 cors
-  - 4 cors
-  - 5 cors
-  - 6 cors
-  - 7 cors
-  - 8 cors
-  - 9 cors
-  - 10 cors
-  - 11 cors
-  - 12 cors
-  - 14 cors
+  - 'Cors base: 3'
+  - Augmenta el total de cors a 4
+  - Augmenta el total de cors a 5
+  - Augmenta el total de cors a 6
+  - Augmenta el total de cors a 7
+  - Augmenta el total de cors a 8
+  - Augmenta el total de cors a 9
+  - Augmenta el total de cors a 10
+  - Augmenta el total de cors a 12
   values:
   - 3
   - 4
@@ -36,7 +34,5 @@ MonoBehaviour:
   - 8
   - 9
   - 10
-  - 11
   - 12
-  - 14
-  costs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  costs: 000000000000000000000000000000000000000000000000000000000000000000000000

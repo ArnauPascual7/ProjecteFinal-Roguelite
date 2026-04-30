@@ -15,9 +15,20 @@ MonoBehaviour:
   upgradeName: Velocitat de Moviment
   description: 
   icon: {fileID: 0}
-  levelDescriptions: []
+  levelDescriptions:
+  - Augmenta un 2.5% la velocitat de moviment
+  - Augmenta un 5% la velocitat de moviment
+  - Augmenta un 10% la velocitat de moviment
+  - Augmenta un 15% la velocitat de moviment
+  - Augmenta un 20% la velocitat de moviment
+  - Augmenta un 25% la velocitat de moviment
+  - Augmenta un 30% la velocitat de moviment
+  - Augmenta un 35% la velocitat de moviment
+  - Augmenta un 40% la velocitat de moviment
+  - Augmenta un 45% la velocitat de moviment
+  - Augmenta un 50% la velocitat de moviment
   values:
-  - 1
+  - 1.025
   - 1.05
   - 1.1
   - 1.15
