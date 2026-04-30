@@ -11,7 +11,6 @@ namespace Roguelite.Enemy
     public class EnemyController : MonoBehaviour
     {
         [HideInInspector] public Condition idle;
-        [HideInInspector] public Condition comeBack;
         [HideInInspector] public Condition chase;
         [HideInInspector] public Condition attack;
         [HideInInspector] public Condition knockback;
@@ -36,7 +35,6 @@ namespace Roguelite.Enemy
             _health.OnEnemyDeath += UpdateDieCheck;
 
             _tdb.OnTargetDetected += UpdateChaseStateCheck;
-            _ripb.OnReachDestination += UpdateComeBackStateCheck;
             _mab.OnCanAttack += UpdateAttackStateCheck;
             _kb.OnReceiveKnockback += UpdateKnockbackCheck;
         }
@@ -46,7 +44,6 @@ namespace Roguelite.Enemy
             _health.OnEnemyDeath -= UpdateDieCheck;
 
             _tdb.OnTargetDetected -= UpdateChaseStateCheck;
-            _ripb.OnReachDestination -= UpdateComeBackStateCheck;
             _mab.OnCanAttack -= UpdateAttackStateCheck;
             _kb.OnReceiveKnockback -= UpdateKnockbackCheck;
         }
@@ -54,7 +51,6 @@ namespace Roguelite.Enemy
         private void Awake()
         {
             idle = new Condition("Idle");
-            comeBack = new Condition("CumBack");
             chase = new Condition("Chase");
             attack = new Condition("Attack");
             knockback = new Condition("KnockBack");
@@ -85,7 +81,6 @@ namespace Roguelite.Enemy
         }
 
         private void UpdateChaseStateCheck(bool check) => chase.check = check;
-        private void UpdateComeBackStateCheck(bool check) => comeBack.check = check;
         private void UpdateAttackStateCheck(bool check) => attack.check = check;
         private void UpdateKnockbackCheck(bool check) => knockback.check = check;
         private void UpdateDieCheck(bool check) => die.check = check;
@@ -116,15 +111,12 @@ namespace Roguelite.Enemy
             }
         }
 
-        public void ComeBack()
+        public void IdleStart()
         {
-            if (_ripb != null)
-            {
-                _ripb.ReturnToInitialPosition();
-            }
+            _cb.StopChase();
         }
 
-        public void Chase()
+        public void ChaseUpdate()
         {
             if (_cb != null)
             {
@@ -132,7 +124,7 @@ namespace Roguelite.Enemy
             }
         }
 
-        public void Attack()
+        public void AttackUpdate()
         {
             if (_mab != null)
             {
@@ -141,7 +133,7 @@ namespace Roguelite.Enemy
 
         }
 
-        public void Die()
+        public void DieStart()
         {
             gameObject.SetActive(false);
         }

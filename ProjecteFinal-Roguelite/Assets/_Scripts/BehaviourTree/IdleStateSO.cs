@@ -15,5 +15,10 @@ namespace Roguelite.BehaviourTree
         {
             return econtroller.chase.check || econtroller.attack.check || econtroller.knockback.check || econtroller.die.check;
         }
+
+        public override void OnStart(EnemyController econtroller)
+        {
+            econtroller.IdleStart();
+        }
     }
 }

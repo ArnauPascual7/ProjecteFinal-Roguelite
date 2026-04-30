@@ -20,7 +20,7 @@ namespace Roguelite.BehaviourTree
         {
             base.OnUpdate(econtroller);
 
-            econtroller.Chase();
+            econtroller.ChaseUpdate();
         }
     }
 }
