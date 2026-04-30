@@ -23,3 +23,4 @@ MonoBehaviour:
   projectilesPerShot: 1
   timeBetweenProjectiles: 0
   projectilePrefab: {fileID: 6474410123690865267, guid: c417460c8f90a3d408f3e76e0176b6d1, type: 3}
+  projectileLayerName: Player Projectile
