@@ -33,6 +33,8 @@ namespace Roguelite.Enemy
 
         private void OnEnable()
         {
+            _health.OnEnemyDeath += UpdateDieCheck;
+
             _tdb.OnTargetDetected += UpdateChaseStateCheck;
             _ripb.OnReachDestination += UpdateComeBackStateCheck;
             _mab.OnCanAttack += UpdateAttackStateCheck;
@@ -41,6 +43,8 @@ namespace Roguelite.Enemy
 
         private void OnDisable()
         {
+            _health.OnEnemyDeath -= UpdateDieCheck;
+
             _tdb.OnTargetDetected -= UpdateChaseStateCheck;
             _ripb.OnReachDestination -= UpdateComeBackStateCheck;
             _mab.OnCanAttack -= UpdateAttackStateCheck;
@@ -84,6 +88,7 @@ namespace Roguelite.Enemy
         private void UpdateComeBackStateCheck(bool check) => comeBack.check = check;
         private void UpdateAttackStateCheck(bool check) => attack.check = check;
         private void UpdateKnockbackCheck(bool check) => knockback.check = check;
+        private void UpdateDieCheck(bool check) => die.check = check;
 
         public void ChangeState()
         {
