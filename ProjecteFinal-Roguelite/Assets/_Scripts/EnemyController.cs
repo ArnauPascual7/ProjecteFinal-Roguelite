@@ -21,12 +21,14 @@ namespace Roguelite.Enemy
         public BehaviourState currentState;
 
         private EnemyHealth _health;
+        private EnemyWeapon _weapon;
 
         private TargetDetectionBehaviour _tdb;
         private KnockbackBehaviour _kb;
         private ReturnToInitPosBehaviour _ripb;
         private ChaseBehaviour _cb;
         private MeleeAttackBehaviour _mab;
+        private ProjectileFiringBehaviour _pfb;
 
         private BoxCollider2D _collider;
 
@@ -57,11 +59,13 @@ namespace Roguelite.Enemy
             die = new Condition("Die");
 
             _health = GetComponent<EnemyHealth>();
+            _weapon = GetComponent<EnemyWeapon>();
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
             _mab = GetComponent<MeleeAttackBehaviour>();
             _kb = GetComponent<KnockbackBehaviour>();
+            _pfb = GetComponent<ProjectileFiringBehaviour>();
 
             _collider = GetComponent<BoxCollider2D>();
             _collider.isTrigger = false;
@@ -121,6 +125,10 @@ namespace Roguelite.Enemy
             if (_cb != null)
             {
                 _cb.ChaseTarget(_tdb.target.transform);
+                if (_weapon != null)
+                {
+                    _weapon.Shoot();
+                }
             }
         }
 

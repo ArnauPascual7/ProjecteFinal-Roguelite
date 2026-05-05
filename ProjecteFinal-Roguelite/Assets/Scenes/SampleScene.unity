@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 634505649}
   - component: {fileID: 634505650}
   - component: {fileID: 634505651}
+  - component: {fileID: 634505652}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -504,7 +505,7 @@ MonoBehaviour:
   _detectionRange: 10
   _ignoreLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 12288
   target: {fileID: 1070066666}
 --- !u!58 &634505641
 CircleCollider2D:
@@ -712,6 +713,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.AimRotationBehaviour
   _camera: {fileID: 0}
+--- !u!114 &634505652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634505636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb8bc9b377a4cb48a9b9e6a221822c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.ProjectileFiringBehaviour
 --- !u!1 &706467599
 GameObject:
   m_ObjectHideFlags: 0
