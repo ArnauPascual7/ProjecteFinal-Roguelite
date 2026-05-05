@@ -37,7 +37,7 @@ namespace Roguelite.Behaviours
             GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
             if (projectile.TryGetComponent<ProjectileBehaviour>(out var pb))
             {
-                pb.Initialize(this, shootPoint, weapon.projectileSpeed, weapon.damage, weapon.force, weapon.range);
+                pb.Initialize(this, shootPoint, weapon.projectileSpeed, weapon.damage, weapon.force, weapon.range, weapon.projectileLayerName);
             }
         }
     }

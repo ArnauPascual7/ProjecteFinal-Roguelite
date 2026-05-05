@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Roguelite
         [SerializeField] private float _knockbackRecoveryTime = 0.1f;
 
         public bool IsReceivingKnockback { get; private set; }
+        public event Action<bool> OnReceiveKnockback;
 
         private Rigidbody2D _rb;
         private bool canReceiveKnockback = true;
@@ -33,11 +35,13 @@ namespace Roguelite
         {
             canReceiveKnockback = false;
             IsReceivingKnockback = true;
+            OnReceiveKnockback?.Invoke(true);
 
             _rb.AddForce((1f - _knockbackResistance) * force * direction.normalized, ForceMode2D.Impulse);
 
             yield return new WaitForSeconds(_knockbackDuration);
             IsReceivingKnockback = false;
+            OnReceiveKnockback?.Invoke(false);
             _rb.linearVelocity = Vector2.zero;
 
             yield return new WaitForSeconds(_knockbackRecoveryTime);

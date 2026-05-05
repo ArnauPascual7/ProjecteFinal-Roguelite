@@ -17,5 +17,10 @@ namespace Roguelite.Behaviours
         {
             _mb.MoveCharacter(DistanceUtils.GetDirection(transform.position, target.position));
         }
+
+        public void StopChase()
+        {
+            _mb.MoveCharacter(Vector2.zero);
+        }
     }
 }
