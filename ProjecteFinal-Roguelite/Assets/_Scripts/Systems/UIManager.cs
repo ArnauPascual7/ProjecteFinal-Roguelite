@@ -46,5 +46,17 @@ namespace Roguelite.Systems
         {
             PlayerHealthText = $"{health}";
         }
+        private void UpdateHUDMagicPower(float magicPower)
+        {
+            PlayerMagicPowerText = $"{magicPower}";
+        }
+        private void UpdateHUDEnergy(float energy)
+        {
+            PlayerEnergyText = $"{energy}";
+        }
+        private void UpdateHUDExperience(int experience)
+        {
+            PlayerExperienceText = $"{experience}";
+        }
     }
 }
