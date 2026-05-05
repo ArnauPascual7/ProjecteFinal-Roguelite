@@ -5,13 +5,15 @@ using UnityEngine;
 namespace Roguelite.Player
 {
     [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
+    [RequireComponent(typeof(PlayerHealth))]
     [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour), typeof(StaminaBehaviour))]
     [RequireComponent(typeof(MagicPointsBehaviour))]
     public class PlayerController : MonoBehaviour
     {
         private PlayerInputs _playerInputs;
+        private PlayerHealth _playerHealth;
         private PlayerState _playerState;
-
+        
         private MoveBehaviour _mb;
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
@@ -20,6 +22,7 @@ namespace Roguelite.Player
         private void Awake()
         {
             _playerInputs = GetComponent<PlayerInputs>();
+            _playerHealth = GetComponent<PlayerHealth>();
             _playerState = GetComponent<PlayerState>();
 
             _mb = GetComponent<MoveBehaviour>();
@@ -41,16 +44,25 @@ namespace Roguelite.Player
 
         private void UpdateState()
         {
-            bool isMoving = _playerInputs.MoveInput != Vector2.zero;
-            bool isDashing = _db.IsDashing;
+            bool isDead = !_playerHealth.IsAlive;
 
-            if (isMoving)
+            if (!isDead)
             {
-                _playerState.CurrentPlayerState = isDashing ? PlayerStates.Dash : PlayerStates.Walk;
+                bool isMoving = _playerInputs.MoveInput != Vector2.zero;
+                bool isDashing = _db.IsDashing;
+
+                if (isMoving)
+                {
+                    _playerState.CurrentPlayerState = isDashing ? PlayerStates.Dash : PlayerStates.Walk;
+                }
+                else
+                {
+                    _playerState.CurrentPlayerState = PlayerStates.Idle;
+                }
             }
             else
             {
-                _playerState.CurrentPlayerState = PlayerStates.Idle;
+                _playerState.CurrentPlayerState = PlayerStates.Dead;
             }
         }
 

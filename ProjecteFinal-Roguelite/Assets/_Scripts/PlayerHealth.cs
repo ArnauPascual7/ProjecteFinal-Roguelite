@@ -8,25 +8,31 @@ namespace Roguelite.Player
     {
         [SerializeField] private float _health = 3;
 
+        public static event Action<float> OnHealthChange;
         public static event Action OnPlayerDeath;
+
+        public bool IsAlive => _health > 0;
 
         public float Health {
             get => _health; 
             set
             {
-                _health = value;
-                
-                if (_health <= 0)
-                {
-                    _health = 0;
-                }
+                if (value <= 0) _health = 0;
+                else _health = value;
+
+                OnHealthChange?.Invoke(_health);
             }
+        }
+
+        private void Start()
+        {
+            OnHealthChange?.Invoke(_health);
         }
 
         public void TakeDamage(float damage)
         {
             Health -= damage;
-            Debug.Log(Health);
+
             if (Health <= 0)
             {
                 Die();
