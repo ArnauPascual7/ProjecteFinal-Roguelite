@@ -1,0 +1,945 @@
+fileFormatVersion: 2
+guid: e8b2d31eee9cfc14fa7254180ad222ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2830002457401106995
+    second: Two-Handed Sword-Sheet-BlackOutlinet_0
+  - first:
+      213: -271447866472005433
+    second: Two-Handed Sword-Sheet-BlackOutlinet_1
+  - first:
+      213: -1902529387525389077
+    second: Two-Handed Sword-Sheet-BlackOutlinet_2
+  - first:
+      213: 386245979454911576
+    second: Two-Handed Sword-Sheet-BlackOutlinet_3
+  - first:
+      213: 8392806455112306678
+    second: Two-Handed Sword-Sheet-BlackOutlinet_4
+  - first:
+      213: 8425346954967573922
+    second: Two-Handed Sword-Sheet-BlackOutlinet_5
+  - first:
+      213: -8454608335374265237
+    second: Two-Handed Sword-Sheet-BlackOutlinet_6
+  - first:
+      213: -8392992909437076161
+    second: Two-Handed Sword-Sheet-BlackOutlinet_7
+  - first:
+      213: -4977654540481807312
+    second: Two-Handed Sword-Sheet-BlackOutlinet_8
+  - first:
+      213: 181645746440609456
+    second: Two-Handed Sword-Sheet-BlackOutlinet_9
+  - first:
+      213: 2863967263947576839
+    second: Two-Handed Sword-Sheet-BlackOutlinet_10
+  - first:
+      213: 637318113572253732
+    second: Two-Handed Sword-Sheet-BlackOutlinet_11
+  - first:
+      213: -6497273058827257112
+    second: Two-Handed Sword-Sheet-BlackOutlinet_12
+  - first:
+      213: 7449981958568312792
+    second: Two-Handed Sword-Sheet-BlackOutlinet_13
+  - first:
+      213: 5327416784092893695
+    second: Two-Handed Sword-Sheet-BlackOutlinet_14
+  - first:
+      213: 3381376039747384607
+    second: Two-Handed Sword-Sheet-BlackOutlinet_15
+  - first:
+      213: 5358348171129600559
+    second: Two-Handed Sword-Sheet-BlackOutlinet_16
+  - first:
+      213: 4301324770887815502
+    second: Two-Handed Sword-Sheet-BlackOutlinet_17
+  - first:
+      213: 8388269011530367526
+    second: Two-Handed Sword-Sheet-BlackOutlinet_18
+  - first:
+      213: 7389855767316889018
+    second: Two-Handed Sword-Sheet-BlackOutlinet_19
+  - first:
+      213: 3159694603611083169
+    second: Two-Handed Sword-Sheet-BlackOutlinet_20
+  - first:
+      213: 83381300056627931
+    second: Two-Handed Sword-Sheet-BlackOutlinet_21
+  - first:
+      213: -7428737064431285913
+    second: Two-Handed Sword-Sheet-BlackOutlinet_22
+  - first:
+      213: 1457465655065330956
+    second: Two-Handed Sword-Sheet-BlackOutlinet_23
+  - first:
+      213: 4165106888661942594
+    second: Two-Handed Sword-Sheet-BlackOutlinet_24
+  - first:
+      213: 2168927189930439156
+    second: Two-Handed Sword-Sheet-BlackOutlinet_25
+  - first:
+      213: -477315638146193698
+    second: Two-Handed Sword-Sheet-BlackOutlinet_26
+  - first:
+      213: -5480395366164129438
+    second: Two-Handed Sword-Sheet-BlackOutlinet_27
+  - first:
+      213: -3627554831976995471
+    second: Two-Handed Sword-Sheet-BlackOutlinet_28
+  - first:
+      213: 116300898963142843
+    second: Two-Handed Sword-Sheet-BlackOutlinet_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33220e2bd30364720800000000000000
+      internalID: 2830002457401106995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c006e78a9f9b3cf0800000000000000
+      internalID: -271447866472005433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be4cec12a9bd895e0800000000000000
+      internalID: -1902529387525389077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85435510ca83c5500800000000000000
+      internalID: 386245979454911576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff0391010d397470800000000000000
+      internalID: 8392806455112306678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a5e2488a68dce470800000000000000
+      internalID: 8425346954967573922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64d5fe63823baa80800000000000000
+      internalID: -8454608335374265237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d71a6ba69168b80800000000000000
+      internalID: -8392992909437076161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cb8f37191dbeab0800000000000000
+      internalID: -4977654540481807312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be9d8f08d5558200800000000000000
+      internalID: 181645746440609456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70651f77d0bdeb720800000000000000
+      internalID: 2863967263947576839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_11
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4207568927538d800800000000000000
+      internalID: 637318113572253732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eab2e7b39c05d5a0800000000000000
+      internalID: -6497273058827257112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df788f9e17a36760800000000000000
+      internalID: 7449981958568312792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff19f4ad659cee940800000000000000
+      internalID: 5327416784092893695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15f825c79f0dee20800000000000000
+      internalID: 3381376039747384607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2a3b0b954dac5a40800000000000000
+      internalID: 5358348171129600559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_17
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e415b58f61061bb30800000000000000
+      internalID: 4301324770887815502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_18
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6224fa8193e196470800000000000000
+      internalID: 8388269011530367526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_19
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd7b40daaa0e8660800000000000000
+      internalID: 7389855767316889018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a115fe408d79db20800000000000000
+      internalID: 3159694603611083169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_21
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda19c2c9da382100800000000000000
+      internalID: 83381300056627931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_22
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7698bc0cff2d7e890800000000000000
+      internalID: -7428737064431285913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_23
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0540829a45f93410800000000000000
+      internalID: 1457465655065330956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2414a36c5ae6dc930800000000000000
+      internalID: 4165106888661942594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_25
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f17d7ba9c3991e10800000000000000
+      internalID: 2168927189930439156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_26
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6ae8eb4fb3069f0800000000000000
+      internalID: -477315638146193698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_27
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269171b6379b1f3b0800000000000000
+      internalID: -5480395366164129438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_28
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17562c4991658adc0800000000000000
+      internalID: -3627554831976995471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_29
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8b1c92d0f2d9100800000000000000
+      internalID: 116300898963142843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_30
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53891d8e4f3e914ca613ea6a844b2d0
+      internalID: -484779657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Two-Handed Sword-Sheet-BlackOutlinet_31
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8bea5d8f546ad24aadce49f00263fcd
+      internalID: 670502643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6ece8c41146a89746a3b600e5f753a56
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":32.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Two-Handed Sword-Sheet-BlackOutlinet_0: 2830002457401106995
+      Two-Handed Sword-Sheet-BlackOutlinet_1: -271447866472005433
+      Two-Handed Sword-Sheet-BlackOutlinet_10: 2863967263947576839
+      Two-Handed Sword-Sheet-BlackOutlinet_11: 637318113572253732
+      Two-Handed Sword-Sheet-BlackOutlinet_12: -6497273058827257112
+      Two-Handed Sword-Sheet-BlackOutlinet_13: 7449981958568312792
+      Two-Handed Sword-Sheet-BlackOutlinet_14: 5327416784092893695
+      Two-Handed Sword-Sheet-BlackOutlinet_15: 3381376039747384607
+      Two-Handed Sword-Sheet-BlackOutlinet_16: 5358348171129600559
+      Two-Handed Sword-Sheet-BlackOutlinet_17: 4301324770887815502
+      Two-Handed Sword-Sheet-BlackOutlinet_18: 8388269011530367526
+      Two-Handed Sword-Sheet-BlackOutlinet_19: 7389855767316889018
+      Two-Handed Sword-Sheet-BlackOutlinet_2: -1902529387525389077
+      Two-Handed Sword-Sheet-BlackOutlinet_20: 3159694603611083169
+      Two-Handed Sword-Sheet-BlackOutlinet_21: 83381300056627931
+      Two-Handed Sword-Sheet-BlackOutlinet_22: -7428737064431285913
+      Two-Handed Sword-Sheet-BlackOutlinet_23: 1457465655065330956
+      Two-Handed Sword-Sheet-BlackOutlinet_24: 4165106888661942594
+      Two-Handed Sword-Sheet-BlackOutlinet_25: 2168927189930439156
+      Two-Handed Sword-Sheet-BlackOutlinet_26: -477315638146193698
+      Two-Handed Sword-Sheet-BlackOutlinet_27: -5480395366164129438
+      Two-Handed Sword-Sheet-BlackOutlinet_28: -3627554831976995471
+      Two-Handed Sword-Sheet-BlackOutlinet_29: 116300898963142843
+      Two-Handed Sword-Sheet-BlackOutlinet_3: 386245979454911576
+      Two-Handed Sword-Sheet-BlackOutlinet_30: -484779657
+      Two-Handed Sword-Sheet-BlackOutlinet_31: 670502643
+      Two-Handed Sword-Sheet-BlackOutlinet_4: 8392806455112306678
+      Two-Handed Sword-Sheet-BlackOutlinet_5: 8425346954967573922
+      Two-Handed Sword-Sheet-BlackOutlinet_6: -8454608335374265237
+      Two-Handed Sword-Sheet-BlackOutlinet_7: -8392992909437076161
+      Two-Handed Sword-Sheet-BlackOutlinet_8: -4977654540481807312
+      Two-Handed Sword-Sheet-BlackOutlinet_9: 181645746440609456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
