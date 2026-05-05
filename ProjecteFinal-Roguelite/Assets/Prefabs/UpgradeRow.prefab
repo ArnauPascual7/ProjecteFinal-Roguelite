@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeRowUI
   _nameText: {fileID: 7087273481278427859}
   _iconImage: {fileID: 8810745593470441919}
+  _levelIndicator: {fileID: 403771246578017250}
   _pipButtons:
   - {fileID: 3597471340818337987}
   - {fileID: 1259587752085474154}

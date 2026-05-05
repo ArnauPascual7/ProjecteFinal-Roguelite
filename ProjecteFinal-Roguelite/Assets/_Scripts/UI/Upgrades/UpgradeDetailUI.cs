@@ -11,7 +11,7 @@ namespace Roguelite.UI
         [SerializeField] private TextMeshProUGUI _titleText;
         [SerializeField] private TextMeshProUGUI _descriptionText;
         [SerializeField] private TextMeshProUGUI _costText;
-        [SerializeField] private Image _iconImage;
+        //[SerializeField] private Image _iconImage;
         [SerializeField] private Button _buyButton;
 
         private void Awake()
@@ -38,12 +38,13 @@ namespace Roguelite.UI
             {
                 _descriptionText.text = desc;
             }
-
+            /*
             if (_iconImage != null)
             {
                 _iconImage.sprite = icon;
                 _iconImage.enabled = (icon != null);
             }
+            */
             //
 
             /*
@@ -61,7 +62,7 @@ namespace Roguelite.UI
             _titleText.text = "Selecciona una millora";
             _descriptionText.text = "";
             _costText.text = "";
-            _iconImage.enabled = false;
+            //_iconImage.enabled = false;
         }
     }
 }

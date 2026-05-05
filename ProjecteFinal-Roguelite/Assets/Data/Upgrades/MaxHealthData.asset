@@ -16,7 +16,6 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   levelDescriptions:
-  - 'Cors base: 3'
   - Augmenta el total de cors a 4
   - Augmenta el total de cors a 5
   - Augmenta el total de cors a 6
@@ -24,6 +23,7 @@ MonoBehaviour:
   - Augmenta el total de cors a 8
   - Augmenta el total de cors a 9
   - Augmenta el total de cors a 10
+  - Augmenta el total de cors a 11
   - Augmenta el total de cors a 12
   values:
   - 3
