@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: MovementSpeedData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Velocitat de Moviment
-  description: 
   icon: {fileID: 0}
   levelDescriptions:
   - Augmenta un 5% la velocitat de moviment
@@ -38,3 +37,4 @@ MonoBehaviour:
   - 1.45
   - 1.5
   costs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  playerLevelRequired: 01000000010000000200000002000000030000000300000004000000040000000500000005000000

@@ -60,16 +60,20 @@ namespace Roguelite.UI
             for (int i = 0; i < _pipButtons.Length; i++)
             {
                 // Activar o desactivar segons si el nivell existeix a la taula
-                bool existeixNivell = i < _data.values.Length;
-                _pipButtons[i].gameObject.SetActive(existeixNivell);
+                bool existsLevel = i < _data.values.Length;
+                _pipButtons[i].gameObject.SetActive(existsLevel);
 
-                if (!existeixNivell)
+                if (!existsLevel)
                 {
                     continue;
                 }
                 activeCount++;
 
-                bool levelPlayerEnough = (i + 1) <= playerLevel;
+                // Llegir nivell requerit
+                int levelRequired = GetRequiredPlayerLevel(i);
+
+                // Comprovar
+                bool levelPlayerEnough = playerLevel >= levelRequired;
 
                 // Lògica de colors i interactuabilitat
                 ColorBlock cb = _pipButtons[i].colors;
@@ -154,6 +158,15 @@ namespace Roguelite.UI
             {
                 UpgradeDetailUI.Instance.DisplayUpgrade(_data.upgradeName, descriptionToShow, cost, _data.icon, this, levelIndex);
             }
+        }
+
+        public int GetRequiredPlayerLevel(int index)
+        {
+            if (_data != null && _data.playerLevelRequired != null && index < _data.playerLevelRequired.Length)
+            {
+                return _data.playerLevelRequired[index];
+            }
+            return 1; // Nivell 1 per defecte
         }
 
         // Cost del nivell actual que s'ha de comprar

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: MaxEnergyData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Energia Maxima
-  description: 
   icon: {fileID: 0}
   levelDescriptions:
   - Augmenta la energia maxima a 150
@@ -24,3 +23,4 @@ MonoBehaviour:
   - 200
   - 300
   costs: 000000000000000000000000
+  playerLevelRequired: 010000000300000005000000

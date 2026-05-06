@@ -4,7 +4,6 @@ using UnityEngine;
 public class UpgradeData : ScriptableObject
 {
     public string upgradeName;
-    [TextArea] public string description;
     public Sprite icon;
 
     [Header("Descriptions per Level")]
@@ -12,5 +11,8 @@ public class UpgradeData : ScriptableObject
 
     [Header("Levels Configuration")]
     public float[] values;
-    public int[] costs;   // Cost de cada nivell
+    public int[] costs;
+
+    [Header("Player Level Requirements")]
+    public int[] playerLevelRequired;
 }

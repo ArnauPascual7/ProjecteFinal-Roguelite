@@ -55,9 +55,9 @@ namespace Roguelite.UI
             // Obtenir nivell del jugador
             int playerLevel = PlayerLevelManager.Instance.GetPlayerLevel();
 
-            int requiredPlayerLevel = _inspectedLevelIndex + 1;
+            int requiredPlayerLevel = _currentSelectedRow.GetRequiredPlayerLevel(_inspectedLevelIndex);
 
-            
+            // Prioritats de bloqueig
             if (_currentSelectedRow.IsMaxLevel()) // Si la millora ja ha arribat al seu límit
             {
                 _costText.text = "MAXIMITZAT";
@@ -67,7 +67,7 @@ namespace Roguelite.UI
             }
             else if (playerLevel < requiredPlayerLevel) // Si el jugador no té prou nivell
             {
-                _costText.text = $"Requereix Nivell Jugador {requiredPlayerLevel}";
+                _costText.text = $"Requereix Nivell {requiredPlayerLevel}";
                 _costText.color = Color.red;
                 _buyButton.interactable = false;
             }
@@ -101,12 +101,12 @@ namespace Roguelite.UI
                 // Confirmar compra
                 _currentSelectedRow.ConfirmPurchase();
 
+                //int currentLevel = _currentSelectedRow.GetCurrentLevelIndex();
+
                 // Actualitzar panell de detalls amb el següent preu
-                _currentSelectedRow.OnPipClicked(_currentSelectedRow.GetCurrentLevelIndex());
-            }
-            else
-            {
-                Debug.LogWarning("No tens prous monedes o la millora ja està al màxim.");
+                //_currentSelectedRow.OnPipClicked(currentLevel < 11 ? currentLevel : 10);
+
+                Debug.Log($"<color=cyan>Millora comprada!</color>");
             }
         }
 
