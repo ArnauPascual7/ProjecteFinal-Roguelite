@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.BehaviourTree.ParentStateSO
   states:
   - {fileID: 11400000, guid: a1b0ffb10c6c180428bb85f38792fdff, type: 2}
+  - {fileID: 11400000, guid: d1e8162f63d54ad4cb22d6a8d537b8c4, type: 2}
   - {fileID: 11400000, guid: ed9db78f75dd26d4ebb530c9cd93a2ac, type: 2}
   - {fileID: 11400000, guid: 451843e9857686a488e339279bc5188a, type: 2}
-  - {fileID: 11400000, guid: ec3114f565cc94c4ea10c8c5d6236f38, type: 2}
   - {fileID: 11400000, guid: 3ad2f4bf66fa9bc44b92a0375216b332, type: 2}

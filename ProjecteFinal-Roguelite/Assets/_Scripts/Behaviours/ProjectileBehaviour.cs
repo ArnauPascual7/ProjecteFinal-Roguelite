@@ -7,7 +7,7 @@ namespace Roguelite.Behaviours
     public class ProjectileBehaviour : MonoBehaviour
     {
         private Rigidbody2D _rb;
-
+        
         private ProjectileFiringBehaviour _shooter;
         private float _speed;
         private float _damage;
@@ -21,7 +21,7 @@ namespace Roguelite.Behaviours
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage, float force, float range)
+        public void Initialize(ProjectileFiringBehaviour shooter, Transform shootPoint, float speed, float damage, float force, float range, string layer)
         {
             _shooter = shooter;
             _speed = speed;
@@ -32,8 +32,8 @@ namespace Roguelite.Behaviours
             _shotPosition = shooter.transform.position;
 
             transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);
-
-            gameObject.layer = shooter.gameObject.layer;
+            
+            gameObject.layer = LayerMask.NameToLayer(layer);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

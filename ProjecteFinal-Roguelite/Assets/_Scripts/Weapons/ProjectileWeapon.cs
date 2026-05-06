@@ -18,6 +18,7 @@ namespace Roguelite.Weapons
 
         [Header("Projectile Prefab")]
         public GameObject projectilePrefab;
+        public string projectileLayerName;
 
         public override RangedWeaponRuntimeState CreateRuntimeState()
             => new ProjectileWeaponRuntimeState { 
@@ -44,7 +45,7 @@ namespace Roguelite.Weapons
                 Debug.LogError($"PROJECTILE WEAPON '{weaponName}': Missing ProjectileFiringBehaviour on WeaponController.");
                 return;
             }
-
+            
             fb.FireProjectile(this, projectilePrefab, controller.shootPoint);
             state.currentMagazine -= projectilesPerShot;
             state.lastFireTime = Time.time;

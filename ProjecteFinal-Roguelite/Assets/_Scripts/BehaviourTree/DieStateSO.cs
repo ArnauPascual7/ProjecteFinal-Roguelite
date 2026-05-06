@@ -18,7 +18,7 @@ namespace Roguelite.BehaviourTree
 
         public override void OnStart(EnemyController econtroller)
         {
-            econtroller.Die();
+            econtroller.DieStart();
         }
     }
 }

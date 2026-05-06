@@ -26,6 +26,7 @@ namespace Roguelite.Enemy
                 Die();
             }
         }
+
         public void Die()
         {
             OnEnemyDeath?.Invoke(true);
