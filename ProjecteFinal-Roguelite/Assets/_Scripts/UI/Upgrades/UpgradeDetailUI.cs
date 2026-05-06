@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Roguelite.Economy;
+using Roguelite.Player;
 
 namespace Roguelite.UI
 {
@@ -14,6 +16,9 @@ namespace Roguelite.UI
         //[SerializeField] private Image _iconImage;
         [SerializeField] private Button _buyButton;
 
+        private UpgradeRowUI _currentSelectedRow;
+        private int _inspectedLevelIndex;
+
         private void Awake()
         {
             Instance = this;
@@ -24,37 +29,85 @@ namespace Roguelite.UI
             ClearDetails();
         }
 
-        public void DisplayUpgrade(string name, string desc, int cost, Sprite icon)
+        public void DisplayUpgrade(string upgradeName, string description, int cost, Sprite icon, UpgradeRowUI sender, int levelIndex)
         {
-            //
-            Debug.Log("Description: " + desc);
+            // Guardar la referència de qui envia la info
+            _currentSelectedRow = sender;
+            _inspectedLevelIndex = levelIndex;
 
-            if (_titleText != null)
+            // Actualitzar textos
+            _titleText.text = upgradeName;
+            _descriptionText.text = description;
+            //_iconImage.sprite = icon;
+            //_iconImage.enabled = (icon != null);
+
+            // Gestionar estat del botó de compra i text del cost
+            UpdateBuyButtonVisuals(cost);
+        }
+
+        private void UpdateBuyButtonVisuals(int cost)
+        {
+            if (_currentSelectedRow == null)
             {
-                _titleText.text = name;
+                return;
             }
 
-            if (_descriptionText != null)
-            {
-                _descriptionText.text = desc;
-            }
-            /*
-            if (_iconImage != null)
-            {
-                _iconImage.sprite = icon;
-                _iconImage.enabled = (icon != null);
-            }
-            */
-            //
+            // Obtenir nivell del jugador
+            int playerLevel = PlayerLevelManager.Instance.GetPlayerLevel();
 
-            /*
-            _titleText.text = name;
-            _descriptionText.text = desc;
-            _costText.text = $"COST: {cost}";
-            _iconImage.sprite = icon; */
+            int requiredPlayerLevel = _inspectedLevelIndex + 1;
 
-            // Lògica de comprovació de diners del jugador
-            // _buyButton.interactable = (currentMoney >= cost);
+            
+            if (_currentSelectedRow.IsMaxLevel()) // Si la millora ja ha arribat al seu límit
+            {
+                _costText.text = "MAXIMITZAT";
+                _costText.color = Color.white;
+                _buyButton.interactable = false;
+                // 
+            }
+            else if (playerLevel < requiredPlayerLevel) // Si el jugador no té prou nivell
+            {
+                _costText.text = $"Requereix Nivell Jugador {requiredPlayerLevel}";
+                _costText.color = Color.red;
+                _buyButton.interactable = false;
+            }
+            else // Si té nivell comprovar diners
+            {
+                _costText.text = $"COST: {cost} HC";
+
+                // Només interactuable si té prou diners al CurrencyManager
+                bool canAfford = CurrencyManager.Instance.CanAfford(cost);
+                _buyButton.interactable = canAfford;
+                _costText.color = canAfford ? Color.white : Color.red;
+            }
+        }
+
+        public void OnBuyClicked()
+        {
+            if (_currentSelectedRow == null)
+            {
+                return; 
+            }
+
+            // Obtenir cost del nivell que el jugador vol comprar
+            int cost = _currentSelectedRow.GetCurrentLevelCost();
+
+            // Comprovar economia
+            if (cost != -1 && CurrencyManager.Instance.CanAfford(cost))
+            {
+                // Restar diners
+                CurrencyManager.Instance.Spend(cost);
+
+                // Confirmar compra
+                _currentSelectedRow.ConfirmPurchase();
+
+                // Actualitzar panell de detalls amb el següent preu
+                _currentSelectedRow.OnPipClicked(_currentSelectedRow.GetCurrentLevelIndex());
+            }
+            else
+            {
+                Debug.LogWarning("No tens prous monedes o la millora ja està al màxim.");
+            }
         }
 
         public void ClearDetails()
@@ -63,6 +116,8 @@ namespace Roguelite.UI
             _descriptionText.text = "";
             _costText.text = "";
             //_iconImage.enabled = false;
+            _buyButton.interactable = false;
+            _currentSelectedRow = null;
         }
     }
 }
