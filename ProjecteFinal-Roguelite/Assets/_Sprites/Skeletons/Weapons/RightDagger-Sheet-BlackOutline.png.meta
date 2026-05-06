@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: 377173887ed071f48b4d92e837c3456e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6246147705921305839
+    second: RightDagger-Sheet-BlackOutline_0
+  - first:
+      213: -481423305201819590
+    second: RightDagger-Sheet-BlackOutline_1
+  - first:
+      213: 1580897262907684891
+    second: RightDagger-Sheet-BlackOutline_2
+  - first:
+      213: 326333960293271388
+    second: RightDagger-Sheet-BlackOutline_3
+  - first:
+      213: 1037688124970409156
+    second: RightDagger-Sheet-BlackOutline_4
+  - first:
+      213: 1475048699530442371
+    second: RightDagger-Sheet-BlackOutline_5
+  - first:
+      213: 8626822159183901720
+    second: RightDagger-Sheet-BlackOutline_6
+  - first:
+      213: 6643765814149883594
+    second: RightDagger-Sheet-BlackOutline_7
+  - first:
+      213: 1945924584044143935
+    second: RightDagger-Sheet-BlackOutline_8
+  - first:
+      213: 5394575761509517384
+    second: RightDagger-Sheet-BlackOutline_9
+  - first:
+      213: -1850365830910901515
+    second: RightDagger-Sheet-BlackOutline_10
+  - first:
+      213: 6961274255847507822
+    second: RightDagger-Sheet-BlackOutline_11
+  - first:
+      213: -7140007637651465347
+    second: RightDagger-Sheet-BlackOutline_12
+  - first:
+      213: -5948078648415851606
+    second: RightDagger-Sheet-BlackOutline_13
+  - first:
+      213: -5922067595371567046
+    second: RightDagger-Sheet-BlackOutline_14
+  - first:
+      213: -5934625630198286199
+    second: RightDagger-Sheet-BlackOutline_15
+  - first:
+      213: 5040447298687580085
+    second: RightDagger-Sheet-BlackOutline_16
+  - first:
+      213: 5188909241376246383
+    second: RightDagger-Sheet-BlackOutline_17
+  - first:
+      213: 2125039076021394052
+    second: RightDagger-Sheet-BlackOutline_18
+  - first:
+      213: -909275694473370308
+    second: RightDagger-Sheet-BlackOutline_19
+  - first:
+      213: -4269095938256648586
+    second: RightDagger-Sheet-BlackOutline_20
+  - first:
+      213: 4404777303883903560
+    second: RightDagger-Sheet-BlackOutline_21
+  - first:
+      213: -7479010019161807240
+    second: RightDagger-Sheet-BlackOutline_22
+  - first:
+      213: -3448395590225393287
+    second: RightDagger-Sheet-BlackOutline_23
+  - first:
+      213: 5375558639653094329
+    second: RightDagger-Sheet-BlackOutline_24
+  - first:
+      213: 2432804617913443569
+    second: RightDagger-Sheet-BlackOutline_25
+  - first:
+      213: 9002274312957432604
+    second: RightDagger-Sheet-BlackOutline_26
+  - first:
+      213: 2793784619955218751
+    second: RightDagger-Sheet-BlackOutline_27
+  - first:
+      213: -5180661058357272453
+    second: RightDagger-Sheet-BlackOutline_28
+  - first:
+      213: -1164770784481802512
+    second: RightDagger-Sheet-BlackOutline_29
+  - first:
+      213: -7122345190292738260
+    second: RightDagger-Sheet-BlackOutline_30
+  - first:
+      213: 3507414117602989739
+    second: RightDagger-Sheet-BlackOutline_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11380f541c93159a0800000000000000
+      internalID: -6246147705921305839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30e9dafd04a159f0800000000000000
+      internalID: -481423305201819590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18fff54fa970f510800000000000000
+      internalID: 1580897262907684891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c574d65020f578400800000000000000
+      internalID: 326333960293271388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc908c0adb966e00800000000000000
+      internalID: 1037688124970409156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386f9e12afc687410800000000000000
+      internalID: 1475048699530442371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814ff920c01a8b770800000000000000
+      internalID: 8626822159183901720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6a94bcec5633c50800000000000000
+      internalID: 6643765814149883594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35a6a76910510b10800000000000000
+      internalID: 1945924584044143935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84805bac2126dda40800000000000000
+      internalID: 5394575761509517384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f20908941e2256e0800000000000000
+      internalID: -1850365830910901515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_11
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67ccd3ad0a6b9060800000000000000
+      internalID: 6961274255847507822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b553802e899ec90800000000000000
+      internalID: -7140007637651465347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab6619cbfd247da0800000000000000
+      internalID: -5948078648415851606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38a60206e690dda0800000000000000
+      internalID: -5922067595371567046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9883a1dae69f3ada0800000000000000
+      internalID: -5934625630198286199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b7b95bdc1443f540800000000000000
+      internalID: 5040447298687580085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_17
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a09f78675b20840800000000000000
+      internalID: 5188909241376246383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_18
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a541cd7c7ad7d10800000000000000
+      internalID: 2125039076021394052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_19
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35a40cc29a9163f0800000000000000
+      internalID: -909275694473370308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6764620ecdf11c4c0800000000000000
+      internalID: -4269095938256648586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_21
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842f3b0de99e02d30800000000000000
+      internalID: 4404777303883903560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_22
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876e5485308353890800000000000000
+      internalID: -7479010019161807240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_23
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97987972b76d420d0800000000000000
+      internalID: -3448395590225393287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b30ec11a12d99a40800000000000000
+      internalID: 5375558639653094329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_25
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f429a219ee03c120800000000000000
+      internalID: 2432804617913443569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_26
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c139372aac08eec70800000000000000
+      internalID: 9002274312957432604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_27
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39616b4f4485c620800000000000000
+      internalID: 2793784619955218751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_28
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b706aea37389a18b0800000000000000
+      internalID: -5180661058357272453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_29
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6853a8427e5dfe0800000000000000
+      internalID: -1164770784481802512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_30
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2fa3e409c8582d90800000000000000
+      internalID: -7122345190292738260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightDagger-Sheet-BlackOutline_31
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba69aef8e86dca030800000000000000
+      internalID: 3507414117602989739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 09521ad789f186446af644ab3c2e0006
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":32.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      RightDagger-Sheet-BlackOutline_0: -6246147705921305839
+      RightDagger-Sheet-BlackOutline_1: -481423305201819590
+      RightDagger-Sheet-BlackOutline_10: -1850365830910901515
+      RightDagger-Sheet-BlackOutline_11: 6961274255847507822
+      RightDagger-Sheet-BlackOutline_12: -7140007637651465347
+      RightDagger-Sheet-BlackOutline_13: -5948078648415851606
+      RightDagger-Sheet-BlackOutline_14: -5922067595371567046
+      RightDagger-Sheet-BlackOutline_15: -5934625630198286199
+      RightDagger-Sheet-BlackOutline_16: 5040447298687580085
+      RightDagger-Sheet-BlackOutline_17: 5188909241376246383
+      RightDagger-Sheet-BlackOutline_18: 2125039076021394052
+      RightDagger-Sheet-BlackOutline_19: -909275694473370308
+      RightDagger-Sheet-BlackOutline_2: 1580897262907684891
+      RightDagger-Sheet-BlackOutline_20: -4269095938256648586
+      RightDagger-Sheet-BlackOutline_21: 4404777303883903560
+      RightDagger-Sheet-BlackOutline_22: -7479010019161807240
+      RightDagger-Sheet-BlackOutline_23: -3448395590225393287
+      RightDagger-Sheet-BlackOutline_24: 5375558639653094329
+      RightDagger-Sheet-BlackOutline_25: 2432804617913443569
+      RightDagger-Sheet-BlackOutline_26: 9002274312957432604
+      RightDagger-Sheet-BlackOutline_27: 2793784619955218751
+      RightDagger-Sheet-BlackOutline_28: -5180661058357272453
+      RightDagger-Sheet-BlackOutline_29: -1164770784481802512
+      RightDagger-Sheet-BlackOutline_3: 326333960293271388
+      RightDagger-Sheet-BlackOutline_30: -7122345190292738260
+      RightDagger-Sheet-BlackOutline_31: 3507414117602989739
+      RightDagger-Sheet-BlackOutline_4: 1037688124970409156
+      RightDagger-Sheet-BlackOutline_5: 1475048699530442371
+      RightDagger-Sheet-BlackOutline_6: 8626822159183901720
+      RightDagger-Sheet-BlackOutline_7: 6643765814149883594
+      RightDagger-Sheet-BlackOutline_8: 1945924584044143935
+      RightDagger-Sheet-BlackOutline_9: 5394575761509517384
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
