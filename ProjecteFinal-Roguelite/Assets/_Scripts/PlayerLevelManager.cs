@@ -7,7 +7,7 @@ namespace Roguelite.Player
     {
         public static PlayerLevelManager Instance;
 
-        [SerializeField] private int _currentPlayerLevel = 4; // Nivell actual
+        [SerializeField] private int _currentPlayerLevel = 1; // Nivell actual
         [SerializeField] private TextMeshProUGUI _levelText;
 
         private void Awake()

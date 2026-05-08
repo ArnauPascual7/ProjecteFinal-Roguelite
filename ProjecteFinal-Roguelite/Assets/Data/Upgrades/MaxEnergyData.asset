@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112fce6dba8239148be6d97f25bf30ba, type: 3}
   m_Name: MaxEnergyData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: Energia Maxima
+  upgradeName: "Energia M\xE0xima"
   icon: {fileID: 0}
   levelDescriptions:
   - Augmenta la energia maxima a 150
