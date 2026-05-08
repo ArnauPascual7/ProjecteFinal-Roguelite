@@ -5,11 +5,12 @@ namespace Roguelite.Behaviours
 {
     public class StaminaBehaviour : MonoBehaviour
     {
+        public float currentStamina = 0f;
+
         [SerializeField] private int _dashCost = 50;
         [SerializeField] private float _maxStamina = 100f;
         [SerializeField] private float _regenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
-        [SerializeField] private float _currentStamina;
 
         private bool _regenerate = false;
         private Coroutine _coroutine = null;
@@ -18,17 +19,17 @@ namespace Roguelite.Behaviours
 
         private void Awake()
         {
-            _currentStamina = _maxStamina;
+            currentStamina = _maxStamina;
         }
 
         public bool HasStamina()
         {
-            return _currentStamina >= _dashCost;
+            return currentStamina >= _dashCost;
         }
 
         public void ConsumeStamina(float cooldown)
         {
-            _currentStamina -= _dashCost;
+            currentStamina -= _dashCost;
             _timer = Time.time + _regenerationStaminaCooldown + cooldown;
 
             CancelRegeneration();
@@ -38,7 +39,7 @@ namespace Roguelite.Behaviours
         {
             _regenerationMultiplier = multiplier;
 
-            if (Time.time >= _timer && _currentStamina < _maxStamina)
+            if (Time.time >= _timer && currentStamina < _maxStamina)
             {
                 _regenerate = true;
 
@@ -63,11 +64,11 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
-                _currentStamina += ((_maxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+                currentStamina += ((_maxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
                 
-                if (_currentStamina >= _maxStamina)
+                if (currentStamina >= _maxStamina)
                 {
-                    _currentStamina = _maxStamina;
+                    currentStamina = _maxStamina;
                     CancelRegeneration();
                 }
 

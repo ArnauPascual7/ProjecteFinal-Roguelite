@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Roguelite.Systems
 {
-    public class UIManager : MonoBehaviour
+    public class HUDManager : MonoBehaviour
     {
-        public static UIManager Instance { get; private set; }
+        public static HUDManager Instance { get; private set; }
 
         [Header("Player HUD")]
         [SerializeField] private TextMeshProUGUI _pHealthText;
@@ -34,12 +34,16 @@ namespace Roguelite.Systems
 
         private void OnEnable()
         {
-            PlayerHealth.OnHealthChange += UpdateHUDHealth;
+            PlayerController.OnHealthChange += UpdateHUDHealth;
+            PlayerController.OnStaminaChange += UpdateHUDEnergy;
+            PlayerController.OnMagicPointsChange += UpdateHUDMagicPower;
         }
 
         private void OnDisable()
         {
-            PlayerHealth.OnHealthChange -= UpdateHUDHealth;
+            PlayerController.OnHealthChange -= UpdateHUDHealth;
+            PlayerController.OnStaminaChange -= UpdateHUDEnergy;
+            PlayerController.OnMagicPointsChange -= UpdateHUDMagicPower;
         }
 
         private void UpdateHUDHealth(float health)

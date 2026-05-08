@@ -8,8 +8,8 @@ namespace Roguelite.Player
     {
         [SerializeField] private float _health = 3;
 
-        public static event Action<float> OnHealthChange;
-        public static event Action OnPlayerDeath;
+        public event Action<float> OnHealthChange;
+        public event Action OnPlayerDeath;
 
         public bool IsAlive => _health > 0;
 

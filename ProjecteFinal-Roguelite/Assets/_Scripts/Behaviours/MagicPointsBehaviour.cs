@@ -6,9 +6,10 @@ namespace Roguelite.Behaviours
 {
     public class MagicPointsBehaviour : MonoBehaviour
     {
+        public float currentMagicPoints;
+
         [SerializeField] private float _maxMagicPoints = 10f;
         [SerializeField] private float _regenerationTime = 50f;
-        [SerializeField] private float _currentMagicPoints;
 
         private bool _regenerate = false;
         private Coroutine _coroutine = null;
@@ -17,23 +18,23 @@ namespace Roguelite.Behaviours
         private void Awake()
         {
             //_currentMagicPoints = _maxMagicPoints;
-            _currentMagicPoints = 0;
+            currentMagicPoints = 0;
         }
 
         public bool HasMagicPoints(float magicPointsCost)
         {
-            return _currentMagicPoints >= magicPointsCost;
+            return currentMagicPoints >= magicPointsCost;
         }
 
         public void ConsumeMagicPoints(float magicPointsCost)
         {
-            _currentMagicPoints -= magicPointsCost;
+            currentMagicPoints -= magicPointsCost;
             _timer = Time.time;
         }
 
         public void RegenerateMagicPoints()
         {
-            if (Time.time >= _timer && _currentMagicPoints < _maxMagicPoints)
+            if (Time.time >= _timer && currentMagicPoints < _maxMagicPoints)
             {
                 _regenerate = true;
 
@@ -57,11 +58,11 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
-                _currentMagicPoints += (_maxMagicPoints / _regenerationTime) * Time.deltaTime;
+                currentMagicPoints += (_maxMagicPoints / _regenerationTime) * Time.deltaTime;
 
-                if (_currentMagicPoints >= _maxMagicPoints)
+                if (currentMagicPoints >= _maxMagicPoints)
                 {
-                    _currentMagicPoints = _maxMagicPoints;
+                    currentMagicPoints = _maxMagicPoints;
                     CancelRegeneration();
                 }
 

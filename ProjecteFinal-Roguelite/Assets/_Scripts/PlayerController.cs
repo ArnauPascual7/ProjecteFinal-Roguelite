@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using Roguelite.Behaviours;
+using Roguelite.Systems;
 using UnityEngine;
 
 namespace Roguelite.Player
@@ -10,6 +12,10 @@ namespace Roguelite.Player
     [RequireComponent(typeof(MagicPointsBehaviour))]
     public class PlayerController : MonoBehaviour
     {
+        public static event Action<float> OnHealthChange;
+        public static event Action<float> OnStaminaChange;
+        public static event Action<float> OnMagicPointsChange;
+
         private PlayerInputs _playerInputs;
         private PlayerHealth _playerHealth;
         private PlayerState _playerState;
@@ -18,6 +24,18 @@ namespace Roguelite.Player
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
         private MagicPointsBehaviour _mpb;
+
+        private void OnEnable()
+        {
+            _playerHealth.OnHealthChange += HealthChange;
+        }
+
+        private void OnDisable()
+        {
+            _playerHealth.OnHealthChange -= HealthChange;
+        }
+
+        private void HealthChange(float h) => OnHealthChange?.Invoke(h);
 
         private void Awake()
         {
@@ -29,6 +47,15 @@ namespace Roguelite.Player
             _db = GetComponent<DashBehaviour>();
             _sb = GetComponent<StaminaBehaviour>();
             _mpb = GetComponent<MagicPointsBehaviour>();
+            
+            StartCoroutine(GMPlayerControllerInitCorroutine());
+        }
+
+        private IEnumerator GMPlayerControllerInitCorroutine()
+        {
+            yield return new WaitWhile(() => GameManager.Instance != null);
+            
+            GameManager.Instance.PlayerControllerInit(this);
         }
 
         private void Update()
@@ -37,7 +64,7 @@ namespace Roguelite.Player
 
             HandleMovement();
             Dash();
-
+            
             StaminaRegeneration();
             MagicPointsRegeneration();
         }
@@ -75,6 +102,7 @@ namespace Roguelite.Player
 
         private void Dash()
         {
+            OnStaminaChange?.Invoke(_sb.currentStamina);
             if (_playerInputs.MoveInput == Vector2.zero) return;
 
             if (_playerInputs.DashInput)
@@ -91,6 +119,7 @@ namespace Roguelite.Player
         {
             if (!_db.IsDashing)
             {
+                OnStaminaChange?.Invoke(_sb.currentStamina);
                 if (_playerInputs.MoveInput != Vector2.zero)
                 {
                     _sb.RegenerateStamina(_db.DashCooldown);
@@ -103,6 +132,7 @@ namespace Roguelite.Player
         }
         private void MagicPointsRegeneration()
         {
+            OnMagicPointsChange?.Invoke(_mpb.currentMagicPoints);
             _mpb.RegenerateMagicPoints();
         }
     }
