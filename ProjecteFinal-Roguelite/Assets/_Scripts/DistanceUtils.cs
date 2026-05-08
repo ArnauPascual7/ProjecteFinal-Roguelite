@@ -7,7 +7,7 @@ namespace Roguelite.Helpers
         public static bool HasLineOfSight(Vector2 from, Vector2 to, float range, LayerMask ignoreLayers)
         {
             if (!IsInRange(from, to, range)) return false;
-
+            
             Vector2 direction = GetDirection(from, to);
             float distance = GetDistance(from, to);
             bool hit = Physics2D.Raycast(from, direction, distance, ~ignoreLayers);

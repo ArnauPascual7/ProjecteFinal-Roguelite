@@ -13,7 +13,12 @@ namespace Roguelite.BehaviourTree
 
         public override bool ExitCondition(EnemyController econtroller)
         {
-            return econtroller.chase.check || econtroller.attack.check || econtroller.die.check;
+            return econtroller.chase.check || econtroller.attack.check || econtroller.knockback.check || econtroller.die.check;
+        }
+
+        public override void OnStart(EnemyController econtroller)
+        {
+            econtroller.IdleStart();
         }
     }
 }

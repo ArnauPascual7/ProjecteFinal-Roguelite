@@ -37,6 +37,7 @@ namespace Roguelite.Behaviours
         {
             if (collision.gameObject.layer == target.layer)
             {
+                OnTargetDetected?.Invoke(true);
                 _inRange = true;
             }
         }
