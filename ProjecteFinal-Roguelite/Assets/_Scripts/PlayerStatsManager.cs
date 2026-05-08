@@ -44,10 +44,12 @@ namespace Roguelite.Player
         {
             switch (type)
             {
+                // Vida màxima
                 case StatType.MaxHealth:
                     GetComponent<PlayerHealth>().SetMaxHealth(value);
                     break;
 
+                // Velocitat Màxima
                 case StatType.MoveSpeed:
                     // Suposem que el teu MoveBehaviour té una funció SetSpeed
                     if (TryGetComponent(out MoveBehaviour move))
@@ -56,6 +58,7 @@ namespace Roguelite.Player
                     }
                     break;
 
+                // Energia màxima
                 case StatType.MaxEnergy:
                     if (TryGetComponent(out StaminaBehaviour stamina))
                     {
@@ -63,9 +66,22 @@ namespace Roguelite.Player
                     }
                     break;
 
-                    //
+                // Dany
+                case StatType.AttackDamage:
+                    WeaponController weaponController = GetComponent<WeaponController>();
+                    if (weaponController != null)
+                    {
+                        weaponController.SetDamageBonus(value);
+                    }
+                    break;
             }
             Debug.Log($"Millora aplicada: {type} amb valor {value}");
         }
+
+        // Per aplicar millores:
+        //  Seleccionar Player.
+        //  Clicar 4 vegades a allUpgrades
+        //  Arrossegar scripatble objects
+        //  Revisar i assignar state types dels scritableObjects
     }
 }

@@ -11,6 +11,7 @@ namespace Roguelite
 
         public Transform shootPoint;
         public int CurrentWeaponIndex { get; private set; }
+        public float DamageMultiplier { get; private set; } = 1f;
 
         private RangedWeapon _currentWeapon;
         private RangedWeaponRuntimeState[] _weaponStates;
@@ -74,6 +75,13 @@ namespace Roguelite
             {
                 pw.Reload(this, (ProjectileWeaponRuntimeState)_currentState);
             }
+        }
+
+        public void SetDamageBonus(float percentageIncrease)
+        {
+            // Si rebem un 10 (per un +10%), el multiplicador serà 1.1
+            DamageMultiplier = 1f + (percentageIncrease / 100f);
+            Debug.Log($"[WEAPON CONTROLLER] Multiplicador de dany global: {DamageMultiplier}");
         }
     }
 }
