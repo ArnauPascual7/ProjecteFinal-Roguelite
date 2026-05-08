@@ -1,12 +1,14 @@
 using Roguelite.Player;
+using Roguelite.Systems;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace Roguelite.UI
 {
-    public class UpgradeRowUI : MonoBehaviour
+    public class UpgradeRowUI : MonoBehaviour, ISaveable
     {
         [Header("UI References")]
         [SerializeField] private TextMeshProUGUI _nameText;
@@ -198,6 +200,22 @@ namespace Roguelite.UI
 
             // Actualitzar el panell de detalls amb el nou preu del següent nivell
             OnPipClicked(_currentLevel < _data.values.Length ? _currentLevel : _currentLevel - 1);
+        }
+
+        public void PopulateSaveData(ref ObjectSaveData data)
+        {
+            if (data.upgrades == null) data.upgrades = new List<UpgradeSaveEntry>();
+            data.upgrades.Add(new UpgradeSaveEntry { upgradeID = _data.upgradeName, level = _currentLevel });
+        }
+        public void LoadFromSaveData(ObjectSaveData data)
+        {
+            if (data.upgrades == null) return;
+            var entry = data.upgrades.Find(u => u.upgradeID == _data.upgradeName);
+            if (entry != null)
+            {
+                _currentLevel = entry.level;
+                UpdateVisuals();
+            }
         }
     }
 }

@@ -101,10 +101,8 @@ namespace Roguelite.UI
                 // Confirmar compra
                 _currentSelectedRow.ConfirmPurchase();
 
-                //int currentLevel = _currentSelectedRow.GetCurrentLevelIndex();
-
-                // Actualitzar panell de detalls amb el següent preu
-                //_currentSelectedRow.OnPipClicked(currentLevel < 11 ? currentLevel : 10);
+                Roguelite.Systems.SaveManager.Instance.SaveAll();
+                Debug.Log("Partida guardada automàticament!");
 
                 Debug.Log($"<color=cyan>Millora comprada!</color>");
             }

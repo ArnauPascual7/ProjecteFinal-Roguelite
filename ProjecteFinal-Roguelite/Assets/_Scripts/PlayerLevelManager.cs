@@ -1,9 +1,10 @@
 using UnityEngine;
 using TMPro;
+using Roguelite.Systems;
 
 namespace Roguelite.Player
 {
-    public class PlayerLevelManager : MonoBehaviour
+    public class PlayerLevelManager : MonoBehaviour, ISaveable
     {
         public static PlayerLevelManager Instance;
 
@@ -34,6 +35,16 @@ namespace Roguelite.Player
             {
                 _levelText.text = "Nivell: " + _currentPlayerLevel;
             }
+        }
+
+        public void PopulateSaveData(ref ObjectSaveData data)
+        {
+            data.playerLevel = _currentPlayerLevel;
+        }
+        public void LoadFromSaveData(ObjectSaveData data)
+        {
+            _currentPlayerLevel = data.playerLevel;
+            UpdateGUI();
         }
     }
 }

@@ -1,10 +1,11 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using Roguelite.Systems;
 
 namespace Roguelite.Economy
 {
-    public class CurrencyManager : MonoBehaviour
+    public class CurrencyManager : MonoBehaviour, ISaveable
     {
         public static CurrencyManager Instance;
 
@@ -39,6 +40,16 @@ namespace Roguelite.Economy
             {
                 _currencyText.text = _coins.ToString() + " Monedes";
             }
+        }
+
+        public void PopulateSaveData(ref ObjectSaveData data)
+        {
+            data.coins = _coins;
+        }
+        public void LoadFromSaveData(ObjectSaveData data)
+        {
+            _coins = data.coins;
+            UpdateUI();
         }
     }
 }
