@@ -34,7 +34,7 @@ namespace Roguelite.Systems
                 s.PopulateSaveData(ref wrapper.ObjectData);
             }
 
-            // Gruardar el paquet gran a JSON
+            // Guardar el paquet gran a JSON
             string json = JsonUtility.ToJson(wrapper, true);
             File.WriteAllText(SaveSystem.GetFilePath(), json);
             Debug.Log("Partida Guardada!");
@@ -45,11 +45,11 @@ namespace Roguelite.Systems
             string path = SaveSystem.GetFilePath();
             if (!File.Exists(path)) return;
 
-            // 1. Llegim el paquet gran
+            // Llegir el paquet gran
             string content = File.ReadAllText(path);
             SaveSystem.SaveData wrapper = JsonUtility.FromJson<SaveSystem.SaveData>(content);
 
-            // 2. Repartim l'ObjectData intern als scripts
+            // Repartir ObjectData intern als scripts
             var saveables = Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Exclude).OfType<ISaveable>();
 
             foreach (var s in saveables)

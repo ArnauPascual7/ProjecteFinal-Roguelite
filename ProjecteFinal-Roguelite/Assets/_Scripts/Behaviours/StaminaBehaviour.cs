@@ -6,11 +6,13 @@ namespace Roguelite.Behaviours
     public class StaminaBehaviour : MonoBehaviour
     {
         [SerializeField] private int _dashCost = 50;
-        [SerializeField] private float _maxStamina = 100f;
-        [SerializeField] private float _regenerationTime = 5f;
+        [SerializeField] private float _baseMaxStamina = 100f;
+        [SerializeField] private float _baseRegenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
         [SerializeField] private float _currentStamina;
 
+        private float currentMaxStamina;
+        private float currentRegenTime;
         private bool _regenerate = false;
         private Coroutine _coroutine = null;
         private float _timer = 0f;
@@ -18,7 +20,7 @@ namespace Roguelite.Behaviours
 
         private void Awake()
         {
-            _currentStamina = _maxStamina;
+            _currentStamina = _baseMaxStamina;
         }
 
         public bool HasStamina()
@@ -38,7 +40,7 @@ namespace Roguelite.Behaviours
         {
             _regenerationMultiplier = multiplier;
 
-            if (Time.time >= _timer && _currentStamina < _maxStamina)
+            if (Time.time >= _timer && _currentStamina < _baseMaxStamina)
             {
                 _regenerate = true;
 
@@ -63,16 +65,26 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
-                _currentStamina += ((_maxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+                _currentStamina += ((_baseMaxStamina / _baseRegenerationTime) * Time.deltaTime) * _regenerationMultiplier;
                 
-                if (_currentStamina >= _maxStamina)
+                if (_currentStamina >= _baseMaxStamina)
                 {
-                    _currentStamina = _maxStamina;
+                    _currentStamina = _baseMaxStamina;
                     CancelRegeneration();
                 }
 
                 yield return new WaitForSeconds(Time.deltaTime) ;
             }
+        }
+
+        public void SetMaxStamina(float newValue)
+        {
+            currentMaxStamina = newValue;
+        }
+
+        public void UpdateRegenRate(float percentageReduction)
+        {
+            currentRegenTime = _baseRegenerationTime * (1f + (percentageReduction / 100f));
         }
     }
 }

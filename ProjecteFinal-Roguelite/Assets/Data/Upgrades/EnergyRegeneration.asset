@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnergyRegeneration
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: "Regeneraci\xF3 d'energia"
+  statType: 3
   icon: {fileID: 0}
   levelDescriptions:
   - "Redueix el temps de regeneraci\xF3 d'energia un 5%"
