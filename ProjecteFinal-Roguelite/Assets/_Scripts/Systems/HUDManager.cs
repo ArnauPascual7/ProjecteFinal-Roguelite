@@ -1,6 +1,8 @@
 using Roguelite.Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using static Roguelite.HealthHeartBar;
 
 namespace Roguelite.Systems
 {
@@ -14,10 +16,14 @@ namespace Roguelite.Systems
         [SerializeField] private TextMeshProUGUI _pEnergyText;
         [SerializeField] private TextMeshProUGUI _pExperienceText;
 
+        public float Health => _health;
+
         private string PlayerHealthText { get => _pHealthText.text; set => _pHealthText.text = value; }
         private string PlayerMagicPowerText { get => _pMagicPowerText.text; set => _pMagicPowerText.text = value; }
         private string PlayerEnergyText { get => _pEnergyText.text; set => _pEnergyText.text = value; }
         private string PlayerExperienceText { get => _pExperienceText.text; set => _pExperienceText.text = value; }
+
+        private float _health;
 
         private void Awake()
         {
@@ -48,6 +54,7 @@ namespace Roguelite.Systems
 
         private void UpdateHUDHealth(float health)
         {
+            _health = health;
             PlayerHealthText = $"{health}";
         }
         private void UpdateHUDMagicPower(float magicPower)
