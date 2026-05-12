@@ -12,6 +12,7 @@ namespace Roguelite.Enemy
     {
         Idle,
         Walk,
+        Attack,
         Dead
     }
 
