@@ -9,7 +9,10 @@ public enum StatType
     EnergyRegen, 
     DashCooldown, 
     AttackDamage, 
-    // 
+    AttackSpeed, 
+    ProjectileSpeed,
+    ReloadSpeed
+    //
 }
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Roguelite/Upgrade Data")]

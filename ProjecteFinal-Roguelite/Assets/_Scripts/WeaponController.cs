@@ -12,6 +12,9 @@ namespace Roguelite
         public Transform shootPoint;
         public int CurrentWeaponIndex { get; private set; }
         public float DamageMultiplier { get; private set; } = 1f;
+        public float AttackSpeedMultiplier { get; private set; } = 1f;
+        public float ProjectileSpeedMultiplier { get; private set; } = 1f;
+        public float ReloadSpeedMultiplier { get; private set; } = 1f;
 
         private RangedWeapon _currentWeapon;
         private RangedWeaponRuntimeState[] _weaponStates;
@@ -77,11 +80,25 @@ namespace Roguelite
             }
         }
 
+        // Mètodes d'injecció
         public void SetDamageBonus(float percentageIncrease)
         {
-            // Si rebem un 10 (per un +10%), el multiplicador serà 1.1
             DamageMultiplier = 1f + (percentageIncrease / 100f);
-            Debug.Log($"[WEAPON CONTROLLER] Multiplicador de dany global: {DamageMultiplier}");
+        }
+
+        public void SetAttackSpeedBonus(float percentageIncrease)
+        {
+            AttackSpeedMultiplier = 1f + (percentageIncrease / 100f);
+        }
+
+        public void SetProjectileSpeedBonus(float percentageIncrease)
+        {
+            ProjectileSpeedMultiplier = 1f + (percentageIncrease / 100f);
+        }
+
+        public void SetReloadSpeedBonus(float percentageIncrease)
+        {
+            ReloadSpeedMultiplier = 1f + (percentageIncrease / 100f);
         }
     }
 }
