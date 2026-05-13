@@ -7,13 +7,13 @@ namespace Roguelite.Behaviours
     [RequireComponent(typeof(BoxCollider2D))]
     public class MeleeAttackBehaviour : MonoBehaviour
     {
-        [SerializeField] private float _damage = 1f;
         [SerializeField] private float _attackCooldown = 1f;
 
         public event Action<bool> OnCanAttack;
 
         [Tooltip("This field is procedurally initialized")]
         public GameObject target;
+        public float damage = 1f;
 
         private BoxCollider2D _collider;
 
@@ -33,8 +33,8 @@ namespace Roguelite.Behaviours
             {
                 if (target.TryGetComponent<ITargeteable>(out ITargeteable targetable))
                 {
-                    targetable.TakeDamage(_damage);
-                    Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {_damage} damage to {target.name}");
+                    targetable.TakeDamage(damage);
+                    Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {damage} damage to {target.name}");
                 }
 
                 _timer = Time.time;

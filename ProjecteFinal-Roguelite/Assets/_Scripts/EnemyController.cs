@@ -21,6 +21,7 @@ namespace Roguelite.Enemy
         public BehaviourState currentState;
 
         private EnemyHealth _health;
+        private EnemyAnimation _animator;
         private EnemyAnimState _animStates;
         private EnemyWeapon _weapon;
 
@@ -60,7 +61,24 @@ namespace Roguelite.Enemy
             knockback = new Condition("KnockBack");
             die = new Condition("Die");
 
+            InitializeComponents();
+
+            _collider = GetComponent<BoxCollider2D>();
+            _collider.isTrigger = false;
+        }
+
+        public void InitializeEnemy(EnemyData data)
+        {
+            InitializeComponents();
+
+            _tdb.target = data.target;
+            _mb.speed = data.speed;
+        }
+
+        private void InitializeComponents()
+        {
             _health = GetComponent<EnemyHealth>();
+            _animator = GetComponent<EnemyAnimation>();
             _animStates = GetComponent<EnemyAnimState>();
             _weapon = GetComponent<EnemyWeapon>();
 
@@ -71,15 +89,6 @@ namespace Roguelite.Enemy
             _mab = GetComponent<MeleeAttackBehaviour>();
             _kb = GetComponent<KnockbackBehaviour>();
             _pfb = GetComponent<ProjectileFiringBehaviour>();
-
-            _collider = GetComponent<BoxCollider2D>();
-            _collider.isTrigger = false;
-        }
-
-        public void InitializeEnemy(EnemyData data)
-        {
-            _tdb.target = data.target;
-            _mb.speed = data.speed;
         }
 
         private void Start()

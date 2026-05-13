@@ -11,7 +11,7 @@ namespace Roguelite.Enemy
 
         public EnemyData(EnemyDifficulty diff)
         {
-            switch(diff)
+            switch (diff)
             {
                 case EnemyDifficulty.Easy:
                     health = GetRandomValue(100f, 300f);
