@@ -28,6 +28,7 @@ namespace Roguelite.Enemy
         private KnockbackBehaviour _kb;
         private ReturnToInitPosBehaviour _ripb;
         private ChaseBehaviour _cb;
+        private MoveBehaviour _mb;
         private MeleeAttackBehaviour _mab;
         private ProjectileFiringBehaviour _pfb;
 
@@ -66,12 +67,19 @@ namespace Roguelite.Enemy
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
+            _mb = GetComponent<MoveBehaviour>();
             _mab = GetComponent<MeleeAttackBehaviour>();
             _kb = GetComponent<KnockbackBehaviour>();
             _pfb = GetComponent<ProjectileFiringBehaviour>();
 
             _collider = GetComponent<BoxCollider2D>();
             _collider.isTrigger = false;
+        }
+
+        public void InitializeEnemy(EnemyData data)
+        {
+            _tdb.target = data.target;
+            _mb.speed = data.speed;
         }
 
         private void Start()
@@ -125,7 +133,10 @@ namespace Roguelite.Enemy
             _animStates.CurrentEnemyState = EnemyStates.Idle;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
 
-            _weapon.ResetPosition();
+            if (_weapon != null)
+            {
+                _weapon.ResetPosition();
+            }
         }
 
         public void ChaseUpdate()

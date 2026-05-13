@@ -20,8 +20,8 @@ GameObject:
   - component: {fileID: 729936662214238429}
   - component: {fileID: 5479228362262912869}
   - component: {fileID: 5746674965922848194}
-  - component: {fileID: 3668298958340971896}
-  - component: {fileID: 6343300963738083409}
+  - component: {fileID: 890861281827353879}
+  - component: {fileID: 2418599832156209636}
   m_Layer: 11
   m_Name: Skeleton6
   m_TagString: Untagged
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemyController
   root: {fileID: 11400000, guid: 5e1bb27b97532704c80e18115ac08b8c, type: 2}
   currentState: {fileID: 0}
---- !u!114 &3668298958340971896
+--- !u!114 &890861281827353879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d80fb4b137c91449a7147b2967b4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MoveBehaviour
-  speed: 2
---- !u!114 &6343300963738083409
+  speed: 5
+--- !u!114 &2418599832156209636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
