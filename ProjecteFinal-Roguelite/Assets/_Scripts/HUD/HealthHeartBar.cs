@@ -20,28 +20,43 @@ namespace Roguelite
         }
         private void Start()
         {
+            Debug.Log("Start()");
             DrawHearts();
         }
 
         public void DrawHearts()
         {
+            Debug.Log("DrawHearts");
             ClearHearts();
-
-            int heartsToMake = (int)(HUDManager.Instance.Health);
+            Debug.Log("DrawHearts2");
+            int heartsToMake = (int)(3 /*HUDManager.Instance.Health*/);
+            Debug.Log(heartsToMake);
             for (int i = 0; i < heartsToMake; i++)
             {
+                Debug.Log("Start CreateEmptyHeart");
                 CreateEmptyHeart();
+                Debug.Log("End CreateEmptyHeart");
             }
+
+            for (int i = 0; i < hearts.Count; i++)
+            {
+                int heartsStatusRemainder = (int)Mathf.Clamp(HUDManager.Instance.Health - (i * 2), 0, 2);
+                Debug.Log(HUDManager.Instance.Health);
+                hearts[i].SetHeartImage((HeartStatus)heartsStatusRemainder);
+            } 
+
         }
 
         public void CreateEmptyHeart()
         {
+            Debug.Log("CreateEmptyHeart");
             GameObject newHeart = Instantiate(heartPrefab);
             newHeart.transform.SetParent(transform);
-
+            Debug.Log("CreateEmptyHeart2");
             HealthHeart heartComponent = newHeart.GetComponent<HealthHeart>();
             heartComponent.SetHeartImage(HeartStatus.Empty);
             hearts.Add(heartComponent);
+            Debug.Log("CreateEmptyHeart3");
 
         }
 

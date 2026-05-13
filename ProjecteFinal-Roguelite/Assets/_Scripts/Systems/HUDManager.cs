@@ -17,6 +17,7 @@ namespace Roguelite.Systems
         [SerializeField] private TextMeshProUGUI _pExperienceText;
 
         public float Health => _health;
+        public float MaxHealth => _maxHealth;
 
         private string PlayerHealthText { get => _pHealthText.text; set => _pHealthText.text = value; }
         private string PlayerMagicPowerText { get => _pMagicPowerText.text; set => _pMagicPowerText.text = value; }
@@ -24,6 +25,9 @@ namespace Roguelite.Systems
         private string PlayerExperienceText { get => _pExperienceText.text; set => _pExperienceText.text = value; }
 
         private float _health;
+        private float _maxHealth;
+
+        public event System.Action<float> OnHealthChanged;
 
         private void Awake()
         {
@@ -56,6 +60,7 @@ namespace Roguelite.Systems
         {
             _health = health;
             PlayerHealthText = $"{health}";
+            OnHealthChanged?.Invoke(health);
         }
         private void UpdateHUDMagicPower(float magicPower)
         {
