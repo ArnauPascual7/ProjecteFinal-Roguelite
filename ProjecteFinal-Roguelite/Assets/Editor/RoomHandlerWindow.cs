@@ -1,13 +1,15 @@
-using Roguelite.LevelGeneration;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
+using TileData = Roguelite.DungeonGeneration.TileData;
 
-namespace Roguelite
+namespace Roguelite.DungeonGeneration
 {
     public class RoomHandlerWindow : EditorWindow
     {
+        private const string SAVE_PATH = "Assets/Resources/Rooms/";
+
         private Tilemap _floorTilemap;
         private Tilemap _wallTilemap;
         private Tilemap _noclipWallTilemap;
@@ -61,16 +63,102 @@ namespace Roguelite
             {
                 LoadRoom();
             }
+
+            GUILayout.Space(50);
+
+            GUILayout.Label("Clear Tilemaps", EditorStyles.whiteLargeLabel);
+
+            GUILayout.Space(10);
+
+            if (GUILayout.Button("Clear"))
+            {
+                ClearAllTilemaps();
+            }
         }
 
         private void SaveRoom()
         {
+            if (_floorTilemap == null || _wallTilemap == null || _noclipWallTilemap == null)
+            {
+                Debug.LogError("ROOM HANDLER WINDOW: One or more of the Tilemaps are Null");
+                return;
+            }
 
+            _floorTilemap.CompressBounds();
+            _wallTilemap.CompressBounds();
+            _noclipWallTilemap.CompressBounds();
+
+            if (_decoTilemap != null) _decoTilemap.CompressBounds();
+
+            BoundsInt roomBounds = _wallTilemap.cellBounds;
+
+            int width = roomBounds.size.x;
+            int height = roomBounds.size.y;
+
+            RoomData newRoom = ScriptableObject.CreateInstance<RoomData>();
+            newRoom.size = new Vector2Int(width, height);
+            newRoom.floorTiles = GetTilesData(_floorTilemap);
+            newRoom.wallTiles = GetTilesData(_wallTilemap);
+            newRoom.noclipWallTiles = GetTilesData(_noclipWallTilemap);
+            if (_decoTilemap != null) newRoom.decoTiles = GetTilesData(_decoTilemap);
+
+            AssetDatabase.CreateAsset(newRoom, SAVE_PATH + _newRoomName + ".asset");
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            Debug.Log("ROOM HANDLER WINDOW: Room saved successfully at " + SAVE_PATH + _newRoomName + ".asset");
+        }
+
+        private List<TileData> GetTilesData(Tilemap tilemap)
+        {
+            List<TileData> tiles = new();
+
+            BoundsInt bounds = tilemap.cellBounds;
+
+            for (int x = bounds.xMin; x < bounds.xMax; x++)
+            {
+                for (int y = bounds.yMin; y < bounds.yMax; y++)
+                {
+                    Vector3Int cellPos = new Vector3Int(x, y, 0);
+                    TileBase tile = tilemap.GetTile(cellPos);
+
+                    if (tile != null)
+                    {
+                        tiles.Add(new TileData(new Vector2Int(x, y), tile));
+                    }
+                }
+            }
+            return tiles;
         }
 
         private void LoadRoom()
         {
+            ClearAllTilemaps();
 
+            foreach (TileData tileData in _room.floorTiles)
+            {
+                _floorTilemap.SetTile(new Vector3Int(tileData.position.x, tileData.position.y, 0), tileData.tile);
+            }
+
+            foreach (TileData tileData in _room.wallTiles)
+            {
+                _wallTilemap.SetTile(new Vector3Int(tileData.position.x, tileData.position.y, 0), tileData.tile);
+            }
+
+            foreach (TileData tileData in _room.noclipWallTiles)
+            {
+                _noclipWallTilemap.SetTile(new Vector3Int(tileData.position.x, tileData.position.y, 0), tileData.tile);
+            }
+
+            Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room));
+        }
+
+        private void ClearAllTilemaps()
+        {
+            if (_floorTilemap != null) _floorTilemap.ClearAllTiles();
+            if (_wallTilemap != null) _wallTilemap.ClearAllTiles();
+            if (_noclipWallTilemap != null) _noclipWallTilemap.ClearAllTiles();
+            if (_decoTilemap != null) _decoTilemap.ClearAllTiles();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Roguelite.LevelGeneration
+namespace Roguelite.DungeonGeneration
 {
     public class RoomData : ScriptableObject
     {
