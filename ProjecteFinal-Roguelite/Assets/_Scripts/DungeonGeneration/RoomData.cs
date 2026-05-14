@@ -13,6 +13,21 @@ namespace Roguelite.DungeonGeneration
         public List<TileData> wallTiles = new();
         public List<TileData> noclipWallTiles = new();
         public List<TileData> decoTiles = new();
+
+        public List<DoorData> doors = new();
+    }
+
+    [Serializable]
+    public struct DoorData
+    {
+        public List<TileData> doorTiles;
+        public Direction direction;
+
+        public DoorData(List<TileData> doorTiles, Direction dir)
+        {
+            this.doorTiles = doorTiles;
+            this.direction = dir;
+        }
     }
 
     [Serializable]

@@ -101,6 +101,7 @@ namespace Roguelite.DungeonGeneration
             newRoom.wallTiles = GetTilesData(_wallTilemap);
             newRoom.noclipWallTiles = GetTilesData(_noclipWallTilemap);
             if (_decoTilemap != null) newRoom.decoTiles = GetTilesData(_decoTilemap);
+            newRoom.doors = GetDoorsData(_floorTilemap, _wallTilemap);
 
             AssetDatabase.CreateAsset(newRoom, SAVE_PATH + _newRoomName + ".asset");
             AssetDatabase.SaveAssets();
@@ -131,6 +132,41 @@ namespace Roguelite.DungeonGeneration
             return tiles;
         }
 
+        private List<DoorData> GetDoorsData(Tilemap floor, Tilemap walls)
+        {
+            List<DoorData> doors = new();
+
+            BoundsInt bounds = walls.cellBounds;
+
+            for (int x = bounds.xMin; x < bounds.xMax; x++)
+            {
+                for (int y = bounds.yMin; y < bounds.yMax; y++)
+                {
+                    Vector3Int cellPos = new Vector3Int(x, y, 0);
+
+                    TileBase wallTile = walls.GetTile(cellPos);
+                    TileBase floorTile = floor.GetTile(cellPos);
+
+                    if (wallTile == null && floorTile != null)
+                    {
+                        List<TileData> doorTiles = new();
+
+                        Direction dir = Direction.Up;
+
+                        if (walls.GetTile(new Vector3Int(x, y + 1, 0)) != null) dir = Direction.Up;
+                        else if (walls.GetTile(new Vector3Int(x, y - 1, 0)) != null) dir = Direction.Down;
+                        else if (walls.GetTile(new Vector3Int(x - 1, y, 0)) != null) dir = Direction.Left;
+                        else if (walls.GetTile(new Vector3Int(x + 1, y, 0)) != null) dir = Direction.Right;
+
+                        doorTiles.Add(new TileData(new Vector2Int(x, y), floorTile));
+                        doors.Add(new DoorData(doorTiles, dir));
+                    }
+                }
+            }
+
+            return doors;
+        }
+
         private void LoadRoom()
         {
             ClearAllTilemaps();
@@ -150,7 +186,7 @@ namespace Roguelite.DungeonGeneration
                 _noclipWallTilemap.SetTile(new Vector3Int(tileData.position.x, tileData.position.y, 0), tileData.tile);
             }
 
-            Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room));
+            Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room) + "--- " + _room.doors.Count);
         }
 
         private void ClearAllTilemaps()

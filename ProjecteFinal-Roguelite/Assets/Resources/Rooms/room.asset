@@ -145,3 +145,148 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
   noclipWallTiles: []
   decoTiles: []
+  doors:
+  - doorTiles:
+    - position: {x: -3, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: -3, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 3
+  - doorTiles:
+    - position: {x: -3, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 3
+  - doorTiles:
+    - position: {x: -3, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 3
+  - doorTiles:
+    - position: {x: -3, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 3
+  - doorTiles:
+    - position: {x: -3, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -2, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: -2, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -2, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -2, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -2, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -2, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -1, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: -1, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -1, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -1, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -1, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: -1, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 0, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: 0, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 0, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 0, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 0, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 0, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 1, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: 1, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 1, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 1, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 1, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 1, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
+  - doorTiles:
+    - position: {x: 2, y: -3}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 2
+  - doorTiles:
+    - position: {x: 2, y: -2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 1
+  - doorTiles:
+    - position: {x: 2, y: -1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 1
+  - doorTiles:
+    - position: {x: 2, y: 0}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 1
+  - doorTiles:
+    - position: {x: 2, y: 1}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 1
+  - doorTiles:
+    - position: {x: 2, y: 2}
+      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+    direction: 0
