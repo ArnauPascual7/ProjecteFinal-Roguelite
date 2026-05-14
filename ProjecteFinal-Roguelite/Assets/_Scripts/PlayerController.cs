@@ -15,27 +15,39 @@ namespace Roguelite.Player
         public static event Action<float> OnHealthChange;
         public static event Action<float> OnStaminaChange;
         public static event Action<float> OnMagicPointsChange;
+        public static event Action<float> OnMaxHealthChange;
+        public static event Action<float, float> OnStaminaStart;
 
         private PlayerInputs _playerInputs;
         private PlayerHealth _playerHealth;
         private PlayerState _playerState;
-        
+
+        public StaminaBehaviour Stamina => _sb;
+        public PlayerHealth Health => _playerHealth;
+
         private MoveBehaviour _mb;
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
         private MagicPointsBehaviour _mpb;
 
+        private void Start()
+        {
+            OnStaminaStart?.Invoke(_sb._maxStamina, _sb.currentStamina);
+        }
         private void OnEnable()
         {
             _playerHealth.OnHealthChange += HealthChange;
+            _playerHealth.OnMaxHealthChange += MaxHealthChange;
         }
 
         private void OnDisable()
         {
             _playerHealth.OnHealthChange -= HealthChange;
+            _playerHealth.OnMaxHealthChange -= MaxHealthChange;
         }
 
         private void HealthChange(float h) => OnHealthChange?.Invoke(h);
+        private void MaxHealthChange(float mh) => OnMaxHealthChange?.Invoke(mh);
 
         private void Awake()
         {

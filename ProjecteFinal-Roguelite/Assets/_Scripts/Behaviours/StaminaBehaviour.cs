@@ -8,7 +8,7 @@ namespace Roguelite.Behaviours
         public float currentStamina = 0f;
 
         [SerializeField] private int _dashCost = 50;
-        [SerializeField] private float _maxStamina = 100f;
+        [SerializeField] public float _maxStamina = 100f;
         [SerializeField] private float _regenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
 

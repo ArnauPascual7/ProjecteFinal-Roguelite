@@ -9,42 +9,46 @@ namespace Roguelite
     public class HealthHeartBar : MonoBehaviour
     {
         public GameObject heartPrefab;
-        
-        private PlayerHealth _playerHealth;
 
         List<HealthHeart> hearts = new List<HealthHeart>();
 
-        private void Awake()
-        {
-            _playerHealth = GetComponent<PlayerHealth>();
-        }
         private void Start()
         {
-            Debug.Log("Start()");
-            DrawHearts();
+            HUDManager.Instance.OnMaxHealthChanged += BuildHearts;
+            HUDManager.Instance.OnHealthChanged += UpdateHearts;
         }
 
-        public void DrawHearts()
+        private void OnDestroy()
         {
-            Debug.Log("DrawHearts");
-            ClearHearts();
-            Debug.Log("DrawHearts2");
-            int heartsToMake = (int)(3 /*HUDManager.Instance.Health*/);
-            Debug.Log(heartsToMake);
-            for (int i = 0; i < heartsToMake; i++)
+            if (HUDManager.Instance != null)
             {
-                Debug.Log("Start CreateEmptyHeart");
-                CreateEmptyHeart();
-                Debug.Log("End CreateEmptyHeart");
+                HUDManager.Instance.OnMaxHealthChanged -= BuildHearts;
+                HUDManager.Instance.OnHealthChanged -= UpdateHearts;
             }
+        }
+        private void BuildHearts(float maxHealth)
+        {
+            ClearHearts();
+            int heartsToMake = Mathf.CeilToInt(maxHealth);
+            for (int i = 0; i < heartsToMake; i++)
+                CreateEmptyHeart();
 
+            UpdateHearts(HUDManager.Instance.Health);
+        }
+
+        private void UpdateHearts(float health)
+        {
             for (int i = 0; i < hearts.Count; i++)
             {
-                int heartsStatusRemainder = (int)Mathf.Clamp(HUDManager.Instance.Health - (i * 2), 0, 2);
-                Debug.Log(HUDManager.Instance.Health);
-                hearts[i].SetHeartImage((HeartStatus)heartsStatusRemainder);
-            } 
+                float heartValue = health - i;
 
+                if (heartValue >= 1f)
+                    hearts[i].SetHeartImage(HeartStatus.Full);
+                else if (heartValue >= 0.5f)
+                    hearts[i].SetHeartImage(HeartStatus.Half);
+                else
+                    hearts[i].SetHeartImage(HeartStatus.Empty);
+            }
         }
 
         public void CreateEmptyHeart()

@@ -7,8 +7,10 @@ namespace Roguelite.Player
     public class PlayerHealth : MonoBehaviour, ITargeteable
     {
         [SerializeField] private float _health = 3;
+        [SerializeField] private float _maxHealth = 3;
 
         public event Action<float> OnHealthChange;
+        public event Action<float> OnMaxHealthChange;
         public event Action OnPlayerDeath;
 
         public bool IsAlive => _health > 0;
@@ -17,15 +19,14 @@ namespace Roguelite.Player
             get => _health; 
             set
             {
-                if (value <= 0) _health = 0;
-                else _health = value;
-
+                _health = Mathf.Clamp(value, 0, _maxHealth);
                 OnHealthChange?.Invoke(_health);
             }
         }
 
         private void Start()
         {
+            OnMaxHealthChange?.Invoke(_maxHealth);
             OnHealthChange?.Invoke(_health);
         }
 
