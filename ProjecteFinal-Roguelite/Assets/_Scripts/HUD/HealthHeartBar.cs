@@ -53,15 +53,11 @@ namespace Roguelite
 
         public void CreateEmptyHeart()
         {
-            Debug.Log("CreateEmptyHeart");
             GameObject newHeart = Instantiate(heartPrefab);
             newHeart.transform.SetParent(transform);
-            Debug.Log("CreateEmptyHeart2");
             HealthHeart heartComponent = newHeart.GetComponent<HealthHeart>();
             heartComponent.SetHeartImage(HeartStatus.Empty);
             hearts.Add(heartComponent);
-            Debug.Log("CreateEmptyHeart3");
-
         }
 
         public void ClearHearts()

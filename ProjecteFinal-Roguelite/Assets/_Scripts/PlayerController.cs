@@ -23,17 +23,12 @@ namespace Roguelite.Player
         private PlayerState _playerState;
 
         public StaminaBehaviour Stamina => _sb;
-        public PlayerHealth Health => _playerHealth;
 
         private MoveBehaviour _mb;
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
         private MagicPointsBehaviour _mpb;
 
-        private void Start()
-        {
-            OnStaminaStart?.Invoke(_sb._maxStamina, _sb.currentStamina);
-        }
         private void OnEnable()
         {
             _playerHealth.OnHealthChange += HealthChange;
@@ -65,9 +60,11 @@ namespace Roguelite.Player
 
         private IEnumerator GMPlayerControllerInitCorroutine()
         {
-            yield return new WaitWhile(() => GameManager.Instance != null);
-            
+            yield return new WaitUntil(() => GameManager.Instance != null);
+
             GameManager.Instance.PlayerControllerInit(this);
+
+            OnStaminaStart?.Invoke(_sb._maxStamina, _sb.currentStamina);
         }
 
         private void Update()

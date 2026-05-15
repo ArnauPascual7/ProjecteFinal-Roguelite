@@ -2,8 +2,6 @@ using System;
 using Roguelite.Player;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static Roguelite.HealthHeartBar;
 
 namespace Roguelite.Systems
 {
@@ -12,9 +10,7 @@ namespace Roguelite.Systems
         public static HUDManager Instance { get; private set; }
 
         [Header("Player HUD")]
-        [SerializeField] private TextMeshProUGUI _pHealthText;
         [SerializeField] private TextMeshProUGUI _pMagicPowerText;
-        [SerializeField] private TextMeshProUGUI _pEnergyText;
         [SerializeField] private TextMeshProUGUI _pExperienceText;
 
         [SerializeField] private EnergyBar energyBar;
@@ -22,17 +18,15 @@ namespace Roguelite.Systems
         public float Health => _health;
         public float MaxHealth => _maxHealth;
 
-
-        private string PlayerHealthText { get => _pHealthText.text; set => _pHealthText.text = value; }
         private string PlayerMagicPowerText { get => _pMagicPowerText.text; set => _pMagicPowerText.text = value; }
-        private string PlayerEnergyText { get => _pEnergyText.text; set => _pEnergyText.text = value; }
         private string PlayerExperienceText { get => _pExperienceText.text; set => _pExperienceText.text = value; }
 
         private float _health;
         private float _maxHealth;
         private PlayerController _playerController;
+        private bool _energyBarReady = false;
 
-        public event System.Action<float> OnHealthChanged;
+        public event Action<float> OnHealthChanged;
         public event Action<float> OnMaxHealthChanged;
 
         private void Awake()
@@ -65,6 +59,13 @@ namespace Roguelite.Systems
             PlayerController.OnStaminaChange -= UpdateHUDEnergy;
             PlayerController.OnMagicPointsChange -= UpdateHUDMagicPower;
         }
+        public void InitPlayer(PlayerController playerController)
+        {
+            _playerController = playerController;
+            energyBar.StartEnergyBar(_playerController.Stamina._maxStamina,
+                                     _playerController.Stamina.currentStamina);
+            _energyBarReady = true;
+        }
         private void StartEnergyBar(float energyMax, float actualEnergy)
         {
             energyBar.StartEnergyBar(energyMax, actualEnergy);
@@ -72,7 +73,6 @@ namespace Roguelite.Systems
         private void UpdateHUDHealth(float health)
         {
             _health = health;
-            PlayerHealthText = $"{health}";
             OnHealthChanged?.Invoke(health);
         }
         private void UpdateHUDMaxHealth(float maxHealth)
@@ -86,18 +86,12 @@ namespace Roguelite.Systems
         }
         private void UpdateHUDEnergy(float energy)
         {
+            if (!_energyBarReady) return;
             energyBar.UpdateEnergyBar(energy);
-            PlayerEnergyText = $"{energy}";
         }
         private void UpdateHUDExperience(int experience)
         {
             PlayerExperienceText = $"{experience}";
-        }
-        public void InitPlayer(PlayerController playerController)
-        {
-            _playerController = playerController;
-            energyBar.StartEnergyBar(_playerController.Stamina._maxStamina,
-                                     _playerController.Stamina.currentStamina);
         }
     }
 }

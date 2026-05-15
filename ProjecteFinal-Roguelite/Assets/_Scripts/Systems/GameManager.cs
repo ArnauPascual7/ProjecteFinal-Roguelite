@@ -24,10 +24,8 @@ namespace Roguelite.Systems
 
         public void PlayerControllerInit(PlayerController pc)
         {
-            if (PlayerController != null)
-            {
-                PlayerController = pc;
-            }
+            HUDManager.Instance.InitPlayer(pc);
+            PlayerController = pc;
         }
     }
 }
