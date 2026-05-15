@@ -62,7 +62,7 @@ namespace Roguelite.Systems
         public void InitPlayer(PlayerController playerController)
         {
             _playerController = playerController;
-            energyBar.StartEnergyBar(_playerController.Stamina._maxStamina,
+            energyBar.StartEnergyBar(_playerController.Stamina._baseMaxStamina,
                                      _playerController.Stamina.currentStamina);
             _energyBarReady = true;
         }

@@ -64,7 +64,7 @@ namespace Roguelite.Player
 
             GameManager.Instance.PlayerControllerInit(this);
 
-            OnStaminaStart?.Invoke(_sb._maxStamina, _sb.currentStamina);
+            OnStaminaStart?.Invoke(_sb._baseMaxStamina, _sb.currentStamina);
         }
 
         private void Update()

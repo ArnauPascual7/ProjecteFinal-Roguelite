@@ -18,6 +18,8 @@ namespace Roguelite.Player
         public void Start()
         {
             _health = _maxHealth; // Comença la partida amb la vida plena
+            OnMaxHealthChange?.Invoke(_maxHealth);
+            OnHealthChange?.Invoke(_health);
         }
 
         public void SetMaxHealth(float newMax)
@@ -34,12 +36,6 @@ namespace Roguelite.Player
                 _health = Mathf.Clamp(value, 0, _maxHealth);
                 OnHealthChange?.Invoke(_health);
             }
-        }
-
-        private void Start()
-        {
-            OnMaxHealthChange?.Invoke(_maxHealth);
-            OnHealthChange?.Invoke(_health);
         }
 
         public void TakeDamage(float damage)

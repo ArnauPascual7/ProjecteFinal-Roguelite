@@ -8,9 +8,8 @@ namespace Roguelite.Behaviours
         public float currentStamina = 0f;
 
         [SerializeField] private int _dashCost = 50;
-        [SerializeField] public float _maxStamina = 100f;
+        [SerializeField] public float _baseMaxStamina = 100f;
         [SerializeField] private float _regenerationTime = 5f;
-        [SerializeField] private float _baseMaxStamina = 100f;
         [SerializeField] private float _baseRegenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
 
@@ -23,8 +22,7 @@ namespace Roguelite.Behaviours
 
         private void Awake()
         {
-            currentStamina = _maxStamina;
-            _currentStamina = _baseMaxStamina;
+            currentStamina = _baseMaxStamina;
         }
 
         public bool HasStamina()
@@ -44,8 +42,7 @@ namespace Roguelite.Behaviours
         {
             _regenerationMultiplier = multiplier;
 
-            if (Time.time >= _timer && currentStamina < _maxStamina)
-            if (Time.time >= _timer && _currentStamina < _baseMaxStamina)
+            if (Time.time >= _timer && currentStamina < _baseMaxStamina)
             {
                 _regenerate = true;
 
@@ -70,20 +67,14 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
-                currentStamina += ((_maxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+                currentStamina += ((_baseMaxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
                 
-                if (currentStamina >= _maxStamina)
+                if (currentStamina >= _baseMaxStamina)
                 {
-                    currentStamina = _maxStamina;
-                _currentStamina += ((_baseMaxStamina / _baseRegenerationTime) * Time.deltaTime) * _regenerationMultiplier;
-                
-                if (_currentStamina >= _baseMaxStamina)
-                {
-                    _currentStamina = _baseMaxStamina;
+                    currentStamina = _baseMaxStamina;
                     CancelRegeneration();
                 }
-
-                yield return new WaitForSeconds(Time.deltaTime) ;
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
 
