@@ -5,7 +5,8 @@ namespace Roguelite.Behaviours
     [RequireComponent(typeof(Rigidbody2D))]
     public class MoveBehaviour : MonoBehaviour
     {
-        public float speed = 5f;
+        [SerializeField] private float baseSpeed = 5f;
+        private float currentSpeed;
 
         private Rigidbody2D _rb;
 
@@ -19,7 +20,14 @@ namespace Roguelite.Behaviours
 
         public void MoveCharacter(Vector2 direction)
         {
-            _rb.linearVelocity = direction * speed;
+            _rb.linearVelocity = direction * currentSpeed;
+        }
+
+        public void UpdateBaseSpeed(float percentageIncrease)
+        {
+            // C�lcul: 5 * (1 + 10/100) = 5.5
+            currentSpeed = baseSpeed * (1f + (percentageIncrease / 100f));
+            Debug.Log($"Nova velocitat: {currentSpeed}");
         }
     }
 }

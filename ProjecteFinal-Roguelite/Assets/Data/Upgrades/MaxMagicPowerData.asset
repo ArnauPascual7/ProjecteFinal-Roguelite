@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112fce6dba8239148be6d97f25bf30ba, type: 3}
+  m_Name: MaxMagicPowerData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: MaxMagicPower
+  statType: 9
+  icon: {fileID: 0}
+  levelDescriptions:
+  - "Augmenta a 15 el poder m\xE0gic "
+  - "Augmenta a 20 el poder m\xE0gic "
+  - "Augmenta a 30 el poder m\xE0gic "
+  - "Augmenta a 40 el poder m\xE0gic "
+  - "Augmenta a 50 el poder m\xE0gic "
+  values:
+  - 15
+  - 20
+  - 30
+  - 40
+  - 50
+  costs: 0000000000000000000000000000000000000000
+  playerLevelRequired: 0100000002000000030000000400000005000000

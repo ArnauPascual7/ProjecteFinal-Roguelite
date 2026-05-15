@@ -4,8 +4,35 @@ using UnityEngine;
 
 namespace Roguelite.Systems
 {
-    public class SaveSystem
+    public static class SaveSystem
     {
+        [Serializable]
+        public struct SaveData
+        {
+            public ObjectSaveData ObjectData;
+        }
+
+        private static SaveData _saveData = new SaveData();
+
+        public static string GetFilePath()
+        {
+            return Application.persistentDataPath + "/save.json";
+        }
+
+        public static void SaveRaw(SaveData data)
+        {
+            File.WriteAllText(GetFilePath(), JsonUtility.ToJson(data, true));
+        }
+
+        public static SaveData LoadRaw()
+        {
+            string path = GetFilePath();
+            if (!File.Exists(path)) return new SaveData();
+
+            string content = File.ReadAllText(path);
+            return JsonUtility.FromJson<SaveData>(content);
+        }
+        /*
         private static SaveData _saveData = new SaveData();
 
         [Serializable]
@@ -43,5 +70,6 @@ namespace Roguelite.Systems
         {
             SaveObjectTemplate.Instance.Load(_saveData.ObjectData);
         }
+        */
     }
 }

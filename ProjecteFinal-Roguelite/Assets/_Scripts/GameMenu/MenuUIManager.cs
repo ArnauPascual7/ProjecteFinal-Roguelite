@@ -21,6 +21,12 @@ namespace Roguelite.GameMenu
 
         private void Start()
         {
+            // Abans de mostrar res carregar la partida
+            if (Roguelite.Systems.SaveManager.Instance != null)
+            {
+                Roguelite.Systems.SaveManager.Instance.LoadAll();
+            }
+
             // Mostrar StarterPanel immediatament
             ShowStarter();
         }
