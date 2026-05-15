@@ -11,8 +11,9 @@ public enum StatType
     AttackDamage, 
     AttackSpeed, 
     ProjectileSpeed,
-    ReloadSpeed
-    //
+    ReloadSpeed,
+    MaxMagicPower,
+    MagicRegen
 }
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Roguelite/Upgrade Data")]
