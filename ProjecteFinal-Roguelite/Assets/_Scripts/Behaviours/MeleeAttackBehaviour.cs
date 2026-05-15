@@ -1,4 +1,6 @@
 using System;
+using Roguelite.Enemy;
+using Roguelite.Helpers;
 using Roguelite.Interfaces;
 using UnityEngine;
 
@@ -48,9 +50,27 @@ namespace Roguelite.Behaviours
                 if (collision.gameObject.layer == target.layer)
                 {
                     OnCanAttack?.Invoke(true);
+                    GetComponent<ChaseBehaviour>().StopChase();
+
+                }
+                if (collision.gameObject.layer == gameObject.layer)
+                {
+                    if (DistanceUtils.GetDistance(collision.gameObject.transform.position, target.transform.position) <
+                        DistanceUtils.GetDistance(transform.position, target.transform.position))
+                    {
+                        GetComponent<ChaseBehaviour>().StopChase();
+                    }
                 }
             }
         }
+        
+        /*private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == gameObject.layer)
+            {
+                GetComponent<ChaseBehaviour>().StopChase();
+            }
+        }*/
 
         private void OnCollisionExit2D(Collision2D collision)
         {
@@ -58,7 +78,12 @@ namespace Roguelite.Behaviours
             {
                 if (collision.gameObject.layer == target.layer)
                 {
+                    GetComponent<ChaseBehaviour>().ResumeChasing();
                     OnCanAttack?.Invoke(false);
+                }
+                if (collision.gameObject.layer == gameObject.layer)
+                {
+                        GetComponent<ChaseBehaviour>().ResumeChasing();
                 }
             }
         }
