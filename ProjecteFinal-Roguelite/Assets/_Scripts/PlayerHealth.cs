@@ -15,8 +15,20 @@ namespace Roguelite.Player
 
         public bool IsAlive => _health > 0;
 
-        public float Health {
-            get => _health; 
+        public void Start()
+        {
+            _health = _maxHealth; // Comença la partida amb la vida plena
+        }
+
+        public void SetMaxHealth(float newMax)
+        {
+            _maxHealth = newMax;
+            _health = _maxHealth;
+        }
+
+        public float Health
+        {
+            get => _health;
             set
             {
                 _health = Mathf.Clamp(value, 0, _maxHealth);

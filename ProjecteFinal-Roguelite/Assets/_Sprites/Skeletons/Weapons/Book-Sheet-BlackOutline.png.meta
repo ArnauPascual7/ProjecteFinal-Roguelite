@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: 070868831ea848349a8a3bca286086e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6678812236224672428
+    second: Book-Sheet-BlackOutline_0
+  - first:
+      213: -6779021638084417563
+    second: Book-Sheet-BlackOutline_1
+  - first:
+      213: 6629896608357204202
+    second: Book-Sheet-BlackOutline_2
+  - first:
+      213: -7150890730384721070
+    second: Book-Sheet-BlackOutline_3
+  - first:
+      213: -7645361580716252403
+    second: Book-Sheet-BlackOutline_4
+  - first:
+      213: -5608435715099862300
+    second: Book-Sheet-BlackOutline_5
+  - first:
+      213: 5044070196438480051
+    second: Book-Sheet-BlackOutline_6
+  - first:
+      213: 1883787907498611966
+    second: Book-Sheet-BlackOutline_7
+  - first:
+      213: -3460647310662649947
+    second: Book-Sheet-BlackOutline_8
+  - first:
+      213: 2098157575669319442
+    second: Book-Sheet-BlackOutline_9
+  - first:
+      213: 6395075082830222694
+    second: Book-Sheet-BlackOutline_10
+  - first:
+      213: -528889047567590849
+    second: Book-Sheet-BlackOutline_11
+  - first:
+      213: -5352108927052067773
+    second: Book-Sheet-BlackOutline_12
+  - first:
+      213: -3208502738324725920
+    second: Book-Sheet-BlackOutline_13
+  - first:
+      213: 8130662638211576817
+    second: Book-Sheet-BlackOutline_14
+  - first:
+      213: -4223647648950153638
+    second: Book-Sheet-BlackOutline_15
+  - first:
+      213: 735397788488897504
+    second: Book-Sheet-BlackOutline_16
+  - first:
+      213: -2902712771609630789
+    second: Book-Sheet-BlackOutline_17
+  - first:
+      213: 7347158907591016802
+    second: Book-Sheet-BlackOutline_18
+  - first:
+      213: 3225897529524222344
+    second: Book-Sheet-BlackOutline_19
+  - first:
+      213: -6057326868438090302
+    second: Book-Sheet-BlackOutline_20
+  - first:
+      213: -5737169546336489716
+    second: Book-Sheet-BlackOutline_21
+  - first:
+      213: 609233425346117025
+    second: Book-Sheet-BlackOutline_22
+  - first:
+      213: -6919110019650708066
+    second: Book-Sheet-BlackOutline_23
+  - first:
+      213: 4216304151682864077
+    second: Book-Sheet-BlackOutline_24
+  - first:
+      213: 4750438150452026407
+    second: Book-Sheet-BlackOutline_25
+  - first:
+      213: 3367811655921422900
+    second: Book-Sheet-BlackOutline_26
+  - first:
+      213: -7259008813086915492
+    second: Book-Sheet-BlackOutline_27
+  - first:
+      213: 6069601049079771750
+    second: Book-Sheet-BlackOutline_28
+  - first:
+      213: -5316413744063823678
+    second: Book-Sheet-BlackOutline_29
+  - first:
+      213: -5963219990027042960
+    second: Book-Sheet-BlackOutline_30
+  - first:
+      213: 2357953854367050429
+    second: Book-Sheet-BlackOutline_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45dcb4238a71053a0800000000000000
+      internalID: -6678812236224672428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7aa49acb31ce1a0800000000000000
+      internalID: -6779021638084417563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0c2bea6df120c50800000000000000
+      internalID: 6629896608357204202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bf8cb84cee2cc90800000000000000
+      internalID: -7150890730384721070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d032df1362836e590800000000000000
+      internalID: -7645361580716252403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eadbdf8e65da22b0800000000000000
+      internalID: -5608435715099862300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4b9d87e13200640800000000000000
+      internalID: 5044070196438480051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef491a20f1f842a10800000000000000
+      internalID: 1883787907498611966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7ba033b9f49ffc0800000000000000
+      internalID: -3460647310662649947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2178094d2372e1d10800000000000000
+      internalID: 2098157575669319442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6651c00c7eedfb850800000000000000
+      internalID: 6395075082830222694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_11
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a9322a63209a8f0800000000000000
+      internalID: -528889047567590849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34c4ddb994d79b5b0800000000000000
+      internalID: -5352108927052067773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f594542cb1973d0800000000000000
+      internalID: -3208502738324725920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f33423679ae5d070800000000000000
+      internalID: 8130662638211576817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e89e357d69265c0800000000000000
+      internalID: -4223647648950153638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e31d7f6468a43a00800000000000000
+      internalID: 735397788488897504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_17
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb7e73b0d1e77b7d0800000000000000
+      internalID: -2902712771609630789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_18
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2614f4b791a56f560800000000000000
+      internalID: 7347158907591016802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_19
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889f91926b0b4cc20800000000000000
+      internalID: 3225897529524222344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd71566e4d00fba0800000000000000
+      internalID: -6057326868438090302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_21
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fac66c1ba7160b0800000000000000
+      internalID: -5737169546336489716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_22
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1adbc0f829e647800800000000000000
+      internalID: 609233425346117025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_23
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d9fdc98126aff90800000000000000
+      internalID: -6919110019650708066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3df0a7942538a30800000000000000
+      internalID: 4216304151682864077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_25
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c18253452fce140800000000000000
+      internalID: 4750438150452026407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_26
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432dd9d8bdedcbe20800000000000000
+      internalID: 3367811655921422900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_27
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c544682c1f1d24b90800000000000000
+      internalID: -7259008813086915492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_28
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662fcbafefd8b3450800000000000000
+      internalID: 6069601049079771750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_29
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c0421a0edd4836b0800000000000000
+      internalID: -5316413744063823678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_30
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ffde873036e3da0800000000000000
+      internalID: -5963219990027042960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book-Sheet-BlackOutline_31
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbaaf4e998229b020800000000000000
+      internalID: 2357953854367050429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 049ea1456a238d34882edd23bf99974c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":32.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Book-Sheet-BlackOutline_0: -6678812236224672428
+      Book-Sheet-BlackOutline_1: -6779021638084417563
+      Book-Sheet-BlackOutline_10: 6395075082830222694
+      Book-Sheet-BlackOutline_11: -528889047567590849
+      Book-Sheet-BlackOutline_12: -5352108927052067773
+      Book-Sheet-BlackOutline_13: -3208502738324725920
+      Book-Sheet-BlackOutline_14: 8130662638211576817
+      Book-Sheet-BlackOutline_15: -4223647648950153638
+      Book-Sheet-BlackOutline_16: 735397788488897504
+      Book-Sheet-BlackOutline_17: -2902712771609630789
+      Book-Sheet-BlackOutline_18: 7347158907591016802
+      Book-Sheet-BlackOutline_19: 3225897529524222344
+      Book-Sheet-BlackOutline_2: 6629896608357204202
+      Book-Sheet-BlackOutline_20: -6057326868438090302
+      Book-Sheet-BlackOutline_21: -5737169546336489716
+      Book-Sheet-BlackOutline_22: 609233425346117025
+      Book-Sheet-BlackOutline_23: -6919110019650708066
+      Book-Sheet-BlackOutline_24: 4216304151682864077
+      Book-Sheet-BlackOutline_25: 4750438150452026407
+      Book-Sheet-BlackOutline_26: 3367811655921422900
+      Book-Sheet-BlackOutline_27: -7259008813086915492
+      Book-Sheet-BlackOutline_28: 6069601049079771750
+      Book-Sheet-BlackOutline_29: -5316413744063823678
+      Book-Sheet-BlackOutline_3: -7150890730384721070
+      Book-Sheet-BlackOutline_30: -5963219990027042960
+      Book-Sheet-BlackOutline_31: 2357953854367050429
+      Book-Sheet-BlackOutline_4: -7645361580716252403
+      Book-Sheet-BlackOutline_5: -5608435715099862300
+      Book-Sheet-BlackOutline_6: 5044070196438480051
+      Book-Sheet-BlackOutline_7: 1883787907498611966
+      Book-Sheet-BlackOutline_8: -3460647310662649947
+      Book-Sheet-BlackOutline_9: 2098157575669319442
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -11,6 +11,10 @@ namespace Roguelite
 
         public Transform shootPoint;
         public int CurrentWeaponIndex { get; private set; }
+        public float DamageMultiplier { get; private set; } = 1f;
+        public float AttackSpeedMultiplier { get; private set; } = 1f;
+        public float ProjectileSpeedMultiplier { get; private set; } = 1f;
+        public float ReloadSpeedMultiplier { get; private set; } = 1f;
 
         private RangedWeapon _currentWeapon;
         private RangedWeaponRuntimeState[] _weaponStates;
@@ -74,6 +78,27 @@ namespace Roguelite
             {
                 pw.Reload(this, (ProjectileWeaponRuntimeState)_currentState);
             }
+        }
+
+        // Mètodes d'injecció
+        public void SetDamageBonus(float percentageIncrease)
+        {
+            DamageMultiplier = 1f + (percentageIncrease / 100f);
+        }
+
+        public void SetAttackSpeedBonus(float percentageIncrease)
+        {
+            AttackSpeedMultiplier = 1f + (percentageIncrease / 100f);
+        }
+
+        public void SetProjectileSpeedBonus(float percentageIncrease)
+        {
+            ProjectileSpeedMultiplier = 1f + (percentageIncrease / 100f);
+        }
+
+        public void SetReloadSpeedBonus(float percentageIncrease)
+        {
+            ReloadSpeedMultiplier = 1f + (percentageIncrease / 100f);
         }
     }
 }

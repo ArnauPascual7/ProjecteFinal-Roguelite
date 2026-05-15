@@ -10,8 +10,12 @@ namespace Roguelite.Behaviours
         [SerializeField] private int _dashCost = 50;
         [SerializeField] public float _maxStamina = 100f;
         [SerializeField] private float _regenerationTime = 5f;
+        [SerializeField] private float _baseMaxStamina = 100f;
+        [SerializeField] private float _baseRegenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
 
+        private float currentMaxStamina;
+        private float currentRegenTime;
         private bool _regenerate = false;
         private Coroutine _coroutine = null;
         private float _timer = 0f;
@@ -20,6 +24,7 @@ namespace Roguelite.Behaviours
         private void Awake()
         {
             currentStamina = _maxStamina;
+            _currentStamina = _baseMaxStamina;
         }
 
         public bool HasStamina()
@@ -40,6 +45,7 @@ namespace Roguelite.Behaviours
             _regenerationMultiplier = multiplier;
 
             if (Time.time >= _timer && currentStamina < _maxStamina)
+            if (Time.time >= _timer && _currentStamina < _baseMaxStamina)
             {
                 _regenerate = true;
 
@@ -69,11 +75,26 @@ namespace Roguelite.Behaviours
                 if (currentStamina >= _maxStamina)
                 {
                     currentStamina = _maxStamina;
+                _currentStamina += ((_baseMaxStamina / _baseRegenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+                
+                if (_currentStamina >= _baseMaxStamina)
+                {
+                    _currentStamina = _baseMaxStamina;
                     CancelRegeneration();
                 }
 
                 yield return new WaitForSeconds(Time.deltaTime) ;
             }
+        }
+
+        public void SetMaxStamina(float newValue)
+        {
+            currentMaxStamina = newValue;
+        }
+
+        public void UpdateRegenRate(float percentageReduction)
+        {
+            currentRegenTime = _baseRegenerationTime * (1f + (percentageReduction / 100f));
         }
     }
 }

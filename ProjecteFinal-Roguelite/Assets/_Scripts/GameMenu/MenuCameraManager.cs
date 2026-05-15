@@ -100,7 +100,7 @@ namespace Roguelite.GameMenu
             // Prioritat alta ja d'entrada
             ccam.Priority = 20;
 
-            // Moure càmera peincipal a la posició de la càmera virtual
+            // Moure càmera principal a la posició de la càmera virtual
             _cinemachineBrain.transform.position = ccam.transform.position;
 
             // Cancel·lar qualsevol transició que estigués a punt de començar
