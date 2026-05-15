@@ -25,7 +25,7 @@ namespace Roguelite.Behaviours
 
         public void UpdateBaseSpeed(float percentageIncrease)
         {
-            // Càlcul: 5 * (1 + 10/100) = 5.5
+            // Cï¿½lcul: 5 * (1 + 10/100) = 5.5
             currentSpeed = baseSpeed * (1f + (percentageIncrease / 100f));
             Debug.Log($"Nova velocitat: {currentSpeed}");
         }
