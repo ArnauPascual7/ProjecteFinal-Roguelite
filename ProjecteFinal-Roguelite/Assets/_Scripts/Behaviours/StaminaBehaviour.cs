@@ -5,11 +5,14 @@ namespace Roguelite.Behaviours
 {
     public class StaminaBehaviour : MonoBehaviour
     {
+        public float currentStamina = 0f;
+
         [SerializeField] private int _dashCost = 50;
+        [SerializeField] public float _maxStamina = 100f;
+        [SerializeField] private float _regenerationTime = 5f;
         [SerializeField] private float _baseMaxStamina = 100f;
         [SerializeField] private float _baseRegenerationTime = 5f;
         [SerializeField] private float _regenerationStaminaCooldown = 2f;
-        [SerializeField] private float _currentStamina;
 
         private float currentMaxStamina;
         private float currentRegenTime;
@@ -20,17 +23,18 @@ namespace Roguelite.Behaviours
 
         private void Awake()
         {
+            currentStamina = _maxStamina;
             _currentStamina = _baseMaxStamina;
         }
 
         public bool HasStamina()
         {
-            return _currentStamina >= _dashCost;
+            return currentStamina >= _dashCost;
         }
 
         public void ConsumeStamina(float cooldown)
         {
-            _currentStamina -= _dashCost;
+            currentStamina -= _dashCost;
             _timer = Time.time + _regenerationStaminaCooldown + cooldown;
 
             CancelRegeneration();
@@ -40,6 +44,7 @@ namespace Roguelite.Behaviours
         {
             _regenerationMultiplier = multiplier;
 
+            if (Time.time >= _timer && currentStamina < _maxStamina)
             if (Time.time >= _timer && _currentStamina < _baseMaxStamina)
             {
                 _regenerate = true;
@@ -65,6 +70,11 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
+                currentStamina += ((_maxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+                
+                if (currentStamina >= _maxStamina)
+                {
+                    currentStamina = _maxStamina;
                 _currentStamina += ((_baseMaxStamina / _baseRegenerationTime) * Time.deltaTime) * _regenerationMultiplier;
                 
                 if (_currentStamina >= _baseMaxStamina)
