@@ -13,6 +13,15 @@ namespace Roguelite.Navigation
                 Debug.Log("ERROR: Scene Name is null or empty.");
                 return;
             }
+
+            //
+            if (Roguelite.Systems.SaveManager.Instance != null)
+            {
+                Roguelite.Systems.SaveManager.Instance.SaveAll();
+            }
+                
+            //
+
             SceneManager.LoadScene(sceneName);
         }
 

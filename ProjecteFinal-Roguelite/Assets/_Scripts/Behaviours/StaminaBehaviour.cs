@@ -22,7 +22,10 @@ namespace Roguelite.Behaviours
 
         private void Awake()
         {
-            currentStamina = _baseMaxStamina;
+            //currentStamina = _baseMaxStamina;
+            currentMaxStamina = _baseMaxStamina;
+            currentRegenTime = _baseRegenerationTime;
+            currentStamina = currentMaxStamina;
         }
 
         public bool HasStamina()
@@ -67,11 +70,15 @@ namespace Roguelite.Behaviours
         {
             while (_regenerate)
             {
-                currentStamina += ((_baseMaxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
-                
-                if (currentStamina >= _baseMaxStamina)
+                //currentStamina += ((_baseMaxStamina / _regenerationTime) * Time.deltaTime) * _regenerationMultiplier;
+
+                //
+                currentStamina += ((currentMaxStamina / currentRegenTime) * Time.deltaTime) * _regenerationMultiplier;
+                //
+
+                if (currentStamina >= currentMaxStamina)
                 {
-                    currentStamina = _baseMaxStamina;
+                    currentStamina = currentMaxStamina;
                     CancelRegeneration();
                 }
                 yield return new WaitForSeconds(Time.deltaTime);
@@ -81,6 +88,7 @@ namespace Roguelite.Behaviours
         public void SetMaxStamina(float newValue)
         {
             currentMaxStamina = newValue;
+            currentStamina = currentMaxStamina;
         }
 
         public void UpdateRegenRate(float percentageReduction)
