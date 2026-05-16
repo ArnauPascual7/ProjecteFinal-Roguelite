@@ -93,5 +93,17 @@ namespace Roguelite.Player
                 SelectedWeapon = FIRST_WEAPON;
             }
         }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                // Cridar al PauseManager quan es prem la tecla "escape"
+                if (Roguelite.Management.PauseManager.Instance != null)
+                {
+                    Roguelite.Management.PauseManager.Instance.TogglePause();
+                }
+            }
+        }
     }
 }
