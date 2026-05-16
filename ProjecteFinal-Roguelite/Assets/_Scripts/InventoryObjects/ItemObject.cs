@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Roguelite
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Item")]
+    [CreateAssetMenu(fileName = "Item", menuName = "Items/Item")]
     public class ItemObject : ScriptableObject
     {
         public int ID;
