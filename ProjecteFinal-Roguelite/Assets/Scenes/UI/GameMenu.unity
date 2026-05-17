@@ -6217,7 +6217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rogelite
+  m_text: Roguelite
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85b8077e815974e4abeeead3dc37a5c4, type: 2}
   m_sharedMaterial: {fileID: 2336612868518155990, guid: 85b8077e815974e4abeeead3dc37a5c4, type: 2}
