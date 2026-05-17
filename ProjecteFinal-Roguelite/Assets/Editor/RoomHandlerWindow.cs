@@ -138,6 +138,11 @@ namespace Roguelite.DungeonGeneration
 
             BoundsInt bounds = walls.cellBounds;
 
+            List<Vector2Int> upDoorPositions = new List<Vector2Int>();
+            List<Vector2Int> downDoorPositions = new List<Vector2Int>();
+            List<Vector2Int> leftDoorPositions = new List<Vector2Int>();
+            List<Vector2Int> rightDoorPositions = new List<Vector2Int>();
+
             for (int x = bounds.xMin; x < bounds.xMax; x++)
             {
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
@@ -147,22 +152,32 @@ namespace Roguelite.DungeonGeneration
                     TileBase wallTile = walls.GetTile(cellPos);
                     TileBase floorTile = floor.GetTile(cellPos);
 
-                    if (wallTile == null && floorTile != null)
+                    if (x == bounds.xMin && (wallTile == null && floorTile != null))
                     {
-                        List<TileData> doorTiles = new();
+                        leftDoorPositions.Add((Vector2Int)cellPos);
+                    }
 
-                        Direction dir = Direction.Up;
+                    if (y == bounds.yMin && (wallTile == null && floorTile != null))
+                    {
+                        downDoorPositions.Add((Vector2Int)cellPos);
+                    }
 
-                        if (walls.GetTile(new Vector3Int(x, y + 1, 0)) != null) dir = Direction.Up;
-                        else if (walls.GetTile(new Vector3Int(x, y - 1, 0)) != null) dir = Direction.Down;
-                        else if (walls.GetTile(new Vector3Int(x - 1, y, 0)) != null) dir = Direction.Left;
-                        else if (walls.GetTile(new Vector3Int(x + 1, y, 0)) != null) dir = Direction.Right;
+                    if (x == bounds.xMax - 1 && (wallTile == null && floorTile != null))
+                    {
+                        rightDoorPositions.Add((Vector2Int)cellPos);
+                    }
 
-                        doorTiles.Add(new TileData(new Vector2Int(x, y), floorTile));
-                        doors.Add(new DoorData(doorTiles, dir));
+                    if (x == bounds.yMax - 1 && (wallTile == null && floorTile != null))
+                    {
+                        upDoorPositions.Add((Vector2Int)cellPos);
                     }
                 }
             }
+
+            if (upDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Up, upDoorPositions));
+            if (downDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Down, downDoorPositions));
+            if (leftDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Left, leftDoorPositions));
+            if (rightDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Right, rightDoorPositions));
 
             return doors;
         }
@@ -186,7 +201,7 @@ namespace Roguelite.DungeonGeneration
                 _noclipWallTilemap.SetTile(new Vector3Int(tileData.position.x, tileData.position.y, 0), tileData.tile);
             }
 
-            Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room) + "--- " + _room.doors.Count);
+            Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room));
         }
 
         private void ClearAllTilemaps()

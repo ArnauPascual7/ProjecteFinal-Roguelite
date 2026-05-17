@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.DungeonGeneration.RoomData
   size: {x: 8, y: 8}
   floorTiles:
+  - position: {x: -4, y: -1}
+    tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
+  - position: {x: -4, y: 0}
+    tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
   - position: {x: -3, y: -3}
     tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
   - position: {x: -3, y: -2}
@@ -93,10 +97,6 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
   - position: {x: -4, y: -2}
     tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
-  - position: {x: -4, y: -1}
-    tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
-  - position: {x: -4, y: 0}
-    tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
   - position: {x: -4, y: 1}
     tile: {fileID: 11400000, guid: 063418e4d5dce774fb8c1c6ce6c22dc1, type: 2}
   - position: {x: -4, y: 2}
@@ -146,147 +146,7 @@ MonoBehaviour:
   noclipWallTiles: []
   decoTiles: []
   doors:
-  - doorTiles:
-    - position: {x: -3, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: -3, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 3
-  - doorTiles:
-    - position: {x: -3, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 3
-  - doorTiles:
-    - position: {x: -3, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 3
-  - doorTiles:
-    - position: {x: -3, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 3
-  - doorTiles:
-    - position: {x: -3, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -2, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: -2, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -2, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -2, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -2, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -2, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -1, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: -1, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -1, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -1, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -1, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: -1, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 0, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: 0, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 0, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 0, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 0, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 0, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 1, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: 1, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 1, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 1, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 1, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 1, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
-  - doorTiles:
-    - position: {x: 2, y: -3}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 2
-  - doorTiles:
-    - position: {x: 2, y: -2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 1
-  - doorTiles:
-    - position: {x: 2, y: -1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 1
-  - doorTiles:
-    - position: {x: 2, y: 0}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 1
-  - doorTiles:
-    - position: {x: 2, y: 1}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 1
-  - doorTiles:
-    - position: {x: 2, y: 2}
-      tile: {fileID: 11400000, guid: 281e463290c077744aa7985e5d3631dd, type: 2}
-    direction: 0
+  - direction: 3
+    doorPositions:
+    - {x: -4, y: -1}
+    - {x: -4, y: 0}

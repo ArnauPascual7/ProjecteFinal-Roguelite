@@ -20,13 +20,13 @@ namespace Roguelite.DungeonGeneration
     [Serializable]
     public struct DoorData
     {
-        public List<TileData> doorTiles;
         public Direction direction;
+        public List<Vector2Int> doorPositions;
 
-        public DoorData(List<TileData> doorTiles, Direction dir)
+        public DoorData(Direction dir, List<Vector2Int> positions)
         {
-            this.doorTiles = doorTiles;
             this.direction = dir;
+            this.doorPositions = positions;
         }
     }
 
