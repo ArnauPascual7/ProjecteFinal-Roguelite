@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/GameMenu.unity
     guid: 1092362881cfdda439d97da10ed1f794
+  - enabled: 1
+    path: Assets/Scenes/SampleScene_aleix.unity
+    guid: 3328fc8b85f24734b8673c8a225aa5a3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
