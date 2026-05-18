@@ -67,7 +67,7 @@ namespace Roguelite.DungeonGeneration
         private void Start()
         {
             _startingRoom.doors.ForEach(d => _openDoors.Enqueue((d, _startingPosition)));
-            
+
             BuildDungeon();
             RenderDungeon();
         }
@@ -81,11 +81,14 @@ namespace Roguelite.DungeonGeneration
             {
                 (DoorData door, Vector2Int sourceGridPos) = _openDoors.Dequeue();
 
-                Direction opposite = Direction2DUtils.GetOposite(door.direction);
-                RoomData newRoom = GetRandomRoomByDirection(opposite);
+                Direction incomingDir = Direction2DUtils.GetOposite(door.direction);
+                Vector2Int newGridPos = sourceGridPos + Direction2DUtils.ToVector2Int(door.direction);
+
+                // Obtenim una sala compatible: té la porta d'entrada i no crea conflictes amb veïnes
+                RoomData newRoom = GetCompatibleRoom(newGridPos, incomingDir, isEndRoom: false);
                 if (newRoom == null) continue;
 
-                (Vector2Int newGridPos, Vector2Int newTileOffset) = CalculateNewRoomPlacement(sourceGridPos, door, newRoom);
+                (_, Vector2Int newTileOffset) = CalculateNewRoomPlacement(sourceGridPos, door, newRoom);
 
                 if (_placedRooms.ContainsKey(newGridPos) || OverlapsExistingRoom(newRoom, newTileOffset)) continue;
 
@@ -102,19 +105,76 @@ namespace Roguelite.DungeonGeneration
             {
                 (DoorData door, Vector2Int sourceGridPos) = _openDoors.Dequeue();
 
-                RoomData endRoom = GetRandomEndRoomByDirection(Direction2DUtils.GetOposite(door.direction));
+                Direction incomingDir = Direction2DUtils.GetOposite(door.direction);
+                Vector2Int newGridPos = sourceGridPos + Direction2DUtils.ToVector2Int(door.direction);
+
+                if (_placedRooms.ContainsKey(newGridPos)) continue;
+
+                // Obtenim una end room compatible: té la porta d'entrada i no crea conflictes amb veïnes
+                RoomData endRoom = GetCompatibleRoom(newGridPos, incomingDir, isEndRoom: true);
                 if (endRoom == null)
                 {
-                    Debug.LogWarning($"DUNGEON GENERATOR: No end room found for direction {door.direction}");
+                    Debug.LogWarning($"DUNGEON GENERATOR: No compatible end room found for direction {door.direction}");
                     continue;
                 }
 
-                (Vector2Int newGridPos, Vector2Int newTileOffset) = CalculateNewRoomPlacement(sourceGridPos, door, endRoom);
+                (_, Vector2Int newTileOffset) = CalculateNewRoomPlacement(sourceGridPos, door, endRoom);
 
-                if (_placedRooms.ContainsKey(newGridPos) || OverlapsExistingRoom(endRoom, newTileOffset)) continue;
+                if (OverlapsExistingRoom(endRoom, newTileOffset)) continue;
 
                 PlaceRoom(newGridPos, endRoom, newTileOffset);
             }
+        }
+
+        /// <summary>
+        /// Retorna una sala aleatòria del pool (normal o end) que:
+        /// 1. Té porta en la direcció incomingDir (per connectar amb la sala origen)
+        /// 2. No crea conflictes amb les sales veïnes ja col·locades
+        /// </summary>
+        private RoomData GetCompatibleRoom(Vector2Int newGridPos, Direction incomingDir, bool isEndRoom)
+        {
+            List<RoomData> pool = isEndRoom
+                ? new List<RoomData>(_roomEnds)
+                : new List<RoomData>(_rooms);
+
+            // Filtrem: ha de tenir la porta d'entrada i ser compatible amb les veïnes
+            List<RoomData> candidates = pool.FindAll(r =>
+                r.doors.Exists(d => d.direction == incomingDir) &&
+                IsRoomCompatibleWithNeighbours(r, newGridPos, incomingDir));
+
+            if (candidates.Count == 0) return null;
+            return candidates[Random.Range(0, candidates.Count)];
+        }
+
+        /// <summary>
+        /// Comprova que la sala candidata no creï conflictes amb les sales veïnes ja col·locades:
+        /// - Si la candidata té una porta cap a una veïna, la veïna ha de tenir porta de tornada
+        /// - Si una veïna té porta cap a la candidata, la candidata ha de tenir porta de tornada
+        /// </summary>
+        private bool IsRoomCompatibleWithNeighbours(RoomData candidate, Vector2Int newGridPos, Direction incomingDir)
+        {
+            foreach (Direction dir in System.Enum.GetValues(typeof(Direction)))
+            {
+                // La porta d'entrada ja està garantida per qui crida aquesta funció
+                if (dir == incomingDir) continue;
+
+                Vector2Int neighbourGridPos = newGridPos + Direction2DUtils.ToVector2Int(dir);
+                if (!_placedRooms.ContainsKey(neighbourGridPos)) continue;
+
+                RealRoomData neighbour = _placedRooms[neighbourGridPos];
+                Direction oppositeDir = Direction2DUtils.GetOposite(dir);
+
+                bool candidateHasDoorToNeighbour = candidate.doors.Exists(d => d.direction == dir);
+                bool neighbourHasDoorToCandidate = neighbour.room.doors.Exists(d => d.direction == oppositeDir);
+
+                // Cas 1: la candidata té porta cap a la veïna, però la veïna no en té de tornada
+                if (candidateHasDoorToNeighbour && !neighbourHasDoorToCandidate) return false;
+
+                // Cas 2: la veïna té porta cap a la candidata, però la candidata no en té de tornada
+                if (neighbourHasDoorToCandidate && !candidateHasDoorToNeighbour) return false;
+            }
+
+            return true;
         }
 
         private void PlaceRoom(Vector2Int gridPos, RoomData room, Vector2Int tileOffset)
@@ -161,24 +221,9 @@ namespace Roguelite.DungeonGeneration
             return false;
         }
 
-        private RoomData GetRandomEndRoomByDirection(Direction dir)
+        private RectInt GetRoomBounds(RoomData room, Vector2Int tileOffset)
         {
-            List<RoomData> list = dir switch
-            {
-                Direction.Up => _endUpRooms,
-                Direction.Down => _endDownRooms,
-                Direction.Left => _endLeftRooms,
-                Direction.Right => _endRightRooms,
-                _ => null
-            };
-
-            if (list == null || list.Count == 0)
-            {
-                Debug.LogError($"DUNGEON GENERATOR: No end rooms for direction {dir}");
-                return null;
-            }
-
-            return list[Random.Range(0, list.Count)];
+            return new RectInt(tileOffset.x, tileOffset.y, room.size.x, room.size.y);
         }
 
         private Vector2Int GetDoorCenter(DoorData door)
@@ -197,11 +242,6 @@ namespace Roguelite.DungeonGeneration
 
             Debug.LogError("DUNGEON GENERATOR: Invalid direction: " + dir);
             return default;
-        }
-
-        private RectInt GetRoomBounds(RoomData room, Vector2Int tileOffset)
-        {
-            return new RectInt(tileOffset.x, tileOffset.y, room.size.x, room.size.y);
         }
 
         private void RenderDungeon()
