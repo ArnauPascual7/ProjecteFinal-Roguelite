@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Roguelite.Player
 {
     [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
-    [RequireComponent(typeof(PlayerHealth))]
+    [RequireComponent(typeof(PlayerHealth), typeof(PlayerSounds))]
     [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour), typeof(StaminaBehaviour))]
     [RequireComponent(typeof(MagicPointsBehaviour))]
     public class PlayerController : MonoBehaviour
@@ -21,6 +21,7 @@ namespace Roguelite.Player
         private PlayerInputs _playerInputs;
         private PlayerHealth _playerHealth;
         private PlayerState _playerState;
+        private PlayerSounds _playerSounds;
 
         public StaminaBehaviour Stamina => _sb;
 
@@ -49,6 +50,7 @@ namespace Roguelite.Player
             _playerInputs = GetComponent<PlayerInputs>();
             _playerHealth = GetComponent<PlayerHealth>();
             _playerState = GetComponent<PlayerState>();
+            _playerSounds = GetComponent<PlayerSounds>();
 
             _mb = GetComponent<MoveBehaviour>();
             _db = GetComponent<DashBehaviour>();
@@ -76,6 +78,8 @@ namespace Roguelite.Player
             
             StaminaRegeneration();
             MagicPointsRegeneration();
+
+            _playerSounds.PlayPlayerFootsteps(_playerInputs.MoveInput != Vector2.zero, _db.IsDashing);
         }
 
         private void UpdateState()
@@ -98,6 +102,7 @@ namespace Roguelite.Player
             }
             else
             {
+                _playerSounds.PlayPlayerDeath();
                 _playerState.CurrentPlayerState = PlayerStates.Dead;
             }
         }
@@ -120,6 +125,7 @@ namespace Roguelite.Player
                 {
                     _db.Dash(_playerInputs.MoveInput);
                     _sb.ConsumeStamina(_db.DashCooldown);
+                    _playerSounds.PlayPlayerDash();
                 }
             }
         }
