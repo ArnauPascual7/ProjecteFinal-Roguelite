@@ -91,6 +91,12 @@ namespace Roguelite.Enemy
             _pfb = GetComponent<ProjectileFiringBehaviour>();
         }
 
+        public void InitializeEnemy(EnemyData data)
+        {
+            _tdb.target = data.target;
+            _mb.Speed = data.speed;
+        }
+
         private void Start()
         {
             ChangeState();

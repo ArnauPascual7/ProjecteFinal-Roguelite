@@ -38,7 +38,9 @@ namespace Roguelite.Weapons
                 return;
             }
 
-            if (Time.time <= state.lastFireTime + fireRate) return;
+            float effectiveFireRate = fireRate / controller.AttackSpeedMultiplier;
+
+            if (Time.time <= state.lastFireTime + effectiveFireRate) return;
 
             if (!controller.TryGetComponent(out ProjectileFiringBehaviour fb))
             {
@@ -56,13 +58,17 @@ namespace Roguelite.Weapons
             if (!state.reloading)
             {
                 state.reloading = true;
-                state.reloadCoroutine = controller.StartCoroutine(ReloadCoroutine(state));
+                state.reloadCoroutine = controller.StartCoroutine(ReloadCoroutine(state, controller));
             }
         }
 
-        private IEnumerator ReloadCoroutine(ProjectileWeaponRuntimeState state)
+        private IEnumerator ReloadCoroutine(ProjectileWeaponRuntimeState state, WeaponController controller)
         {
-            yield return new WaitForSeconds(reloadTime);
+            // Reduir temps d'espera segons millora
+            float effectiveReloadTime = reloadTime / controller.ReloadSpeedMultiplier;
+
+            yield return new WaitForSeconds(effectiveReloadTime);
+
             state.currentMagazine = magazineSize;
             state.reloading = false;
             state.reloadCoroutine = null;
