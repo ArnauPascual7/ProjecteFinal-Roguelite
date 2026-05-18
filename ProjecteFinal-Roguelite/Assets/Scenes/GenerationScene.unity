@@ -199,7 +199,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -647,29 +647,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.DungeonGeneration.DungeonGenerator
   _startingPosition: {x: 0, y: 0}
-  _startingRoom: {fileID: 11400000, guid: fd40e32055157ab48a95173a724c5964, type: 2}
+  _startingRoom: {fileID: 11400000, guid: 9fcd4d0a868e5dd42b4905af9d93de69, type: 2}
   _roomCount: 10
   _rooms:
-  - {fileID: 11400000, guid: 5c766ed625693b1449d10c37f41e2cf1, type: 2}
-  - {fileID: 11400000, guid: 207e596a2fa6bec418802a400796dac5, type: 2}
-  - {fileID: 11400000, guid: 52c7ca57da953844bb46a2efef50641f, type: 2}
-  - {fileID: 11400000, guid: 3c89aa855a9291849abb4f684cd2b337, type: 2}
-  - {fileID: 11400000, guid: ecf9d12b4c992a342bfde00830f04a6c, type: 2}
-  - {fileID: 11400000, guid: 5750c1ca67d48944eb907d40187c3648, type: 2}
-  - {fileID: 11400000, guid: 5465b6de828555b48931ee1a386f274f, type: 2}
-  - {fileID: 11400000, guid: e2e92567a42af414bb0223bd64810ee0, type: 2}
-  - {fileID: 11400000, guid: cb4f543e461f19e4e9f40e692a913e2f, type: 2}
-  - {fileID: 11400000, guid: d9d86c3eaf2f4cb4ca66d3da241b7c0c, type: 2}
-  - {fileID: 11400000, guid: 33c1b968423de8e459afb33fcdc48918, type: 2}
-  - {fileID: 11400000, guid: e606c42cb8e6de14ba6097bd3f805f11, type: 2}
-  - {fileID: 11400000, guid: 9605c3bf5271dfb489702f514c77e032, type: 2}
-  - {fileID: 11400000, guid: fd40e32055157ab48a95173a724c5964, type: 2}
-  - {fileID: 11400000, guid: 203db3708adfcec46b1e2ad625f1a5fd, type: 2}
+  - {fileID: 11400000, guid: 3ec4a50c1bc8d784195ce23ccc243cd8, type: 2}
+  - {fileID: 11400000, guid: 73ff87d1c4dbb084dbed5edf6fb52f18, type: 2}
+  - {fileID: 11400000, guid: 43910fd08c8dee14aa38953fbf19e52b, type: 2}
+  - {fileID: 11400000, guid: 6c474f406ecf9f1419f545e65f4501f6, type: 2}
+  - {fileID: 11400000, guid: 28eb8cf9de464704099d9b8f64ad966b, type: 2}
+  - {fileID: 11400000, guid: 6fd3419de6e980e4aa1e701ca2321486, type: 2}
+  - {fileID: 11400000, guid: c25a81111dc3b2049bb9f2d6e173e214, type: 2}
+  - {fileID: 11400000, guid: 1e6de19043215804ca19185997fc5bdf, type: 2}
+  - {fileID: 11400000, guid: 5ac119585ca468344ab7392f0bb8a496, type: 2}
+  - {fileID: 11400000, guid: d64465cea16b06a479d53ce474c9438a, type: 2}
+  - {fileID: 11400000, guid: f907a8b0abeb4b7449667ab5d5c86fb7, type: 2}
+  - {fileID: 11400000, guid: ab57c6294f14fe84c94b7b42ae510957, type: 2}
+  - {fileID: 11400000, guid: 16aa83c9147e157438bd25911349b472, type: 2}
+  - {fileID: 11400000, guid: 9fcd4d0a868e5dd42b4905af9d93de69, type: 2}
+  - {fileID: 11400000, guid: 197c7b6a10f65c2488afc07271fccf96, type: 2}
   _roomEnds:
-  - {fileID: 11400000, guid: e2e92567a42af414bb0223bd64810ee0, type: 2}
-  - {fileID: 11400000, guid: 5c766ed625693b1449d10c37f41e2cf1, type: 2}
-  - {fileID: 11400000, guid: 52c7ca57da953844bb46a2efef50641f, type: 2}
-  - {fileID: 11400000, guid: 3c89aa855a9291849abb4f684cd2b337, type: 2}
+  - {fileID: 11400000, guid: 3ec4a50c1bc8d784195ce23ccc243cd8, type: 2}
+  - {fileID: 11400000, guid: 43910fd08c8dee14aa38953fbf19e52b, type: 2}
+  - {fileID: 11400000, guid: 6c474f406ecf9f1419f545e65f4501f6, type: 2}
+  - {fileID: 11400000, guid: 1e6de19043215804ca19185997fc5bdf, type: 2}
   _floorTilemap: {fileID: 42719696}
   _wallTilemap: {fileID: 1398689581}
   _noclipWallTilemap: {fileID: 1670434394}
@@ -1075,7 +1075,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1158,8 +1158,8 @@ Camera:
   m_GameObject: {fileID: 1901424870}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.027450982, g: 0.027450982, b: 0.027450982, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

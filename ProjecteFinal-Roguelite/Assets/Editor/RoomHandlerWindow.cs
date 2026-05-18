@@ -27,7 +27,7 @@ namespace Roguelite.DungeonGeneration
 
         private void OnGUI()
         {
-            GUILayout.Label("Save Room", EditorStyles.whiteLargeLabel);
+            GUILayout.Label("Tilemaps", EditorStyles.whiteLargeLabel);
 
             GUILayout.Space(10);
 
@@ -36,6 +36,10 @@ namespace Roguelite.DungeonGeneration
             _wallTilemap = (Tilemap)EditorGUILayout.ObjectField("Wall Tilemap", _wallTilemap, typeof(Tilemap), true);
             _noclipWallTilemap = (Tilemap)EditorGUILayout.ObjectField("NoclipWall Tilemap", _noclipWallTilemap, typeof(Tilemap), true);
             _decoTilemap = (Tilemap)EditorGUILayout.ObjectField("Decoration Tilemap", _decoTilemap, typeof(Tilemap), true);
+
+            GUILayout.Space(50);
+
+            GUILayout.Label("Save Room", EditorStyles.whiteLargeLabel);
 
             GUILayout.Space(10);
 
