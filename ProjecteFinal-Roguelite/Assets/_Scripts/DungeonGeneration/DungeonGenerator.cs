@@ -84,7 +84,6 @@ namespace Roguelite.DungeonGeneration
                 Direction incomingDir = Direction2DUtils.GetOposite(door.direction);
                 Vector2Int newGridPos = sourceGridPos + Direction2DUtils.ToVector2Int(door.direction);
 
-                // Obtenim una sala compatible: té la porta d'entrada i no crea conflictes amb veïnes
                 RoomData newRoom = GetCompatibleRoom(newGridPos, incomingDir, isEndRoom: false);
                 if (newRoom == null) continue;
 
@@ -110,7 +109,6 @@ namespace Roguelite.DungeonGeneration
 
                 if (_placedRooms.ContainsKey(newGridPos)) continue;
 
-                // Obtenim una end room compatible: té la porta d'entrada i no crea conflictes amb veïnes
                 RoomData endRoom = GetCompatibleRoom(newGridPos, incomingDir, isEndRoom: true);
                 if (endRoom == null)
                 {
@@ -126,18 +124,12 @@ namespace Roguelite.DungeonGeneration
             }
         }
 
-        /// <summary>
-        /// Retorna una sala aleatòria del pool (normal o end) que:
-        /// 1. Té porta en la direcció incomingDir (per connectar amb la sala origen)
-        /// 2. No crea conflictes amb les sales veïnes ja col·locades
-        /// </summary>
         private RoomData GetCompatibleRoom(Vector2Int newGridPos, Direction incomingDir, bool isEndRoom)
         {
             List<RoomData> pool = isEndRoom
                 ? new List<RoomData>(_roomEnds)
                 : new List<RoomData>(_rooms);
 
-            // Filtrem: ha de tenir la porta d'entrada i ser compatible amb les veïnes
             List<RoomData> candidates = pool.FindAll(r =>
                 r.doors.Exists(d => d.direction == incomingDir) &&
                 IsRoomCompatibleWithNeighbours(r, newGridPos, incomingDir));
@@ -146,16 +138,10 @@ namespace Roguelite.DungeonGeneration
             return candidates[Random.Range(0, candidates.Count)];
         }
 
-        /// <summary>
-        /// Comprova que la sala candidata no creï conflictes amb les sales veïnes ja col·locades:
-        /// - Si la candidata té una porta cap a una veïna, la veïna ha de tenir porta de tornada
-        /// - Si una veïna té porta cap a la candidata, la candidata ha de tenir porta de tornada
-        /// </summary>
         private bool IsRoomCompatibleWithNeighbours(RoomData candidate, Vector2Int newGridPos, Direction incomingDir)
         {
             foreach (Direction dir in System.Enum.GetValues(typeof(Direction)))
             {
-                // La porta d'entrada ja està garantida per qui crida aquesta funció
                 if (dir == incomingDir) continue;
 
                 Vector2Int neighbourGridPos = newGridPos + Direction2DUtils.ToVector2Int(dir);
@@ -167,10 +153,8 @@ namespace Roguelite.DungeonGeneration
                 bool candidateHasDoorToNeighbour = candidate.doors.Exists(d => d.direction == dir);
                 bool neighbourHasDoorToCandidate = neighbour.room.doors.Exists(d => d.direction == oppositeDir);
 
-                // Cas 1: la candidata té porta cap a la veïna, però la veïna no en té de tornada
                 if (candidateHasDoorToNeighbour && !neighbourHasDoorToCandidate) return false;
 
-                // Cas 2: la veïna té porta cap a la candidata, però la candidata no en té de tornada
                 if (neighbourHasDoorToCandidate && !candidateHasDoorToNeighbour) return false;
             }
 
