@@ -5,8 +5,18 @@ namespace Roguelite.Systems
 {
     public enum SoundType
     {
-        a,
-        b,
+        steps,
+        healSound,
+        enemyDeath,
+        weaponSwitch,
+        playerDeath,
+        dash,
+        impactPlayerGround,
+        chest,
+        effectMistery,
+        dramaticEffect,
+        dungeon,
+        shoot,
         None
     }
     public enum MusicType

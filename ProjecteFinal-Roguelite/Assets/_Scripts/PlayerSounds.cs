@@ -45,15 +45,25 @@ namespace Roguelite.Player
                 {
                     if (!isSprinting)
                     {
-                        AudioManager.Instance.PlaySound(SoundType.a, 0.2f);
+                        AudioManager.Instance.PlaySound(SoundType.steps, 0.2f);
                     }
                     else
                     {
-                        AudioManager.Instance.PlaySound(SoundType.a, 0.2f);
+                        AudioManager.Instance.PlaySound(SoundType.steps, 0.2f);
                     }
                     _footstepTimer = stepInterval;
                 }
             }
+        }
+
+        public void PlayPlayerDash()
+        {
+            AudioManager.Instance.PlaySound(SoundType.dash, 0.5f);
+        }
+        public void PlayPlayerDeath()
+        {
+            AudioManager.Instance.PlaySound(SoundType.impactPlayerGround, 0.2f);
+            AudioManager.Instance.PlaySound(SoundType.playerDeath, 0.1f);
         }
     }
 }

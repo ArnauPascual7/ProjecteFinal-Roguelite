@@ -20,6 +20,7 @@ namespace Roguelite.Enemy
         [Tooltip("This field is initialized via code")]
         public BehaviourState currentState;
 
+        private EnemySound _sound;
         private EnemyHealth _health;
         private EnemyAnimState _animStates;
         private EnemyWeapon _weapon;
@@ -63,6 +64,7 @@ namespace Roguelite.Enemy
             _health = GetComponent<EnemyHealth>();
             _animStates = GetComponent<EnemyAnimState>();
             _weapon = GetComponent<EnemyWeapon>();
+            _sound = GetComponent<EnemySound>();
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _ripb = GetComponent<ReturnToInitPosBehaviour>();
@@ -177,6 +179,7 @@ namespace Roguelite.Enemy
 
         public void DieStart()
         {
+            _sound.PlayDeath();
             _animStates.CurrentEnemyState = EnemyStates.Dead;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
 

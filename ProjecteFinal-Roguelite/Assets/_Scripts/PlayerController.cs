@@ -79,8 +79,6 @@ namespace Roguelite.Player
             StaminaRegeneration();
             MagicPointsRegeneration();
 
-            Debug.Log(_playerInputs.MoveInput);
-            Debug.Log(Vector2.zero);
             _playerSounds.PlayPlayerFootsteps(_playerInputs.MoveInput != Vector2.zero, _db.IsDashing);
         }
 
@@ -104,6 +102,7 @@ namespace Roguelite.Player
             }
             else
             {
+                _playerSounds.PlayPlayerDeath();
                 _playerState.CurrentPlayerState = PlayerStates.Dead;
             }
         }
@@ -126,6 +125,7 @@ namespace Roguelite.Player
                 {
                     _db.Dash(_playerInputs.MoveInput);
                     _sb.ConsumeStamina(_db.DashCooldown);
+                    _playerSounds.PlayPlayerDash();
                 }
             }
         }
