@@ -1,3 +1,4 @@
+using Roguelite.Behaviours;
 using Roguelite.Enemy;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ namespace Roguelite.BehaviourTree
         public override void OnStart(EnemyController econtroller)
         {
             econtroller.IdleStart();
+        }
+        public override void OnExit(EnemyController econtroller)
+        {
+            base.OnExit(econtroller);
+            econtroller.GetComponent<ChaseBehaviour>().ResumeChasing();
         }
     }
 }
