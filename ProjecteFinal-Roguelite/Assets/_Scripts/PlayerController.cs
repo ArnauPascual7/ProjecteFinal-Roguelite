@@ -70,11 +70,13 @@ namespace Roguelite.Player
         private void Update()
         {
             // Si el joc està pausat, no executar cap lògica de moviment ni regeneració
-            if (Roguelite.Management.PauseManager.Instance != null && Roguelite.Management.PauseManager.Instance.IsPaused)
+            /*if (Roguelite.Management.PauseManager.Instance != null && Roguelite.Management.PauseManager.Instance.IsPaused)
+                return; */
+
+            if (_playerState.CurrentPlayerState == PlayerStates.Dead || (Roguelite.Management.PauseManager.Instance != null && Roguelite.Management.PauseManager.Instance.IsPaused))
                 return;
 
             UpdateState();
-
             HandleMovement();
             Dash();
             
