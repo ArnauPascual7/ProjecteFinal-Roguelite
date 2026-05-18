@@ -37,6 +37,17 @@ namespace Roguelite
             Debug.LogError($"DIRECTION 2D UTILS: Invalid direction: {dir}");
             return default;
         }
+
+        public static Vector2Int GetNextPositionByDirection(Vector2Int pos, Direction dir)
+        {
+            if (dir == Direction.Up) return pos + Vector2Int.up;
+            if (dir == Direction.Right) return pos + Vector2Int.right;
+            if (dir == Direction.Down) return pos + Vector2Int.down;
+            if (dir == Direction.Left)return pos + Vector2Int.left;
+
+            Debug.LogError($"DIRECTION 2D UTILS: Invalid direction: {dir}");
+            return default;
+        }
     }
 
     [Serializable]

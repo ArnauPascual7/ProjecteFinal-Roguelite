@@ -101,7 +101,7 @@ namespace Roguelite.DungeonGeneration
             newRoom.wallTiles = GetTilesData(_wallTilemap);
             newRoom.noclipWallTiles = GetTilesData(_noclipWallTilemap);
             if (_decoTilemap != null) newRoom.decoTiles = GetTilesData(_decoTilemap);
-            newRoom.doors = GetDoorsData(_floorTilemap, _wallTilemap);
+            newRoom.doors = GetDoorsData(newRoom, _floorTilemap, _wallTilemap);
 
             AssetDatabase.CreateAsset(newRoom, SAVE_PATH + _newRoomName + ".asset");
             AssetDatabase.SaveAssets();
@@ -132,7 +132,7 @@ namespace Roguelite.DungeonGeneration
             return tiles;
         }
 
-        private List<DoorData> GetDoorsData(Tilemap floor, Tilemap walls)
+        private List<DoorData> GetDoorsData(RoomData room, Tilemap floor, Tilemap walls)
         {
             List<DoorData> doors = new();
 
@@ -152,32 +152,32 @@ namespace Roguelite.DungeonGeneration
                     TileBase wallTile = walls.GetTile(cellPos);
                     TileBase floorTile = floor.GetTile(cellPos);
 
-                    if (x == bounds.xMin && (wallTile == null && floorTile != null))
+                    if ((x == bounds.xMin && y != bounds.yMin) && (wallTile == null && floorTile != null))
                     {
                         leftDoorPositions.Add((Vector2Int)cellPos);
                     }
 
-                    if (y == bounds.yMin && (wallTile == null && floorTile != null))
+                    if ((y == bounds.yMin && x != bounds.xMin) && (wallTile == null && floorTile != null))
                     {
                         downDoorPositions.Add((Vector2Int)cellPos);
                     }
 
-                    if (x == bounds.xMax - 1 && (wallTile == null && floorTile != null))
+                    if ((x == bounds.xMax - 1 && y != bounds.yMax - 1) && (wallTile == null && floorTile != null))
                     {
                         rightDoorPositions.Add((Vector2Int)cellPos);
                     }
 
-                    if (x == bounds.yMax - 1 && (wallTile == null && floorTile != null))
+                    if ((y == bounds.yMax - 1 && x != bounds.xMax - 1) && (wallTile == null && floorTile != null))
                     {
                         upDoorPositions.Add((Vector2Int)cellPos);
                     }
                 }
             }
 
-            if (upDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Up, upDoorPositions));
-            if (downDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Down, downDoorPositions));
-            if (leftDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Left, leftDoorPositions));
-            if (rightDoorPositions.Count > 0) doors.Add(new DoorData(Direction.Right, rightDoorPositions));
+            if (upDoorPositions.Count > 0) doors.Add(new DoorData(room, Direction.Up, upDoorPositions));
+            if (downDoorPositions.Count > 0) doors.Add(new DoorData(room, Direction.Down, downDoorPositions));
+            if (leftDoorPositions.Count > 0) doors.Add(new DoorData(room, Direction.Left, leftDoorPositions));
+            if (rightDoorPositions.Count > 0) doors.Add(new DoorData(room, Direction.Right, rightDoorPositions));
 
             return doors;
         }
@@ -202,10 +202,25 @@ namespace Roguelite.DungeonGeneration
             }
 
             Debug.Log("ROOM HANDLER WINDOW: Room loaded successfully from " + AssetDatabase.GetAssetPath(_room));
+
+            string directions = string.Empty;
+
+            foreach (DoorData door in _room.doors)
+            {
+                directions += door.direction + " ";
+            }
+
+            Debug.Log($"ROOM HANDLER WINDOW: {_room.doors.Count} doors found in directions: {directions}");
         }
 
         private void ClearAllTilemaps()
         {
+            if (_floorTilemap == null || _wallTilemap == null || _noclipWallTilemap == null)
+            {
+                Debug.LogError("ROOM HANDLER WINDOW: One or more of the Tilemaps are Null");
+                return;
+            }
+
             if (_floorTilemap != null) _floorTilemap.ClearAllTiles();
             if (_wallTilemap != null) _wallTilemap.ClearAllTiles();
             if (_noclipWallTilemap != null) _noclipWallTilemap.ClearAllTiles();
