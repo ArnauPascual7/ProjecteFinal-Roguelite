@@ -9,7 +9,7 @@ namespace Roguelite.Player
     [RequireComponent(typeof(PlayerInputs), typeof(PlayerAnimation), typeof(PlayerState))]
     [RequireComponent(typeof(PlayerHealth), typeof(PlayerSounds))]
     [RequireComponent(typeof(MoveBehaviour), typeof(DashBehaviour), typeof(StaminaBehaviour))]
-    [RequireComponent(typeof(MagicPointsBehaviour))]
+    [RequireComponent(typeof(KnockbackBehaviour), typeof(MagicPointsBehaviour))]
     public class PlayerController : MonoBehaviour
     {
         public static event Action<float> OnHealthChange;
@@ -28,6 +28,7 @@ namespace Roguelite.Player
         private MoveBehaviour _mb;
         private DashBehaviour _db;
         private StaminaBehaviour _sb;
+        private KnockbackBehaviour _kb;
         private MagicPointsBehaviour _mpb;
 
         private void OnEnable()
@@ -55,6 +56,7 @@ namespace Roguelite.Player
             _mb = GetComponent<MoveBehaviour>();
             _db = GetComponent<DashBehaviour>();
             _sb = GetComponent<StaminaBehaviour>();
+            _kb = GetComponent<KnockbackBehaviour>();
             _mpb = GetComponent<MagicPointsBehaviour>();
             
             StartCoroutine(GMPlayerControllerInitCorroutine());
@@ -109,6 +111,7 @@ namespace Roguelite.Player
 
         private void HandleMovement()
         {
+            if (_kb.IsReceivingKnockback) return;
             if (_db.IsDashing) return; 
 
             _mb.MoveCharacter(_playerInputs.MoveInput.normalized);
@@ -116,6 +119,8 @@ namespace Roguelite.Player
 
         private void Dash()
         {
+            if (_kb.IsReceivingKnockback) return;
+
             OnStaminaChange?.Invoke(_sb.currentStamina);
             if (_playerInputs.MoveInput == Vector2.zero) return;
 

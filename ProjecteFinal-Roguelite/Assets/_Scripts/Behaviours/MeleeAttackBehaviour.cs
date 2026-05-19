@@ -102,6 +102,11 @@ namespace Roguelite.Behaviours
                 Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {damage} damage to {target.name}");
             }
 
+            if (target.TryGetComponent<KnockbackBehaviour>(out var kb))
+            {
+                kb.Knockback(DistanceUtils.GetDirection(gameObject.transform.position, target.transform.position));
+            }
+
             _lastAttackTime = Time.time;
         }
 
