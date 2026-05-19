@@ -36,6 +36,16 @@ namespace Roguelite.Behaviours
             gameObject.layer = LayerMask.NameToLayer(layer);
         }
 
+        private void FixedUpdate()
+        {
+            _rb.linearVelocity = _direction * _speed;
+
+            if (Vector2.Distance(transform.position, _shotPosition) >= _range)
+            {
+                ReturnToShooter();
+            }
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.layer != _shooter.gameObject.layer && collision.gameObject.layer != gameObject.layer)
@@ -47,22 +57,20 @@ namespace Roguelite.Behaviours
 
                 if (collision.gameObject.TryGetComponent(out KnockbackBehaviour knockback))
                 {
-                    Vector2 direction = ((Vector2)transform.position - _shotPosition).normalized;
-                    knockback.Knockback(direction, _force);
+                    knockback.Knockback(_direction, _force);
                 }
+            }
 
-                Destroy(gameObject);
+            if (collision.gameObject != gameObject)
+            {
+                ReturnToShooter();
             }
         }
 
-        private void FixedUpdate()
+        private void ReturnToShooter()
         {
-            _rb.linearVelocity = _direction * _speed;
-
-            if (Vector2.Distance(transform.position, _shotPosition) >= _range)
-            {
-                Destroy(gameObject);
-            }
+            gameObject.SetActive(false);
+            _shooter.ProjectileStackPush(gameObject);
         }
     }
 }
