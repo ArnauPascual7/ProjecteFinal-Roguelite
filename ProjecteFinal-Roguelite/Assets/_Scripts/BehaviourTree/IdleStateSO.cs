@@ -21,10 +21,12 @@ namespace Roguelite.BehaviourTree
         {
             econtroller.IdleStart();
         }
+
         public override void OnExit(EnemyController econtroller)
         {
             base.OnExit(econtroller);
-            econtroller.GetComponent<ChaseBehaviour>().ResumeChasing();
+
+            if (econtroller.TryGetComponent<ChaseBehaviour>(out var cb)) cb.ResumeChasing();
         }
     }
 }

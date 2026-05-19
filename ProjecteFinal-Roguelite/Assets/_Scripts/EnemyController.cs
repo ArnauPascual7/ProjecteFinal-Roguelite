@@ -81,8 +81,10 @@ namespace Roguelite.Enemy
 
         public void InitializeEnemy(EnemyData data)
         {
+            InitializeComponents();
+
             _tdb.target = data.target;
-            _mb.Speed = data.speed;
+            if (_mb != null) _mb.Speed = data.speed;
         }
 
         private void Start()

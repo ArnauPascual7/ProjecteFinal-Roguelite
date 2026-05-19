@@ -1,4 +1,5 @@
 using Roguelite.Behaviours;
+using Roguelite.BehaviourTree;
 using UnityEngine;
 
 namespace Roguelite.Enemy
@@ -10,6 +11,7 @@ namespace Roguelite.Enemy
         [SerializeField] private GameObject[] _rangedWeapons;
 
         [SerializeField] private GameObject _enemyTarget;
+        [SerializeField] private ParentStateSO _behaviourTree;
 
         private void Start()
         {
@@ -18,17 +20,21 @@ namespace Roguelite.Enemy
 
         private void SpawnSkeleton(Vector3 position)
         {
-            int index = Random.Range(0, _skeletons.Length);
-            bool isMelee = /*Random.value > 0.5f*/true;
+            int skinIndex = Random.Range(0, _skeletons.Length);
+            bool isMelee = /*Random.value > 0.2f*/true;
 
-            GameObject skeleton = Instantiate(_skeletons[index], position, Quaternion.identity);
+            GameObject skeleton = Instantiate(_skeletons[skinIndex], position, Quaternion.identity);
             skeleton.SetActive(false);
 
-            EnemyController controller = skeleton.GetComponent<EnemyController>();
-            EnemyData data = new(EnemyDifficulty.Medium);
-            data.target = _enemyTarget;
+            EnemyController controller = skeleton.AddComponent<EnemyController>();
+            controller.root = _behaviourTree;
 
-            if (isMelee)
+            EnemyData data = new(EnemyDifficulty.Medium)
+            {
+                target = _enemyTarget
+            };
+
+            /*if (isMelee)
             {
                 int meleeIndex = Random.Range(0, _meleeWeapons.Length);
                 GameObject go = Instantiate(_meleeWeapons[meleeIndex], skeleton.transform);
@@ -44,7 +50,7 @@ namespace Roguelite.Enemy
                 int rangedIndex = Random.Range(0, _rangedWeapons.Length);
                 GameObject rangedWeapon = Instantiate(_rangedWeapons[rangedIndex], skeleton.transform);
                 rangedWeapon.transform.localPosition = Vector3.zero;
-            }
+            }*/
 
             controller.InitializeEnemy(data);
             skeleton.SetActive(true);
