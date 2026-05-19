@@ -79,12 +79,9 @@ namespace Roguelite.Enemy
             _kb = GetComponent<KnockbackBehaviour>();
         }
 
-        public void InitializeEnemy(EnemyData data)
+        public void InitializeEnemy()
         {
             InitializeComponents();
-
-            _tdb.target = data.target;
-            if (_mb != null) _mb.Speed = data.speed;
         }
 
         private void Start()

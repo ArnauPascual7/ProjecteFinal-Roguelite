@@ -23,7 +23,9 @@ namespace Roguelite.Behaviours
         {
             _ignoreLayers |= (1 << gameObject.layer)
                 | (1 << target.layer)
-                | (1 << LayerMask.NameToLayer("Enemy Shadow"));
+                | (1 << LayerMask.NameToLayer("Enemy Shadow"))
+                | (1 << LayerMask.NameToLayer("Player Projectile"))
+                | (1 << LayerMask.NameToLayer("Enemy Projectile"));
 
             _targetLayerMask = 1 << target.layer;
 
