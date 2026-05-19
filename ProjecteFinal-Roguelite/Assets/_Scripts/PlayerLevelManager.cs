@@ -43,7 +43,8 @@ namespace Roguelite.Player
         }
         public void LoadFromSaveData(ObjectSaveData data)
         {
-            _currentPlayerLevel = data.playerLevel;
+            //_currentPlayerLevel = data.playerLevel;
+            _currentPlayerLevel = 5;
             UpdateGUI();
         }
     }
