@@ -27,11 +27,9 @@ namespace Roguelite.Enemy
 
         private TargetDetectionBehaviour _tdb;
         private KnockbackBehaviour _kb;
-        private ReturnToInitPosBehaviour _ripb;
         private ChaseBehaviour _cb;
         private MoveBehaviour _mb;
         private MeleeAttackBehaviour _mab;
-        private ProjectileFiringBehaviour _pfb;
 
         private BoxCollider2D _collider;
 
@@ -75,12 +73,10 @@ namespace Roguelite.Enemy
             _weapon = GetComponent<EnemyWeapon>();
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
-            _ripb = GetComponent<ReturnToInitPosBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
             _mb = GetComponent<MoveBehaviour>();
             _mab = GetComponent<MeleeAttackBehaviour>();
             _kb = GetComponent<KnockbackBehaviour>();
-            _pfb = GetComponent<ProjectileFiringBehaviour>();
         }
 
         public void InitializeEnemy(EnemyData data)

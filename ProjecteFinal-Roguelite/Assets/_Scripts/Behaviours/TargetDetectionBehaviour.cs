@@ -21,7 +21,10 @@ namespace Roguelite.Behaviours
 
         private void Start()
         {
-            _ignoreLayers |= (1 << gameObject.layer) | (1 << target.layer) | (1 << GetComponentInChildren<Transform>().gameObject.layer);
+            _ignoreLayers |= (1 << gameObject.layer)
+                | (1 << target.layer)
+                | (1 << LayerMask.NameToLayer("Enemy Shadow"));
+
             _targetLayerMask = 1 << target.layer;
 
             InvokeRepeating(nameof(DetectionTick), 0f, _detectionTickRate);
