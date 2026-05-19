@@ -136,8 +136,6 @@ namespace Roguelite.Enemy
 
         public void IdleStart()
         {
-            if (_cb != null) _cb.StopChase();
-
             _animStates.CurrentEnemyState = EnemyStates.Idle;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
 
@@ -173,6 +171,11 @@ namespace Roguelite.Enemy
             }
         }
 
+        public void ChaseExit()
+        {
+            if (_cb != null) _cb.StopChase();
+        }
+
         public void AttackUpdate()
         {
             if (_mab != null)
@@ -181,6 +184,14 @@ namespace Roguelite.Enemy
 
                 _animStates.CurrentEnemyState = EnemyStates.Attack;
                 _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Attack;
+            }
+        }
+
+        public void KnockbackUpdate()
+        {
+            if (!_kb.IsReceivingKnockback)
+            {
+                knockback.check = false;
             }
         }
 

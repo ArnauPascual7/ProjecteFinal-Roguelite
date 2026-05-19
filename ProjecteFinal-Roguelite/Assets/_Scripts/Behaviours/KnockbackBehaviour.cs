@@ -11,11 +11,11 @@ namespace Roguelite
         [SerializeField] private float _knockbackDuration = 0.2f;
         [SerializeField] private float _knockbackRecoveryTime = 0.1f;
 
-        public bool IsReceivingKnockback { get; private set; }
+        public bool IsReceivingKnockback { get; private set; } = false;
         public event Action<bool> OnReceiveKnockback;
 
         private Rigidbody2D _rb;
-        private bool canReceiveKnockback = true;
+        private bool _canReceiveKnockback = true;
         private Coroutine _knockbackCoroutine = null;
 
         private void Awake()
@@ -26,9 +26,9 @@ namespace Roguelite
             _rb.freezeRotation = true;
         }
 
-        public void Knockback(Vector2 direction, float force)
+        public void Knockback(Vector2 direction, float force = 3f)
         {
-            if (canReceiveKnockback && !IsReceivingKnockback)
+            if (_canReceiveKnockback && !IsReceivingKnockback)
             {
                 _knockbackCoroutine ??= StartCoroutine(KnockbackCoroutine(direction, force));
             }
@@ -36,7 +36,7 @@ namespace Roguelite
 
         public IEnumerator KnockbackCoroutine(Vector2 direction, float force)
         {
-            canReceiveKnockback = false;
+            _canReceiveKnockback = false;
             IsReceivingKnockback = true;
             OnReceiveKnockback?.Invoke(true);
 
@@ -48,7 +48,7 @@ namespace Roguelite
             _rb.linearVelocity = Vector2.zero;
 
             yield return new WaitForSeconds(_knockbackRecoveryTime);
-            canReceiveKnockback = true;
+            _canReceiveKnockback = true;
 
             _knockbackCoroutine = null;
         }

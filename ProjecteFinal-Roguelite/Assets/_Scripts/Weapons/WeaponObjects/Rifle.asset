@@ -15,12 +15,12 @@ MonoBehaviour:
   weaponName: Rifle
   damage: 150
   range: 20
-  force: 3
+  force: 5
   magazineSize: 40
   reloadTime: 5
   fireRate: 0.5
   projectileSpeed: 10
   projectilesPerShot: 2
   timeBetweenProjectiles: 0.05
-  projectilePrefab: {fileID: 6474410123690865267, guid: c417460c8f90a3d408f3e76e0176b6d1, type: 3}
+  projectilePrefab: {fileID: 6576513624841098647, guid: 4efd4b8e4e993644dbe8c64e57a65a1d, type: 3}
   projectileLayerName: Player Projectile

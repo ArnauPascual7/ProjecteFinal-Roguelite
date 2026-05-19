@@ -15,5 +15,12 @@ namespace Roguelite.BehaviourTree
         {
             return econtroller.die.check || !econtroller.knockback.check;
         }
+
+        public override void OnUpdate(EnemyController econtroller)
+        {
+            base.OnUpdate(econtroller);
+
+            econtroller.KnockbackUpdate();
+        }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: Bow
   damage: 1
   range: 30
-  force: 1
+  force: 2
   magazineSize: 1
   reloadTime: 0
   fireRate: 1
