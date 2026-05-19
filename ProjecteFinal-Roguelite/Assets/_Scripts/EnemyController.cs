@@ -22,16 +22,15 @@ namespace Roguelite.Enemy
 
         private EnemySound _sound;
         private EnemyHealth _health;
+        private EnemyAnimation _animator;
         private EnemyAnimState _animStates;
         private EnemyWeapon _weapon;
 
         private TargetDetectionBehaviour _tdb;
         private KnockbackBehaviour _kb;
-        private ReturnToInitPosBehaviour _ripb;
         private ChaseBehaviour _cb;
         private MoveBehaviour _mb;
         private MeleeAttackBehaviour _mab;
-        private ProjectileFiringBehaviour _pfb;
 
         private BoxCollider2D _collider;
 
@@ -61,27 +60,30 @@ namespace Roguelite.Enemy
             knockback = new Condition("KnockBack");
             die = new Condition("Die");
 
-            _health = GetComponent<EnemyHealth>();
-            _animStates = GetComponent<EnemyAnimState>();
-            _weapon = GetComponent<EnemyWeapon>();
-            _sound = GetComponent<EnemySound>();
-
-            _tdb = GetComponent<TargetDetectionBehaviour>();
-            _ripb = GetComponent<ReturnToInitPosBehaviour>();
-            _cb = GetComponent<ChaseBehaviour>();
-            _mb = GetComponent<MoveBehaviour>();
-            _mab = GetComponent<MeleeAttackBehaviour>();
-            _kb = GetComponent<KnockbackBehaviour>();
-            _pfb = GetComponent<ProjectileFiringBehaviour>();
+            InitializeComponents();
 
             _collider = GetComponent<BoxCollider2D>();
             _collider.isTrigger = false;
         }
 
-        public void InitializeEnemy(EnemyData data)
+        private void InitializeComponents()
         {
-            _tdb.target = data.target;
-            _mb.Speed = data.speed;
+            _health = GetComponent<EnemyHealth>();
+            _animator = GetComponent<EnemyAnimation>();
+            _animStates = GetComponent<EnemyAnimState>();
+            _weapon = GetComponent<EnemyWeapon>();
+            _sound = GetComponent<EnemySound>();
+
+            _tdb = GetComponent<TargetDetectionBehaviour>();
+            _cb = GetComponent<ChaseBehaviour>();
+            _mb = GetComponent<MoveBehaviour>();
+            _mab = GetComponent<MeleeAttackBehaviour>();
+            _kb = GetComponent<KnockbackBehaviour>();
+        }
+
+        public void InitializeEnemy()
+        {
+            InitializeComponents();
         }
 
         private void Start()
@@ -130,7 +132,7 @@ namespace Roguelite.Enemy
 
         public void IdleStart()
         {
-            _cb.StopChase();
+            if (_cb != null) _cb.StopChase();
 
             _animStates.CurrentEnemyState = EnemyStates.Idle;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
@@ -146,18 +148,19 @@ namespace Roguelite.Enemy
             if (_cb != null)
             {
                 _cb.ChaseTarget(_tdb.target.transform);
-                if (_weapon != null)
-                {
-                    _weapon.AimPosition();
-                    _weapon.Shoot();
-
-                    if (_mab == null)
-                    {
-                        _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Attack;
-                    }
-                }
 
                 _animStates.CurrentEnemyState = EnemyStates.Walk;
+            }
+
+            if (_weapon != null)
+            {
+                _weapon.AimPosition();
+                _weapon.Shoot();
+
+                if (_mab == null)
+                {
+                    _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Attack;
+                }
             }
 
             if (_mab != null)

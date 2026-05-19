@@ -1,91 +1,119 @@
 using System;
-using Roguelite.Enemy;
 using Roguelite.Helpers;
 using Roguelite.Interfaces;
 using UnityEngine;
 
 namespace Roguelite.Behaviours
 {
-    [RequireComponent(typeof(BoxCollider2D))]
     public class MeleeAttackBehaviour : MonoBehaviour
     {
-        [SerializeField] private float _damage = 1f;
         [SerializeField] private float _attackCooldown = 1f;
-
+        [SerializeField] private float _attackTickRate = 0.1f;
+        [SerializeField] private Vector2 _attackBoxSize = Vector2.one;
+        [SerializeField] private float _attackBoxYOffset = 0f;
+        
         public event Action<bool> OnCanAttack;
 
         [Tooltip("This field is procedurally initialized")]
         public GameObject target;
+        public float damage = 1f;
 
-        private BoxCollider2D _collider;
+        private LayerMask _targetLayerMask;
+        private LayerMask _gameobjectLayerMask;
 
-        private float _timer;
+        private float _lastAttackTime;
+        private bool _canAttack;
+        private ChaseBehaviour _cb;
 
         private void Awake()
         {
-            _collider = GetComponent<BoxCollider2D>();
-            _collider.isTrigger = false;
+            _cb = GetComponent<ChaseBehaviour>();
+        }
 
-            _timer = Time.time;
+        private void Start()
+        {
+            _targetLayerMask = 1 << target.layer;
+            _gameobjectLayerMask = 1 << gameObject.layer;
+
+            InvokeRepeating(nameof(AttackTick), 0f, _attackTickRate);
+        }
+
+        public void SetAttackBox(Vector2 size, float yOffset)
+        {
+            _attackBoxSize = size;
+            _attackBoxYOffset = yOffset;
+        }
+
+        private void AttackTick()
+        {
+            bool targetInRange = Physics2D.OverlapBox(
+                transform.position + new Vector3(0, _attackBoxYOffset),
+                _attackBoxSize,
+                0f,
+                _targetLayerMask
+            ) != null;
+
+            if (targetInRange != _canAttack)
+            {
+                _canAttack = targetInRange;
+                OnCanAttack?.Invoke(_canAttack);
+
+                if (_canAttack)
+                    _cb.StopChase();
+                else
+                    _cb.ResumeChasing();
+            }
+
+            if (!_canAttack)
+            {
+                Collider2D blockingEnemy = Physics2D.OverlapBox(
+                    transform.position,
+                    _attackBoxSize,
+                    0f,
+                    _gameobjectLayerMask
+                );
+
+                if (blockingEnemy != null)
+                {
+                    float blockerDist = DistanceUtils.GetDistance(
+                        blockingEnemy.transform.position,
+                        target.transform.position
+                    );
+                    float selfDist = DistanceUtils.GetDistance(
+                        transform.position,
+                        target.transform.position
+                    );
+
+                    if (blockerDist < selfDist)
+                        _cb.StopChase();
+                    else
+                        _cb.ResumeChasing();
+                }
+            }
         }
 
         public void Attack()
         {
-            if (Time.time > _timer + _attackCooldown)
-            {
-                if (target.TryGetComponent<ITargeteable>(out ITargeteable targetable))
-                {
-                    targetable.TakeDamage(_damage);
-                    Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {_damage} damage to {target.name}");
-                }
+            if (Time.time < _lastAttackTime + _attackCooldown) return;
 
-                _timer = Time.time;
+            if (target.TryGetComponent<ITargeteable>(out ITargeteable targetable))
+            {
+                targetable.TakeDamage(damage);
+                Debug.Log($"MELEE ATTACK BEHAVIOUR: Attacking, {damage} damage to {target.name}");
             }
+
+            _lastAttackTime = Time.time;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnDestroy()
         {
-            if (target != null)
-            {
-                if (collision.gameObject.layer == target.layer)
-                {
-                    OnCanAttack?.Invoke(true);
-                    GetComponent<ChaseBehaviour>().StopChase();
-
-                }
-                if (collision.gameObject.layer == gameObject.layer)
-                {
-                    if (DistanceUtils.GetDistance(collision.gameObject.transform.position, target.transform.position) <
-                        DistanceUtils.GetDistance(transform.position, target.transform.position))
-                    {
-                        GetComponent<ChaseBehaviour>().StopChase();
-                    }
-                }
-            }
+            CancelInvoke(nameof(AttackTick));
         }
-        
-        /*private void OnCollisionStay2D(Collision2D collision)
-        {
-            if (collision.gameObject.layer == gameObject.layer)
-            {
-                GetComponent<ChaseBehaviour>().StopChase();
-            }
-        }*/
 
-        private void OnCollisionExit2D(Collision2D collision)
+        private void OnDrawGizmosSelected()
         {
-            if (target != null)
-            {
-                if (collision.gameObject.layer == target.layer)
-                {
-                    GetComponent<ChaseBehaviour>().ResumeChasing();
-                    OnCanAttack?.Invoke(false);
-                }
-                if (collision.gameObject.layer == gameObject.layer)
-                {
-                        GetComponent<ChaseBehaviour>().ResumeChasing();
-                }
-            }
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position + new Vector3(0, _attackBoxYOffset), _attackBoxSize);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Roguelite.Enemy;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -21,6 +22,12 @@ namespace Roguelite.DungeonGeneration
         [SerializeField] private Tilemap _noclipWallTilemap;
         [SerializeField] private Tilemap _decoTilemap;
 
+        [Header("Enemy Settings")]
+        [SerializeField] private int _minEnemiesPerRoom = 1;
+        [SerializeField] private int _maxEnemiesPerRoom = 4;
+
+        private EnemySpawner _enemySpawner;
+
         private List<RoomData> _doorUpRooms = new List<RoomData>();
         private List<RoomData> _doorDownRooms = new List<RoomData>();
         private List<RoomData> _doorLeftRooms = new List<RoomData>();
@@ -37,6 +44,8 @@ namespace Roguelite.DungeonGeneration
         private void Awake()
         {
             OrganizeRooms();
+
+            _enemySpawner = GetComponent<EnemySpawner>();
         }
 
         private void OrganizeRooms()
@@ -70,6 +79,7 @@ namespace Roguelite.DungeonGeneration
 
             BuildDungeon();
             RenderDungeon();
+            SpawnEnemies();
         }
 
         private void BuildDungeon()
@@ -257,6 +267,97 @@ namespace Roguelite.DungeonGeneration
                     0);
                 tilemap.SetTile(worldPos, td.tile);
             }
+        }
+
+        private void SpawnEnemies()
+        {
+            foreach (RealRoomData realRoom in _placedRooms.Values)
+            {
+                // La sala inicial no té enemics
+                if (realRoom.room == _startingRoom) continue;
+
+                SpawnEnemiesInRoom(realRoom);
+            }
+        }
+
+        private void SpawnEnemiesInRoom(RealRoomData realRoom)
+        {
+            List<TileData> safeTiles = GetSafeSpawnTiles(realRoom);
+
+            if (safeTiles.Count == 0)
+            {
+                Debug.LogWarning($"DUNGEON GENERATOR: Room at {realRoom.gridPosition} has no safe spawn tiles");
+                return;
+            }
+
+            for (int i = safeTiles.Count - 1; i > 0; i--)
+            {
+                int j = Random.Range(0, i + 1);
+                (safeTiles[i], safeTiles[j]) = (safeTiles[j], safeTiles[i]);
+            }
+
+            int enemyCount = Mathf.Min(Random.Range(_minEnemiesPerRoom, _maxEnemiesPerRoom + 1), safeTiles.Count);
+
+            for (int i = 0; i < enemyCount; i++)
+            {
+                Vector2Int worldTile = safeTiles[i].position + realRoom.tileOffset;
+                Vector3 worldPos = _floorTilemap.CellToWorld(new Vector3Int(worldTile.x, worldTile.y, 0))
+                                 + _floorTilemap.tileAnchor;
+
+                _enemySpawner.SpawnAt(worldPos);
+            }
+        }
+
+        private List<TileData> GetSafeSpawnTiles(RealRoomData realRoom)
+        {
+            RoomData room = realRoom.room;
+            RectInt bounds = GetLocalRoomBounds(room);
+
+            HashSet<Vector2Int> doorPositions = new HashSet<Vector2Int>();
+            foreach (DoorData door in room.doors)
+                foreach (Vector2Int pos in door.doorPositions)
+                    doorPositions.Add(pos);
+
+            List<TileData> safeTiles = new List<TileData>();
+
+            foreach (TileData tile in room.floorTiles)
+            {
+                // Marge de 4 tiles respecte al borde del bounding box
+                // Marge de 5 tiles per la part superior
+                bool withinMargin =
+                    tile.position.x >= bounds.xMin + 4 &&
+                    tile.position.x <= bounds.xMax - 5 &&
+                    tile.position.y >= bounds.yMin + 4 &&
+                    tile.position.y <= bounds.yMax - 6;
+
+                // Exclou tiles de porta i els seus veïns immediats (el passadís)
+                bool nearDoor = false;
+                /*for (int dx = -1; dx <= 1 && !nearDoor; dx++)
+                    for (int dy = -1; dy <= 1 && !nearDoor; dy++)
+                        if (doorPositions.Contains(tile.position + new Vector2Int(dx, dy)))
+                            nearDoor = true;*/
+
+                if (withinMargin && !nearDoor)
+                    safeTiles.Add(tile);
+            }
+
+            return safeTiles;
+        }
+
+        private RectInt GetLocalRoomBounds(RoomData room)
+        {
+            int minX = int.MaxValue, minY = int.MaxValue;
+            int maxX = int.MinValue, maxY = int.MinValue;
+
+            foreach (TileData tile in room.floorTiles)
+            {
+                if (tile.position.x < minX) minX = tile.position.x;
+                if (tile.position.y < minY) minY = tile.position.y;
+                if (tile.position.x > maxX) maxX = tile.position.x;
+                if (tile.position.y > maxY) maxY = tile.position.y;
+            }
+
+            return new RectInt(minX, minY, maxX - minX + 1, maxY - minY + 1);
         }
     }
 

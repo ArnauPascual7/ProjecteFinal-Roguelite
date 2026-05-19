@@ -1,4 +1,5 @@
 using Roguelite.Behaviours;
+using Roguelite.Weapons;
 using UnityEngine;
 
 namespace Roguelite.Enemy
@@ -22,6 +23,11 @@ namespace Roguelite.Enemy
             _initialPosition = shootPoint.transform.localPosition;
 
             base.Awake();
+        }
+
+        public void SetWeapons(RangedWeapon[] weapons)
+        {
+            _weapons = weapons;
         }
 
         public void AimPosition()

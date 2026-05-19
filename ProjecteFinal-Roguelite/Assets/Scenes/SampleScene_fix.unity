@@ -1283,9 +1283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc05e99bd883bd344a52aa7a31e3918a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.MeleeAttackBehaviour
-  _damage: 1
   _attackCooldown: 1
   target: {fileID: 1070066666}
+  damage: 1
 --- !u!114 &634505646
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ namespace Roguelite
 {
     public abstract class WeaponController : MonoBehaviour
     {
-        [SerializeField] private RangedWeapon[] _weapons;
+        [SerializeField] protected RangedWeapon[] _weapons;
         [SerializeField] private float _switchCooldown = 1f;
 
         public Transform shootPoint;
