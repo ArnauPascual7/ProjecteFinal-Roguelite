@@ -648,6 +648,8 @@ MonoBehaviour:
   - position: {x: 8, y: 8}
     tile: {fileID: 11400000, guid: d4cdc12d56d1a5f46a12f9e1b2aa2aee, type: 2}
   noclipWallTiles:
+  - position: {x: -9, y: -2}
+    tile: {fileID: 11400000, guid: 5133fb1b31c82734d8157b308afe2e53, type: 2}
   - position: {x: -9, y: -1}
     tile: {fileID: 11400000, guid: b01cb3c653e33f64094a537bfce2e3eb, type: 2}
   - position: {x: -9, y: 0}
@@ -660,6 +662,8 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 60d9c93c3bdffdd44a88a7ad1a008d46, type: 2}
   - position: {x: -8, y: -4}
     tile: {fileID: 11400000, guid: 6c1bf8ade3e448c46bf988b9a66f3243, type: 2}
+  - position: {x: -8, y: -2}
+    tile: {fileID: 11400000, guid: 2036cbc9822e28446b489120d640b515, type: 2}
   - position: {x: -8, y: -1}
     tile: {fileID: 11400000, guid: a296e0075152e48499ed884dca18818c, type: 2}
   - position: {x: -8, y: 0}
@@ -784,10 +788,14 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: d4cdc12d56d1a5f46a12f9e1b2aa2aee, type: 2}
   - position: {x: 7, y: -4}
     tile: {fileID: 11400000, guid: 877bfd9cbf2720a4e82b558d08c6cc48, type: 2}
+  - position: {x: 7, y: -2}
+    tile: {fileID: 11400000, guid: a41320738ad225f4f83b07c6e2d78128, type: 2}
   - position: {x: 7, y: -1}
     tile: {fileID: 11400000, guid: c891fe6e29dbf9b4680321134d49319d, type: 2}
   - position: {x: 7, y: 0}
     tile: {fileID: 11400000, guid: 61b8d43f16c11e24db6685b49ccaa910, type: 2}
+  - position: {x: 8, y: -2}
+    tile: {fileID: 11400000, guid: abf678a7409b466488a039c733ff1505, type: 2}
   - position: {x: 8, y: -1}
     tile: {fileID: 11400000, guid: 3fd4cf3b0258a0d49ad71c20f530eaa2, type: 2}
   - position: {x: 8, y: 0}
