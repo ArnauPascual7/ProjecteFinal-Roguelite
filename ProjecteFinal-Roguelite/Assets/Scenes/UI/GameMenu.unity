@@ -6217,7 +6217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Roguelite
+  m_text: Hellcore
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85b8077e815974e4abeeead3dc37a5c4, type: 2}
   m_sharedMaterial: {fileID: 2336612868518155990, guid: 85b8077e815974e4abeeead3dc37a5c4, type: 2}
@@ -30753,7 +30753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROGUELITE
+  m_text: HELLCORE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1aca7130018a8f943b1ab99ca8211880, type: 2}
   m_sharedMaterial: {fileID: 409295949560731287, guid: 1aca7130018a8f943b1ab99ca8211880, type: 2}
