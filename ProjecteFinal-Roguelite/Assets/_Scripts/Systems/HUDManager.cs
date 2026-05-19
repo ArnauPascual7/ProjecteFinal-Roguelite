@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Roguelite.Player;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,9 @@ namespace Roguelite.Systems
         [SerializeField] private TextMeshProUGUI _pExperienceText;
 
         [SerializeField] private EnergyBar energyBar;
+        [SerializeField] private Texture2D _defaultCursor;
+        [SerializeField] private Texture2D[] _cursorFrames;
+        [SerializeField] private float _frameRate = 0.1f;
 
         public float Health => _health;
         public float MaxHealth => _maxHealth;
@@ -25,6 +29,10 @@ namespace Roguelite.Systems
         private float _maxHealth;
         private PlayerController _playerController;
         private bool _energyBarReady = false;
+        private Vector2 _cursorHotspot;
+        private int _currentFrame;
+        private float _timer;
+        private bool game = true;
 
         public event Action<float> OnHealthChanged;
         public event Action<float> OnMaxHealthChanged;
@@ -39,6 +47,22 @@ namespace Roguelite.Systems
             else
             {
                 Destroy(gameObject);
+            }
+        }
+
+        private void Start()
+        {
+            _cursorHotspot = new Vector2(_cursorFrames[0].width / 2, _cursorFrames[0].height / 2);
+            Cursor.SetCursor(_cursorFrames[0], _cursorHotspot, CursorMode.Auto);
+        }
+
+        public void UpdateCrosshair(bool pause)
+        {
+            game = !pause;
+
+            if (!game)
+            {
+                Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.Auto);
             }
         }
 
@@ -59,6 +83,22 @@ namespace Roguelite.Systems
             PlayerController.OnStaminaChange -= UpdateHUDEnergy;
             PlayerController.OnMagicPointsChange -= UpdateHUDMagicPower;
         }
+
+        private void LateUpdate()
+        {
+            if (game)
+            {
+                _timer += Time.deltaTime;
+                if (_timer >= _frameRate)
+                {
+                    _timer -= _frameRate;
+
+                    _currentFrame = (_currentFrame + 1) % _cursorFrames.Length;
+                    Cursor.SetCursor(_cursorFrames[_currentFrame], _cursorHotspot, CursorMode.Auto);
+                }
+            }
+        }
+
         public void InitPlayer(PlayerController playerController)
         {
             _playerController = playerController;

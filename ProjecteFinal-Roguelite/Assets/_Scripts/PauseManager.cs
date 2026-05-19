@@ -1,4 +1,5 @@
 using Roguelite.Player;
+using Roguelite.Systems;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,7 +61,7 @@ namespace Roguelite.Management
             {
                 if (_hudPanel != null) _hudPanel.SetActive(true);
 
-                Cursor.visible = false;
+                //Cursor.visible = false;
             }
             else // Si estem a la escena de menús
             {
@@ -82,8 +83,12 @@ namespace Roguelite.Management
             if (_pausePanel != null)
                 _pausePanel.SetActive(_isPaused);
 
-            Cursor.visible = _isPaused;
-            Cursor.lockState = _isPaused ? CursorLockMode.None : CursorLockMode.Confined;
+            //Cursor.visible = _isPaused;
+            //Cursor.lockState = _isPaused ? CursorLockMode.None : CursorLockMode.Confined;
+            if (gameObject.TryGetComponent<HUDManager>(out var hud))
+            {
+                hud.UpdateCrosshair(_isPaused);
+            }
         }
 
         private void HandleDeath()

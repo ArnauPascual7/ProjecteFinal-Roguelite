@@ -54,7 +54,7 @@ namespace Roguelite
         public void CreateEmptyHeart()
         {
             GameObject newHeart = Instantiate(heartPrefab);
-            newHeart.transform.SetParent(transform);
+            newHeart.transform.SetParent(transform, false);
             HealthHeart heartComponent = newHeart.GetComponent<HealthHeart>();
             heartComponent.SetHeartImage(HeartStatus.Empty);
             hearts.Add(heartComponent);
