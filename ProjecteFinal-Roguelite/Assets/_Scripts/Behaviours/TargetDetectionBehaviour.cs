@@ -8,6 +8,7 @@ namespace Roguelite.Behaviours
     {
         [SerializeField] private float _detectionRange = 10f;
         [SerializeField] private float _detectionTickRate = 0.1f;
+        [SerializeField] private float _yOffset = -0.5f;
         [Tooltip("By default adds gameObject and Target Layers")]
         [SerializeField] private LayerMask _ignoreLayers;
 
@@ -38,8 +39,8 @@ namespace Roguelite.Behaviours
 
             bool detected = hit != null &&
                 DistanceUtils.HasLineOfSight(
-                    transform.position,
-                    target.transform.position,
+                    transform.position + new Vector3(0, _yOffset),
+                    target.transform.position + new Vector3(0, _yOffset),
                     _detectionRange,
                     _ignoreLayers
                 );
