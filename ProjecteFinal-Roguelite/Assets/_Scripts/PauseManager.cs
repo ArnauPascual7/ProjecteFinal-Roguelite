@@ -56,19 +56,18 @@ namespace Roguelite.Management
             if (_deathPanel != null) 
                 _deathPanel.SetActive(false);
 
-            if (scene.name == "GameMenu") // Si estem a menu, apagar el HUD i mostrar el cursor
-            {
-                if (_hudPanel != null) _hudPanel.SetActive(false);
-
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else // Si estem a la escena de joc
+            if (scene.name == "Game") // Si estem a Game, mostar el HUD i ocultar el cursor
             {
                 if (_hudPanel != null) _hudPanel.SetActive(true);
 
                 Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else // Si estem a la escena de menús
+            {
+                if (_hudPanel != null) _hudPanel.SetActive(false);
+
+                Cursor.visible = true;
+                //Cursor.lockState = CursorLockMode.Confined;
             }
         }
 
