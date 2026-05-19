@@ -34,14 +34,17 @@ namespace Roguelite.Enemy
                 target = _enemyTarget
             };
 
-            /*if (isMelee)
+            if (isMelee)
             {
+                skeleton.AddComponent<ChaseBehaviour>();
+                MeleeAttackBehaviour mab = skeleton.AddComponent<MeleeAttackBehaviour>();
+
                 int meleeIndex = Random.Range(0, _meleeWeapons.Length);
                 GameObject go = Instantiate(_meleeWeapons[meleeIndex], skeleton.transform);
                 EnemyMeleeWeapon meleeWeapon = go.GetComponent<EnemyMeleeWeapon>();
                 go.transform.localPosition = Vector3.zero + new Vector3(0, -0.2f);
 
-                MeleeAttackBehaviour mab = skeleton.AddComponent<MeleeAttackBehaviour>();
+                mab.SetAttackBox(new Vector2(0.9f, 1.6f), -0.3f);
                 mab.damage = meleeWeapon.damage;
                 mab.target = _enemyTarget;
             }
@@ -50,7 +53,7 @@ namespace Roguelite.Enemy
                 int rangedIndex = Random.Range(0, _rangedWeapons.Length);
                 GameObject rangedWeapon = Instantiate(_rangedWeapons[rangedIndex], skeleton.transform);
                 rangedWeapon.transform.localPosition = Vector3.zero;
-            }*/
+            }
 
             controller.InitializeEnemy(data);
             skeleton.SetActive(true);
