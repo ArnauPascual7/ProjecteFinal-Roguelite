@@ -21,6 +21,9 @@ namespace Roguelite
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+
+            _rb.gravityScale = 0;
+            _rb.freezeRotation = true;
         }
 
         public void Knockback(Vector2 direction, float force)

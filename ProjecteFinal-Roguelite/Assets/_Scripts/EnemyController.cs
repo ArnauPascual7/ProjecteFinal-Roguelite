@@ -67,14 +67,6 @@ namespace Roguelite.Enemy
             _collider.isTrigger = false;
         }
 
-        public void InitializeEnemy(EnemyData data)
-        {
-            InitializeComponents();
-
-            _tdb.target = data.target;
-            _mb.speed = data.speed;
-        }
-
         private void InitializeComponents()
         {
             _health = GetComponent<EnemyHealth>();
@@ -143,7 +135,7 @@ namespace Roguelite.Enemy
 
         public void IdleStart()
         {
-            _cb.StopChase();
+            if (_cb != null) _cb.StopChase();
 
             _animStates.CurrentEnemyState = EnemyStates.Idle;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
@@ -159,18 +151,19 @@ namespace Roguelite.Enemy
             if (_cb != null)
             {
                 _cb.ChaseTarget(_tdb.target.transform);
-                if (_weapon != null)
-                {
-                    _weapon.AimPosition();
-                    _weapon.Shoot();
-
-                    if (_mab == null)
-                    {
-                        _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Attack;
-                    }
-                }
 
                 _animStates.CurrentEnemyState = EnemyStates.Walk;
+            }
+
+            if (_weapon != null)
+            {
+                _weapon.AimPosition();
+                _weapon.Shoot();
+
+                if (_mab == null)
+                {
+                    _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Attack;
+                }
             }
 
             if (_mab != null)

@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - Player Projectile
   - Enemy Projectile
-  - 
+  - Enemy Shadow
   - Floor
   - Walls
   - 
@@ -38,14 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back
+    uniqueID: 316103493
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Middle
-    uniqueID: 819463449
-    locked: 0
-  - name: Back
-    uniqueID: 316103493
+  - name: Front
+    uniqueID: 4019781581
     locked: 0
   m_RenderingLayers:
   - Default
