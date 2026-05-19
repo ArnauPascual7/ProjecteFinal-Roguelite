@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112fce6dba8239148be6d97f25bf30ba, type: 3}
+  m_Name: MaxEnergyData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: "Energia M\xE0xima"
+  statType: 2
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Augmenta la energia maxima a 150
+  - Augmenta la energia maxima a 200
+  - Augmenta la energia maxima a 300
+  values:
+  - 150
+  - 200
+  - 300
+  costs: 90010000e8030000c4090000
+  playerLevelRequired: 010000000300000005000000

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112fce6dba8239148be6d97f25bf30ba, type: 3}
+  m_Name: MaxHealthData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: "Vida M\xE0xima"
+  statType: 0
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Augmenta el total de cors a 4
+  - Augmenta el total de cors a 5
+  - Augmenta el total de cors a 6
+  - Augmenta el total de cors a 7
+  - Augmenta el total de cors a 8
+  - Augmenta el total de cors a 9
+  - Augmenta el total de cors a 10
+  - Augmenta el total de cors a 11
+  - Augmenta el total de cors a 12
+  values:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 12
+  costs: c8000000c201000020030000b0040000a4060000fc080000b80b0000d80e00005c120000
+  playerLevelRequired: 010000000100000002000000020000000300000003000000040000000400000005000000

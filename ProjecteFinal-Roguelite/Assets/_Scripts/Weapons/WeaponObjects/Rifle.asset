@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c90888427942dd4195ffad657844768, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Weapons.ProjectileWeapon
+  weaponName: Rifle
+  damage: 150
+  range: 20
+  force: 5
+  magazineSize: 40
+  reloadTime: 5
+  fireRate: 0.5
+  projectileSpeed: 10
+  projectilesPerShot: 2
+  timeBetweenProjectiles: 0.05
+  projectilePrefab: {fileID: 6576513624841098647, guid: 4efd4b8e4e993644dbe8c64e57a65a1d, type: 3}
+  projectileLayerName: Player Projectile
