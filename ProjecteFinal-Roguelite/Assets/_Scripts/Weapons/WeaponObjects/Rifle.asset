@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: Rifle
   damage: 150
   range: 20
-  force: 3
+  force: 5
   magazineSize: 40
   reloadTime: 5
   fireRate: 0.5

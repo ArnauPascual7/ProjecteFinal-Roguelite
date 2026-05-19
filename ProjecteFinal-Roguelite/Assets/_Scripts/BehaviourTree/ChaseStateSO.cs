@@ -22,5 +22,12 @@ namespace Roguelite.BehaviourTree
 
             econtroller.ChaseUpdate();
         }
+
+        public override void OnExit(EnemyController econtroller)
+        {
+            base.OnExit(econtroller);
+
+            econtroller.ChaseExit();
+        }
     }
 }
