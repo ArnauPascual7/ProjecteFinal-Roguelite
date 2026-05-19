@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7215724088557524652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7944419046105464254}
+  - component: {fileID: 764565398748621284}
+  - component: {fileID: 585690167939665389}
+  m_Layer: 0
+  m_Name: Dungeon Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7944419046105464254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215724088557524652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764565398748621284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215724088557524652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d93fcea544098747be054275cb83a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.DungeonGeneration.DungeonGenerator
+  _startingPosition: {x: 0, y: 0}
+  _startingRoom: {fileID: 11400000, guid: 9fcd4d0a868e5dd42b4905af9d93de69, type: 2}
+  _roomCount: 10
+  _rooms:
+  - {fileID: 11400000, guid: 3ec4a50c1bc8d784195ce23ccc243cd8, type: 2}
+  - {fileID: 11400000, guid: 73ff87d1c4dbb084dbed5edf6fb52f18, type: 2}
+  - {fileID: 11400000, guid: 43910fd08c8dee14aa38953fbf19e52b, type: 2}
+  - {fileID: 11400000, guid: 6c474f406ecf9f1419f545e65f4501f6, type: 2}
+  - {fileID: 11400000, guid: 28eb8cf9de464704099d9b8f64ad966b, type: 2}
+  - {fileID: 11400000, guid: 6fd3419de6e980e4aa1e701ca2321486, type: 2}
+  - {fileID: 11400000, guid: c25a81111dc3b2049bb9f2d6e173e214, type: 2}
+  - {fileID: 11400000, guid: 1e6de19043215804ca19185997fc5bdf, type: 2}
+  - {fileID: 11400000, guid: 5ac119585ca468344ab7392f0bb8a496, type: 2}
+  - {fileID: 11400000, guid: d64465cea16b06a479d53ce474c9438a, type: 2}
+  - {fileID: 11400000, guid: f907a8b0abeb4b7449667ab5d5c86fb7, type: 2}
+  - {fileID: 11400000, guid: ab57c6294f14fe84c94b7b42ae510957, type: 2}
+  - {fileID: 11400000, guid: 16aa83c9147e157438bd25911349b472, type: 2}
+  - {fileID: 11400000, guid: 9fcd4d0a868e5dd42b4905af9d93de69, type: 2}
+  - {fileID: 11400000, guid: 197c7b6a10f65c2488afc07271fccf96, type: 2}
+  _roomEnds:
+  - {fileID: 11400000, guid: 3ec4a50c1bc8d784195ce23ccc243cd8, type: 2}
+  - {fileID: 11400000, guid: 43910fd08c8dee14aa38953fbf19e52b, type: 2}
+  - {fileID: 11400000, guid: 6c474f406ecf9f1419f545e65f4501f6, type: 2}
+  - {fileID: 11400000, guid: 1e6de19043215804ca19185997fc5bdf, type: 2}
+  _floorTilemap: {fileID: 0}
+  _wallTilemap: {fileID: 0}
+  _noclipWallTilemap: {fileID: 0}
+  _decoTilemap: {fileID: 0}
+  _minEnemiesPerRoom: 1
+  _maxEnemiesPerRoom: 4
+--- !u!114 &585690167939665389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215724088557524652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ec317c4f4881b4ca65f4a8c0496597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Enemy.EnemySpawner
+  _skeletons:
+  - {fileID: 7762745048616646657, guid: acef2c81c677f1e4190748a0f003786c, type: 3}
+  - {fileID: 5372756703223238234, guid: 964f73a73592c2f4a9b51604720eca22, type: 3}
+  - {fileID: 2253543473277977868, guid: 5b9016399b15c584682637a482eb6f6b, type: 3}
+  - {fileID: 1106955860770494688, guid: 7de248c96656d4d44854c0b38dc48b6b, type: 3}
+  _meleeWeapons:
+  - {fileID: 3377818875376448070, guid: da334bc54bc7bea47a86716585620dc5, type: 3}
+  - {fileID: 3058500955267157889, guid: 668de5a76dd20ee4596808b49cfd4e28, type: 3}
+  - {fileID: 3401487629505780752, guid: dc950e3c01237c44198372a910bda01b, type: 3}
+  _rangedWeapons:
+  - gameObject: {fileID: 4728500604320975080, guid: 664750dbd27fcdb4eb9d0c38ead45d1f, type: 3}
+    scriptableObject:
+    - {fileID: 11400000, guid: 3297babff789ffa4f8db79582d8fa50d, type: 2}
+  _enemyTarget: {fileID: 0}
+  _behaviourTree: {fileID: 11400000, guid: 5e1bb27b97532704c80e18115ac08b8c, type: 2}
+  baseHealth: 300
+  healthVariation: 1
+  baseSpeed: 3
+  speedVariation: 1
