@@ -10,6 +10,7 @@ namespace Roguelite.Enemy
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(EnemyHealth), typeof(EnemyAnimation), typeof(EnemyAnimState))]
     [RequireComponent(typeof(TargetDetectionBehaviour), typeof(KnockbackBehaviour))]
+    [RequireComponent(typeof(LootDropper))]
     public class EnemyController : MonoBehaviour
     {
         [HideInInspector] public Condition idle;
@@ -36,6 +37,7 @@ namespace Roguelite.Enemy
         private BoxCollider2D _collider;
 
         private int _coinsDrop;
+        private LootDropper _lootDropper;
 
         private void OnEnable()
         {
@@ -75,6 +77,7 @@ namespace Roguelite.Enemy
             _animator = GetComponent<EnemyAnimation>();
             _animStates = GetComponent<EnemyAnimState>();
             _weapon = GetComponent<EnemyWeapon>();
+            _lootDropper = GetComponent<LootDropper>();
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
@@ -200,10 +203,11 @@ namespace Roguelite.Enemy
             AudioManager.Instance.PlaySound(SoundType.enemyDeath);
             
             CurrencyManager.Instance.AddCoins(_coinsDrop);
-            Debug.Log(CurrencyManager.Instance._coins);
 
             _animStates.CurrentEnemyState = EnemyStates.Dead;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
+
+            _lootDropper.TryDropLoot();
 
             gameObject.SetActive(false);
         }
