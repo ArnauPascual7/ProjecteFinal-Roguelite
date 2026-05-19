@@ -11,6 +11,6 @@ namespace Roguelite.Weapons
         public float force;
 
         public abstract RangedWeaponRuntimeState CreateRuntimeState();
-        public abstract void Shoot(WeaponController controller, RangedWeaponRuntimeState state);
+        public abstract bool Shoot(WeaponController controller, RangedWeaponRuntimeState state);
     }
 }

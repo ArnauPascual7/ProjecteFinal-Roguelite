@@ -45,7 +45,11 @@ namespace Roguelite.Player
         {
             if (_playerInputs.AttackInput)
             {
-                Shoot();
+                bool fired = Shoot();
+                if (fired)
+                {
+                    AudioManager.Instance.PlaySound(SoundType.shoot, 0.1f);
+                }
             }
         }
 

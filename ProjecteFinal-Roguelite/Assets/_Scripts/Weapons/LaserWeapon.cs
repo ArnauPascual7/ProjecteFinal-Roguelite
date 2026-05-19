@@ -12,7 +12,7 @@ namespace Roguelite.Weapons
 
         public override RangedWeaponRuntimeState CreateRuntimeState() => new LaserWeaponRuntimeState();
 
-        public override void Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
+        public override bool Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
         {
             var state = (LaserWeaponRuntimeState)baseState;
 

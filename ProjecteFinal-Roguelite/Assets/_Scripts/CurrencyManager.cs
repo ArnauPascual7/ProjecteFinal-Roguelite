@@ -9,12 +9,20 @@ namespace Roguelite.Economy
     {
         public static CurrencyManager Instance;
 
-        [SerializeField] private int _coins = 1000; // Diners incials per fer proves
+        [SerializeField] public int _coins = 1000; // Diners incials per fer proves
         [SerializeField] private TextMeshProUGUI _currencyText;
 
         private void Awake()
         {
-            Instance = this;
+            if(Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Start()
@@ -50,6 +58,10 @@ namespace Roguelite.Economy
         {
             _coins = data.coins;
             UpdateUI();
+        }
+        public void AddCoins(int coint)
+        {
+            _coins += coint;
         }
     }
 }

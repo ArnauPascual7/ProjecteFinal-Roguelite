@@ -56,16 +56,15 @@ namespace Roguelite
             _currentState.lastFireTime = Time.time;
         }
 
-        public void Shoot()
+        public bool Shoot()
         {
             if (_currentWeapon == null)
             {
                 Debug.LogError("WEAPON CONTROLLER: No weapon assigned to shoot.");
-                return;
+                return false;
             }
 
-            _currentWeapon.Shoot(this, _currentState);
-            AudioManager.Instance.PlaySound(SoundType.shoot, 0.1f);
+            return _currentWeapon.Shoot(this, _currentState);
         }
 
         public void Reload()
