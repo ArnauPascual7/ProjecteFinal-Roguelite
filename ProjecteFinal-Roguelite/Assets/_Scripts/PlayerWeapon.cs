@@ -27,6 +27,10 @@ namespace Roguelite.Player
 
         private void Update()
         {
+            // Si està en pausa no apuntar ni disparar
+            if (Roguelite.Management.PauseManager.Instance != null && Roguelite.Management.PauseManager.Instance.IsPaused)
+                return;
+
             AimPosition();
             CheckWeapon();
             CheckFiring();

@@ -11,6 +11,9 @@ namespace Roguelite.Player
         private void Start()
         {
             ApplyUpgrades();
+            //
+            PrintStatsSummary();
+            //
         }
 
         public void ApplyUpgrades()
@@ -42,6 +45,8 @@ namespace Roguelite.Player
 
         private void InjectStat(StatType type, float value)
         {
+            WeaponController wc = GetComponent<WeaponController>();
+
             switch (type)
             {
                 // Vida màxima
@@ -52,28 +57,29 @@ namespace Roguelite.Player
                 // Velocitat Màxima
                 case StatType.MoveSpeed:
                     // Suposem que el teu MoveBehaviour té una funció SetSpeed
-                    if (TryGetComponent(out MoveBehaviour move))
-                    {
-                        move.UpdateBaseSpeed(value);
-                    }
+                    if (TryGetComponent(out MoveBehaviour move)) move.UpdateBaseSpeed(value);
                     break;
 
                 // Energia màxima
                 case StatType.MaxEnergy:
-                    if (TryGetComponent(out StaminaBehaviour stamina))
-                    {
-                        stamina.SetMaxStamina(value);
-                    }
+                    if (TryGetComponent(out StaminaBehaviour stamina)) stamina.SetMaxStamina(value);
                     break;
 
                 // Dany
                 case StatType.AttackDamage:
-                    WeaponController weaponController = GetComponent<WeaponController>();
-                    if (weaponController != null)
-                    {
-                        weaponController.SetDamageBonus(value);
-                    }
+                    if (wc != null) wc.SetDamageBonus(value);
                     break;
+
+                // Velocitat de projectil
+                case StatType.ProjectileSpeed:
+                    if (wc != null) wc.SetProjectileSpeedBonus(value);
+                    break;
+
+                // Velocitat de recàrrega
+                case StatType.ReloadSpeed:
+                    if (wc != null) wc.SetReloadSpeedBonus(value);
+                    break;
+
             }
             Debug.Log($"Millora aplicada: {type} amb valor {value}");
         }
@@ -83,5 +89,14 @@ namespace Roguelite.Player
         //  Clicar 4 vegades a allUpgrades
         //  Arrossegar scripatble objects
         //  Revisar i assignar state types dels scritableObjects
+
+        private void PrintStatsSummary()
+        {
+            Debug.Log("<color=green>=== RESUM DE MILLORES APLICADES ===</color>");
+            if (TryGetComponent(out PlayerHealth ph)) Debug.Log($"Vida Màxima: {ph.Health}");
+            if (TryGetComponent(out MoveBehaviour mb)) Debug.Log($"Velocitat actual: {mb.Speed}");
+            if (TryGetComponent(out WeaponController wc)) Debug.Log($"Bonus Dany: x{wc.DamageMultiplier}");
+            Debug.Log("<color=green>==================================</color>");
+        }
     }
 }

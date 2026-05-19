@@ -12,7 +12,7 @@ namespace Roguelite.Player
 
         public event Action<float> OnHealthChange;
         public event Action<float> OnMaxHealthChange;
-        public event Action OnPlayerDeath;
+        public static event Action OnPlayerDeath;
 
         public bool IsAlive => _health > 0;
 
@@ -51,6 +51,7 @@ namespace Roguelite.Player
 
         public void Die()
         {
+            GetComponent<PlayerState>().CurrentPlayerState = PlayerStates.Dead;
             OnPlayerDeath?.Invoke();
             AudioManager.Instance.PlaySound(SoundType.impactPlayerGround, 0.6f);
             AudioManager.Instance.PlaySound(SoundType.playerDeath, 0.5f);
