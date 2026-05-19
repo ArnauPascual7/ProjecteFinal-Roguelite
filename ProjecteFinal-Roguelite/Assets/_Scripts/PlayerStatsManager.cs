@@ -8,13 +8,15 @@ namespace Roguelite.Player
     {
         [SerializeField] private UpgradeData[] _allUpgrades; // ScriptableObjects
 
-        private void Start()
+        private void Awake()
         {
             ApplyUpgrades();
-            //
+        }
+
+        private void Start()
+        {
             PrintStatsSummary();
             ConnectHUD();
-            //
         }
 
         private void ConnectHUD()

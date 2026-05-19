@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 84742377660931096}
   - component: {fileID: 6500861475577654589}
   - component: {fileID: 4616946467049288287}
+  - component: {fileID: -5183379972420008783}
   m_Layer: 0
   m_Name: Small_Potion
   m_TagString: Untagged
@@ -60,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: dd8af6767662f904daefa71303ab418a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,3 +153,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5183379972420008783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689490920167560144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6d248acf56768488b0435a2c647647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SilhouetteBehaviour
+  _silhouetteMaterial: {fileID: 2100000, guid: ae663b4c5cf65434cb312dd1831c9dba, type: 2}
+  _silhouetteSortingLayer: Front
+  _silhouetteSortingOrder: 20
