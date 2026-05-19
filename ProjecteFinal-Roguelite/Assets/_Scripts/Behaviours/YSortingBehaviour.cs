@@ -22,9 +22,9 @@ namespace Roguelite.Behaviours
                 - Mathf.RoundToInt((transform.position.y + _yOffset) * _sortingPrecision);
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawSphere(new Vector3(0, transform.position.y + _yOffset), .1f);
+            Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y + _yOffset), .1f);
         }
     }
 }

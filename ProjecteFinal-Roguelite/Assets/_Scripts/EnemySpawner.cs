@@ -22,9 +22,9 @@ namespace Roguelite.Enemy
         [SerializeField] private float baseSpeed = 3f;
         [SerializeField] private float speedVariation = 1f;
 
-        private void Start()
+        public void SpawnAt(Vector3 position)
         {
-            SpawnSkeleton(transform.position);
+            SpawnSkeleton(position);
         }
 
         private void SpawnSkeleton(Vector3 position)
