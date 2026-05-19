@@ -1,4 +1,5 @@
 using System;
+using Roguelite.Systems;
 using Roguelite.Weapons;
 using UnityEngine;
 
@@ -50,7 +51,7 @@ namespace Roguelite
             _currentWeapon = _weapons[index];
             _currentState = _weaponStates[index];
             CurrentWeaponIndex = index;
-            
+            AudioManager.Instance.PlaySound(SoundType.weaponSwitch);
             _lastSwitchTime = Time.time;
             _currentState.lastFireTime = Time.time;
         }
@@ -64,6 +65,7 @@ namespace Roguelite
             }
 
             _currentWeapon.Shoot(this, _currentState);
+            AudioManager.Instance.PlaySound(SoundType.shoot, 0.1f);
         }
 
         public void Reload()

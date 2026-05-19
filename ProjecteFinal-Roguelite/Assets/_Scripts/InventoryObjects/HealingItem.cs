@@ -1,4 +1,5 @@
 using Roguelite.Player;
+using Roguelite.Systems;
 using UnityEngine;
 
 namespace Roguelite
@@ -13,6 +14,7 @@ namespace Roguelite
             if (playerHealth == null || !playerHealth.IsAlive) return;
 
             playerHealth.Health += healingItem.healAmount;
+            AudioManager.Instance.PlaySound(SoundType.healSound);
             Destroy(gameObject);
         }
     }
