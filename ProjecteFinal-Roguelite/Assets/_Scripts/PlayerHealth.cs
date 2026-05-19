@@ -1,5 +1,6 @@
-using System;
 using Roguelite.Interfaces;
+using Roguelite.Systems;
+using System;
 using UnityEngine;
 
 namespace Roguelite.Player
@@ -51,6 +52,8 @@ namespace Roguelite.Player
         public void Die()
         {
             OnPlayerDeath?.Invoke();
+            AudioManager.Instance.PlaySound(SoundType.impactPlayerGround, 0.6f);
+            AudioManager.Instance.PlaySound(SoundType.playerDeath, 0.5f);
         }
     }
 }

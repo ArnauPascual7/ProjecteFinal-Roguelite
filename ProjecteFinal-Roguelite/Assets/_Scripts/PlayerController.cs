@@ -104,7 +104,6 @@ namespace Roguelite.Player
             }
             else
             {
-                _playerSounds.PlayPlayerDeath();
                 _playerState.CurrentPlayerState = PlayerStates.Dead;
             }
         }
