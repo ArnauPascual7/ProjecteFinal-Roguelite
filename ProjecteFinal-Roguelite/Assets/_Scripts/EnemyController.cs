@@ -2,6 +2,8 @@ using System.Collections;
 using Roguelite.Behaviours;
 using Roguelite.BehaviourTree;
 using UnityEngine;
+using Roguelite.Economy;
+using Roguelite.Systems;
 
 namespace Roguelite.Enemy
 {
@@ -20,7 +22,6 @@ namespace Roguelite.Enemy
         [Tooltip("This field is initialized via code")]
         public BehaviourState currentState;
 
-        private EnemySound _sound;
         private EnemyHealth _health;
         private EnemyAnimation _animator;
         private EnemyAnimState _animStates;
@@ -33,6 +34,8 @@ namespace Roguelite.Enemy
         private MeleeAttackBehaviour _mab;
 
         private BoxCollider2D _collider;
+
+        private int _coinsDrop;
 
         private void OnEnable()
         {
@@ -72,7 +75,6 @@ namespace Roguelite.Enemy
             _animator = GetComponent<EnemyAnimation>();
             _animStates = GetComponent<EnemyAnimState>();
             _weapon = GetComponent<EnemyWeapon>();
-            _sound = GetComponent<EnemySound>();
 
             _tdb = GetComponent<TargetDetectionBehaviour>();
             _cb = GetComponent<ChaseBehaviour>();
@@ -84,6 +86,8 @@ namespace Roguelite.Enemy
         public void InitializeEnemy()
         {
             InitializeComponents();
+            _coinsDrop = (int)(_health.Health / 200) + (int)(_mb.Speed / 2);
+            Debug.Log(_coinsDrop);
         }
 
         private void Start()
@@ -182,7 +186,11 @@ namespace Roguelite.Enemy
 
         public void DieStart()
         {
-            _sound.PlayDeath();
+            AudioManager.Instance.PlaySound(SoundType.enemyDeath);
+            
+            CurrencyManager.Instance.AddCoins(_coinsDrop);
+            Debug.Log(CurrencyManager.Instance._coins);
+
             _animStates.CurrentEnemyState = EnemyStates.Dead;
             _animStates.CurrentEnemyWeaponState = EnemyWeaponStates.Idle;
 
