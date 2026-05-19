@@ -7,26 +7,21 @@ namespace Roguelite.Behaviours
 {
     public class ProjectileFiringBehaviour : MonoBehaviour
     {
-        public Stack<GameObject> ProjectileStack = new Stack<GameObject>();
+        [SerializeField] private int _initialPoolSizePerType = 10;
 
+        private readonly Dictionary<GameObject, Queue<GameObject>> _pools = new();
         private Coroutine _burstCoroutine = null;
 
         public void FireProjectile(ProjectileWeapon weapon, GameObject projectilePrefab, Transform shootPoint)
         {
+            EnsurePool(projectilePrefab);
+
             if (weapon.projectilesPerShot <= 1)
             {
-                if (ProjectileStack.Count == 0)
-                {
-                    SpawnProjectile(weapon, projectilePrefab, shootPoint);
-                }
-                else
-                {
-                    ProjectileStackPop(weapon, shootPoint);
-                }
+                SpawnProjectile(weapon, projectilePrefab, shootPoint);
             }
             else
             {
-                // No interrompem un burst en curs
                 _burstCoroutine ??= StartCoroutine(FireBurstCoroutine(weapon, projectilePrefab, shootPoint));
             }
         }
@@ -35,46 +30,50 @@ namespace Roguelite.Behaviours
         {
             for (int i = 0; i < weapon.projectilesPerShot; i++)
             {
-                if (ProjectileStack.Count == 0)
-                {
-                    SpawnProjectile(weapon, projectilePrefab, shootPoint);
-                }
-                else
-                {
-                    ProjectileStackPop(weapon, shootPoint);
-                }
-
+                SpawnProjectile(weapon, projectilePrefab, shootPoint);
                 yield return new WaitForSeconds(weapon.timeBetweenProjectiles);
             }
-
             _burstCoroutine = null;
         }
 
         private void SpawnProjectile(ProjectileWeapon weapon, GameObject projectilePrefab, Transform shootPoint)
         {
-            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
+            Queue<GameObject> pool = _pools[projectilePrefab];
+
+            GameObject projectile = pool.Count > 0
+                ? pool.Dequeue()
+                : Instantiate(projectilePrefab);
+
+            projectile.transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);
+            projectile.SetActive(true);
 
             if (projectile.TryGetComponent<ProjectileBehaviour>(out var pb))
             {
-                pb.Initialize(this, shootPoint, weapon.projectileSpeed, weapon.damage, weapon.force, weapon.range, weapon.projectileLayerName);
+                pb.Initialize(this, projectilePrefab, shootPoint, weapon.projectileSpeed,
+                              weapon.damage, weapon.force, weapon.range, weapon.projectileLayerName);
             }
         }
 
-        public void ProjectileStackPush(GameObject go)
+        public void ReturnToPool(GameObject prefabKey, GameObject projectile)
         {
-            ProjectileStack.Push(go);
-            go.SetActive(false);
+            projectile.SetActive(false);
+
+            if (_pools.TryGetValue(prefabKey, out var pool))
+                pool.Enqueue(projectile);
         }
 
-        private void ProjectileStackPop(ProjectileWeapon weapon, Transform shootPoint)
+        private void EnsurePool(GameObject prefab)
         {
-            GameObject go = ProjectileStack.Pop();
+            if (_pools.ContainsKey(prefab)) return;
 
-            if (go.TryGetComponent<ProjectileBehaviour>(out var pb))
+            var queue = new Queue<GameObject>();
+            for (int i = 0; i < _initialPoolSizePerType; i++)
             {
-                pb.Initialize(this, shootPoint, weapon.projectileSpeed, weapon.damage, weapon.force, weapon.range, weapon.projectileLayerName);
+                var go = Instantiate(prefab);
+                go.SetActive(false);
+                queue.Enqueue(go);
             }
-            go.SetActive(true);
+            _pools[prefab] = queue;
         }
     }
 }
