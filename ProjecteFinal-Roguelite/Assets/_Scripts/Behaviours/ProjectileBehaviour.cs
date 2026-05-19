@@ -51,7 +51,7 @@ namespace Roguelite.Behaviours
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == _shooter.gameObject.layer ||
+            if (collision.gameObject == _shooter.gameObject ||
                 collision.gameObject.layer == gameObject.layer) return;
 
             if (collision.gameObject.TryGetComponent(out ITargeteable target))
