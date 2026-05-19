@@ -90,7 +90,6 @@ namespace Roguelite.Enemy
         {
             InitializeComponents();
             _coinsDrop = (int)(_health.Health / 200) + (_mb != null ? (int)(_mb.Speed / 2) : 0);
-            Debug.Log(_coinsDrop);
         }
 
         private void Start()
