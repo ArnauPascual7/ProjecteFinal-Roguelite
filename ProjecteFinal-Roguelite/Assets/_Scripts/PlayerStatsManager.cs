@@ -13,8 +13,20 @@ namespace Roguelite.Player
             ApplyUpgrades();
             //
             PrintStatsSummary();
+            ConnectHUD();
             //
         }
+
+        private void ConnectHUD()
+        {
+            var hud = FindFirstObjectByType<HUDManager>();
+
+            if (hud != null)
+            {
+                Debug.Log("HUD connectat amb Female correctament.");
+            }
+        }
+
 
         public void ApplyUpgrades()
         {
