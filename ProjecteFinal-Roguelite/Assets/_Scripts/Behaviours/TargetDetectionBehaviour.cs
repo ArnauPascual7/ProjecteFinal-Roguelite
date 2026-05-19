@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace Roguelite.Behaviours
 {
-    [RequireComponent(typeof(CircleCollider2D))]
     public class TargetDetectionBehaviour : MonoBehaviour
     {
         [SerializeField] private float _detectionRange = 10f;
-
+        [SerializeField] private float _detectionTickRate = 0.1f;
         [Tooltip("By default adds gameObject and Target Layers")]
         [SerializeField] private LayerMask _ignoreLayers;
 
@@ -17,50 +16,44 @@ namespace Roguelite.Behaviours
         [Tooltip("This field is procedurally initialized")]
         public GameObject target;
 
-        private CircleCollider2D _collider;
-
+        private LayerMask _targetLayerMask;
         private bool _inRange;
-
-        private void Awake()
-        {
-            _collider = GetComponent<CircleCollider2D>();
-            _collider.isTrigger = true;
-            _collider.radius = _detectionRange;
-        }
 
         private void Start()
         {
-            _ignoreLayers |= (1 << gameObject.layer) | (1 << target.layer);
+            _ignoreLayers |= (1 << gameObject.layer) | (1 << target.layer) | (1 << GetComponentInChildren<Transform>().gameObject.layer);
+            _targetLayerMask = 1 << target.layer;
+
+            InvokeRepeating(nameof(DetectionTick), 0f, _detectionTickRate);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void DetectionTick()
         {
-            if (collision.gameObject.layer == target.layer)
-            {
-                OnTargetDetected?.Invoke(true);
-                _inRange = true;
-            }
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, _detectionRange, _targetLayerMask);
+
+            bool detected = hit != null &&
+                DistanceUtils.HasLineOfSight(
+                    transform.position,
+                    target.transform.position,
+                    _detectionRange,
+                    _ignoreLayers
+                );
+
+            if (detected == _inRange) return;
+
+            _inRange = detected;
+            OnTargetDetected?.Invoke(_inRange);
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
+        private void OnDestroy()
         {
-            if (_inRange && DistanceUtils.HasLineOfSight(transform.position, target.transform.position, _collider.radius, _ignoreLayers))
-            {
-                OnTargetDetected?.Invoke(true);
-            }
-            else
-            {
-                OnTargetDetected?.Invoke(false);
-            }
+            CancelInvoke(nameof(DetectionTick));
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnDrawGizmosSelected()
         {
-            if (collision.gameObject.layer == target.layer)
-            {
-                OnTargetDetected?.Invoke(false);
-                _inRange = false;
-            }
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _detectionRange);
         }
     }
 }
