@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6600871965090464583}
   - component: {fileID: 8507303497004859256}
   - component: {fileID: 8386133666410261139}
+  - component: {fileID: 7953348867933261637}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -60,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8ae887402dbe67046b90876c459923d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,3 +130,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Roguelite.Behaviours.YSortingBehaviour
   _yOffset: -1
   _sortingOrderBase: 0
+--- !u!114 &7953348867933261637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728500604320975080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6d248acf56768488b0435a2c647647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SilhouetteBehaviour
+  _silhouetteMaterial: {fileID: 2100000, guid: 2b33317c4296e5445a278b4d2d0f7da2, type: 2}
+  _silhouetteSortingLayer: Front
+  _silhouetteSortingOrder: 15
