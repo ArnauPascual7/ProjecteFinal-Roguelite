@@ -26,31 +26,32 @@ namespace Roguelite.Weapons
                 lastFireTime = -fireRate
             };
 
-        public override void Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
+        public override bool Shoot(WeaponController controller, RangedWeaponRuntimeState baseState)
         {
             var state = (ProjectileWeaponRuntimeState)baseState;
 
-            if (state.reloading) return;
+            if (state.reloading) return false;
 
             if (state.currentMagazine <= 0)
             {
                 Reload(controller, state);
-                return;
+                return false;
             }
 
             float effectiveFireRate = fireRate / controller.AttackSpeedMultiplier;
 
-            if (Time.time <= state.lastFireTime + effectiveFireRate) return;
+            if (Time.time <= state.lastFireTime + effectiveFireRate) return false;
 
             if (!controller.TryGetComponent(out ProjectileFiringBehaviour fb))
             {
                 Debug.LogError($"PROJECTILE WEAPON '{weaponName}': Missing ProjectileFiringBehaviour on WeaponController.");
-                return;
+                return false;
             }
             
             fb.FireProjectile(this, projectilePrefab, controller.shootPoint);
             state.currentMagazine -= projectilesPerShot;
             state.lastFireTime = Time.time;
+            return true;
         }
 
         public void Reload(WeaponController controller, ProjectileWeaponRuntimeState state)
