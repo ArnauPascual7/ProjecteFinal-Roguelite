@@ -38,20 +38,21 @@ namespace Roguelite
             CurrentWeaponIndex = 0;
         }
 
-        public void SwitchWeapon(int index)
+        public void SwitchWeapon(int index, bool playSound = true)
         {
             if (Time.time <= _lastSwitchTime + _switchCooldown) return;
-
             if (index < 0 || index >= _weapons.Length)
             {
                 Debug.LogError("WEAPON CONTROLLER: Invalid weapon index: " + index);
                 return;
             }
-
             _currentWeapon = _weapons[index];
             _currentState = _weaponStates[index];
             CurrentWeaponIndex = index;
-            AudioManager.Instance.PlaySound(SoundType.weaponSwitch);
+
+            if (playSound && AudioManager.Instance != null)
+                AudioManager.Instance.PlaySound(SoundType.weaponSwitch);
+
             _lastSwitchTime = Time.time;
             _currentState.lastFireTime = Time.time;
         }

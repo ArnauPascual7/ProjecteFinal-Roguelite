@@ -27,7 +27,10 @@ namespace Roguelite.Behaviours
         }
 
         public Vector3 GetDirectionTowardsMouse(Vector2 mousePosition)
-            => _camera.ScreenToWorldPoint(mousePosition) - transform.position;
+        {
+            Vector3 screenPoint = new Vector3(mousePosition.x, mousePosition.y, -_camera.transform.position.z);
+            return _camera.ScreenToWorldPoint(screenPoint) - transform.position;
+        }
 
         public Vector2 GetDirectionTowardsTarget(Vector2 targetPosition)
             => targetPosition - (Vector2)transform.position;
