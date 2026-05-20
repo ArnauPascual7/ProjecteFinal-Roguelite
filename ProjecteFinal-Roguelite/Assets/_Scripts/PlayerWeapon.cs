@@ -22,7 +22,7 @@ namespace Roguelite.Player
 
             base.Awake();
 
-            SwitchWeapon(_playerInputs.SelectedWeapon - 1);
+            SwitchWeapon(_playerInputs.SelectedWeapon - 1, playSound: false);
         }
 
         private void Update()
