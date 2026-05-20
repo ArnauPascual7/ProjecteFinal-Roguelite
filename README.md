@@ -4,7 +4,7 @@
 
 ## Build
 
-La build es troba a 
+La build es troba a [BUILD](Roguelite-Build).
 
 ## Controls
 
