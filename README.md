@@ -4,7 +4,7 @@
 
 ## Build
 
-La build es troba a [BUILD](Roguelite-Build).
+La build es troba a [BUILD](Roguelite-Build) i el zip a [BUIL.ZIP](Roguelite-Build.zip).
 
 ## Controls
 
